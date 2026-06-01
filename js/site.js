@@ -88,15 +88,40 @@ const currentUse = document.querySelector("[data-current-use]");
 const currentLane = document.querySelector("[data-current-lane]");
 const currentInquiry = document.querySelector("[data-current-inquiry]");
 const nextBeatButton = document.querySelector("[data-next-beat]");
+const leadForm = document.querySelector("[data-lead-form]");
+const selectedBeatInput = document.querySelector("[data-selected-beat]");
+const formStatus = document.querySelector("[data-form-status]");
 
 let activeBeatIndex = 0;
 
-const getInquiryHref = (beat) => {
-  const subject = encodeURIComponent(`Beat licensing inquiry: ${beat.title}`);
-  const body = encodeURIComponent(
-    `Beat: ${beat.title}\nBPM: ${beat.bpm}\nKey: ${beat.key}\nUse: ${beat.use}\n\nIntended use:\nRelease timeline:\nExclusive or non-exclusive interest:\nProject notes:\n`
-  );
-  return `mailto:joshyouwut@gmail.com?subject=${subject}&body=${body}`;
+const offeringLabels = {
+  beat: "Beat licensing / exclusive inquiry",
+  mix: "Mixing / mastering",
+  custom: "Custom production",
+  package: "Project package",
+  sync: "SYNC licensing",
+  plugin: "Plugin waitlist",
+  release: "Release / Apple Music update"
+};
+
+const selectOffering = (offering = "package") => {
+  document.querySelectorAll(".radio-card.was-selected").forEach((card) => card.classList.remove("was-selected"));
+  const radio = document.querySelector(`[data-offering-radio="${offering}"]`);
+  if (radio) {
+    radio.checked = true;
+    radio.closest(".radio-card")?.classList.add("was-selected");
+  }
+};
+
+const moveToLeadForm = (offering, beat) => {
+  selectOffering(offering);
+  if (selectedBeatInput && beat) {
+    selectedBeatInput.value = `${beat.title} | ${beat.bpm} BPM | ${beat.key}`;
+  }
+  leadForm?.scrollIntoView({ behavior: "smooth", block: "start" });
+  setTimeout(() => {
+    leadForm?.querySelector("input[name='name']")?.focus({ preventScroll: true });
+  }, 450);
 };
 
 const renderBeatCards = () => {
@@ -120,7 +145,7 @@ const renderBeatCards = () => {
             <div><dt>Key</dt><dd>${beat.key}</dd></div>
             <div><dt>Use</dt><dd>${beat.use}</dd></div>
           </dl>
-          <a href="${getInquiryHref(beat)}">Request licensing</a>
+          <a href="#contact" data-offering="beat" data-beat-inquiry="${index}">Request licensing</a>
         </article>
       `
     )
@@ -138,7 +163,11 @@ const loadBeat = (index, shouldPlay = false) => {
   currentKey.textContent = beat.key;
   currentUse.textContent = beat.use;
   currentLane.textContent = beat.lane;
-  currentInquiry.href = getInquiryHref(beat);
+  currentInquiry.href = "#contact";
+  currentInquiry.dataset.beatInquiry = String(index);
+  if (selectedBeatInput && !selectedBeatInput.value) {
+    selectedBeatInput.value = `${beat.title} | ${beat.bpm} BPM | ${beat.key}`;
+  }
 
   if (beatAudio.getAttribute("src") !== beat.file) {
     beatAudio.src = beat.file;
@@ -167,3 +196,61 @@ if (beatGrid && beatAudio) {
     loadBeat(nextIndex, true);
   });
 }
+
+document.addEventListener("click", (event) => {
+  const link = event.target.closest("[data-offering]");
+  if (!link) return;
+
+  const offering = link.dataset.offering;
+  const beatIndex = link.dataset.beatInquiry;
+  const beat = beatIndex ? beats[Number(beatIndex)] : offering === "beat" ? beats[activeBeatIndex] : null;
+
+  event.preventDefault();
+  moveToLeadForm(offering, beat);
+});
+
+leadForm?.addEventListener("change", (event) => {
+  if (event.target.matches("[data-offering-radio]")) {
+    document.querySelectorAll(".radio-card.was-selected").forEach((card) => card.classList.remove("was-selected"));
+    event.target.closest(".radio-card")?.classList.add("was-selected");
+  }
+});
+
+leadForm?.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  if (!leadForm.reportValidity()) return;
+
+  const formData = new FormData(leadForm);
+  const offering = formData.get("offering") || "General inquiry";
+  const selectedBeat = formData.get("selected_beat") || "None selected";
+  const subject = encodeURIComponent(`JoshYouWut inquiry: ${offering}`);
+  const body = encodeURIComponent(
+    [
+      "JoshYouWut lead inquiry",
+      "",
+      `Offering: ${offering}`,
+      `Selected beat: ${selectedBeat}`,
+      `Name: ${formData.get("name") || ""}`,
+      `Email: ${formData.get("email") || ""}`,
+      `Artist / company: ${formData.get("artist") || ""}`,
+      `Phone or social: ${formData.get("contact") || ""}`,
+      `Timeline: ${formData.get("timeline") || ""}`,
+      `Budget range: ${formData.get("budget") || ""}`,
+      `Links: ${formData.get("links") || ""}`,
+      "",
+      "Goal:",
+      formData.get("goal") || "",
+      "",
+      "Existing files / decisions:",
+      formData.get("assets") || "",
+      "",
+      "Source: JoshYouWut.com lead form"
+    ].join("\n")
+  );
+
+  window.location.href = `mailto:joshyouwut@gmail.com?subject=${subject}&body=${body}`;
+  if (formStatus) {
+    formStatus.textContent = "Opening your email app with the structured inquiry.";
+  }
+});

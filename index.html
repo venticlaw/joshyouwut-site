@@ -15,7 +15,7 @@
       rel="stylesheet"
     >
     <link rel="icon" type="image/svg+xml" href="assets/jyw-logo.svg">
-    <link rel="stylesheet" href="css/site.css?v=20260601-offer-copy">
+    <link rel="stylesheet" href="css/site.css?v=20260601-lead-form">
   </head>
   <body>
     <header class="site-header" data-site-header>
@@ -51,14 +51,14 @@
             to release-ready record, custom package, or placement-ready cue.
           </p>
           <div class="audio-stack" aria-label="Before and after audio preview placeholders">
-            <button class="audio-row" type="button">
+            <button class="audio-row" type="button" data-offering="mix">
               <span class="play-icon" aria-hidden="true"></span>
               <span>
                 <strong>"Pink Teeth" - Before Mixing + Mastering</strong>
                 <small>It's Just You</small>
               </span>
             </button>
-            <button class="audio-row" type="button">
+            <button class="audio-row" type="button" data-offering="mix">
               <span class="play-icon" aria-hidden="true"></span>
               <span>
                 <strong>"Pink Teeth" - After Mixing + Mastering</strong>
@@ -67,7 +67,7 @@
             </button>
           </div>
           <div class="hero-actions">
-            <a class="button primary" href="#contact">Book a consultation</a>
+            <a class="button primary" href="#contact" data-offering="package">Book a consultation</a>
             <a class="button secondary" href="#services">View packages</a>
           </div>
         </div>
@@ -129,7 +129,7 @@
               </dl>
               <audio data-beat-audio controls preload="metadata"></audio>
               <div class="beat-player-actions">
-                <a class="button primary" data-current-inquiry href="#contact">Request licensing</a>
+                <a class="button primary" data-current-inquiry data-offering="beat" href="#contact">Request licensing</a>
                 <button class="button secondary" type="button" data-next-beat>Next beat</button>
               </div>
             </div>
@@ -149,19 +149,19 @@
             <span class="product-icon">FX</span>
             <h3>Vocal Chain Utility</h3>
             <p>Fast tone shaping for home studios that need cleaner vocals before the final mix.</p>
-            <a href="#contact">Join plugin waitlist</a>
+            <a href="#contact" data-offering="plugin">Join plugin waitlist</a>
           </article>
           <article class="product-card">
             <span class="product-icon">DR</span>
             <h3>Drum Glue Concept</h3>
             <p>Producer-first drum control for bounce, punch, and compact mix decisions.</p>
-            <a href="#contact">Request demo notice</a>
+            <a href="#contact" data-offering="plugin">Request demo notice</a>
           </article>
           <article class="product-card">
             <span class="product-icon">REF</span>
             <h3>Reference Check Tool</h3>
             <p>A simple workflow helper for comparing loudness, tone, and translation.</p>
-            <a href="#contact">Follow development</a>
+            <a href="#contact" data-offering="plugin">Follow development</a>
           </article>
         </div>
       </section>
@@ -177,25 +177,25 @@
             <span>Launch loadout</span>
             <h3>Single release polish</h3>
             <p>For artists with one record that needs mix/master focus, release-ready cleanup, and a cleaner final presentation.</p>
-            <a class="button secondary" href="#contact">Book a consultation</a>
+            <a class="button secondary" href="#contact" data-offering="mix">Book a consultation</a>
           </article>
           <article class="package-card">
             <span>EP build</span>
             <h3>Small project direction</h3>
             <p>For artists building a compact body of work that needs production direction, sonic consistency, and sequencing support.</p>
-            <a class="button secondary" href="#contact">Book a consultation</a>
+            <a class="button secondary" href="#contact" data-offering="package">Book a consultation</a>
           </article>
           <article class="package-card">
             <span>Exclusive bundle</span>
             <h3>Custom production path</h3>
             <p>For artists who need original production, finishing, ownership conversations, and a serious plan around the record.</p>
-            <a class="button secondary" href="#contact">Book a consultation</a>
+            <a class="button secondary" href="#contact" data-offering="custom">Book a consultation</a>
           </article>
           <article class="package-card">
             <span>Album path</span>
             <h3>Full project build</h3>
             <p>For larger projects that need production, mixing, mastering, release planning, and a consistent sound from front to back.</p>
-            <a class="button secondary" href="#contact">Book a consultation</a>
+            <a class="button secondary" href="#contact" data-offering="package">Book a consultation</a>
           </article>
         </div>
       </section>
@@ -209,22 +209,15 @@
             usage, deadline, mood, BPM, rights needed, clean edits, and where the music will live.
           </p>
         </div>
-        <form class="inquiry-card" action="mailto:joshyouwut@gmail.com" method="post" enctype="text/plain">
-          <label>
-            Brief type
-            <select name="brief_type">
-              <option>Sports / arena energy</option>
-              <option>Film or TV cue</option>
-              <option>Ad / branded content</option>
-              <option>Creator background music</option>
-            </select>
-          </label>
-          <label>
-            Brief notes
-            <textarea name="sync_notes" rows="4" placeholder="Usage, deadline, mood, BPM, edit length, rights needed, and clean/explicit requirements"></textarea>
-          </label>
-          <button class="button primary" type="submit">Draft SYNC inquiry</button>
-        </form>
+        <div class="inquiry-card">
+          <p class="tag">SYNC lead checklist</p>
+          <h3>Bring the usage, deadline, and rights needed.</h3>
+          <p>
+            The lead form captures the core brief so Josh can tell whether the catalog fits, whether a custom cue
+            makes more sense, and what delivery conversation needs to happen next.
+          </p>
+          <a class="button primary" href="#contact" data-offering="sync">Start SYNC inquiry</a>
+        </div>
       </section>
 
       <section class="section-shell" id="releases">
@@ -238,16 +231,19 @@
             <span>Apple Music</span>
             <h3>Commercial release slot</h3>
             <p>Add official release link, artwork, year, and credits.</p>
+            <a href="#contact" data-offering="release">Send release update</a>
           </article>
           <article>
             <span>Placement</span>
             <h3>SYNC proof slot</h3>
             <p>Add verified placement notes and approved public-facing context.</p>
+            <a href="#contact" data-offering="sync">Start placement inquiry</a>
           </article>
           <article>
             <span>Catalog</span>
             <h3>Producer discography slot</h3>
             <p>Add artist-facing examples that show production range without overexplaining.</p>
+            <a href="#contact" data-offering="release">Send catalog update</a>
           </article>
         </div>
       </section>
@@ -261,31 +257,116 @@
             package scoping, plugin waitlists, SYNC briefs, and release updates.
           </p>
         </div>
-        <form class="contact-form" action="mailto:joshyouwut@gmail.com" method="post" enctype="text/plain">
+        <form class="contact-form" action="mailto:joshyouwut@gmail.com" method="post" enctype="text/plain" data-lead-form>
+          <fieldset class="offering-fieldset">
+            <legend>What are you interested in?</legend>
+            <label class="radio-card">
+              <input name="offering" type="radio" value="Beat licensing / exclusive inquiry" data-offering-radio="beat" required>
+              <span>
+                <strong>Beat licensing</strong>
+                <small>Lease, exclusive, custom beat, or artist-use question.</small>
+              </span>
+            </label>
+            <label class="radio-card">
+              <input name="offering" type="radio" value="Mixing / mastering" data-offering-radio="mix">
+              <span>
+                <strong>Mixing / mastering</strong>
+                <small>Single, EP, album, or release polish.</small>
+              </span>
+            </label>
+            <label class="radio-card">
+              <input name="offering" type="radio" value="Custom production" data-offering-radio="custom">
+              <span>
+                <strong>Custom production</strong>
+                <small>Original production, finishing, or ownership conversation.</small>
+              </span>
+            </label>
+            <label class="radio-card">
+              <input name="offering" type="radio" value="Project package" data-offering-radio="package">
+              <span>
+                <strong>Project package</strong>
+                <small>EP, album, or all-in project support.</small>
+              </span>
+            </label>
+            <label class="radio-card">
+              <input name="offering" type="radio" value="SYNC licensing" data-offering-radio="sync">
+              <span>
+                <strong>SYNC licensing</strong>
+                <small>Sports, film, TV, ads, creator, or brand use.</small>
+              </span>
+            </label>
+            <label class="radio-card">
+              <input name="offering" type="radio" value="Plugin waitlist" data-offering-radio="plugin">
+              <span>
+                <strong>Plugin waitlist</strong>
+                <small>Tools, demos, compatibility, and launch updates.</small>
+              </span>
+            </label>
+            <label class="radio-card">
+              <input name="offering" type="radio" value="Release / Apple Music update" data-offering-radio="release">
+              <span>
+                <strong>Release update</strong>
+                <small>Apple Music, discography, credits, or placement info.</small>
+              </span>
+            </label>
+          </fieldset>
+          <div class="form-grid">
+            <label>
+              Name
+              <input name="name" type="text" autocomplete="name" placeholder="Your name" required>
+            </label>
+            <label>
+              Email
+              <input name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+            </label>
+            <label>
+              Artist / company
+              <input name="artist" type="text" placeholder="Artist, manager, brand, or company">
+            </label>
+            <label>
+              Phone or social
+              <input name="contact" type="text" autocomplete="tel" placeholder="Phone, Instagram, TikTok, or website">
+            </label>
+            <label>
+              Timeline
+              <select name="timeline" required>
+                <option value="">Select one</option>
+                <option>This week</option>
+                <option>2-4 weeks</option>
+                <option>1-2 months</option>
+                <option>Flexible / planning ahead</option>
+              </select>
+            </label>
+            <label>
+              Budget range
+              <select name="budget" required>
+                <option value="">Select one</option>
+                <option>Under $250</option>
+                <option>$250-$500</option>
+                <option>$500-$1,000</option>
+                <option>$1,000-$2,500</option>
+                <option>$2,500+</option>
+                <option>Need guidance</option>
+              </select>
+            </label>
+          </div>
           <label>
-            Name
-            <input name="name" type="text" autocomplete="name" placeholder="Your name">
+            Links to hear or review
+            <input name="links" type="url" placeholder="Song demo, drive link, released work, brief, or reference playlist">
           </label>
           <label>
-            Email
-            <input name="email" type="email" autocomplete="email" placeholder="you@example.com">
+            What are you trying to get done?
+            <textarea name="goal" rows="4" placeholder="Tell Josh the goal, genre, references, intended use, rights needs, and what would make this a win." required></textarea>
           </label>
           <label>
-            Lane
-            <select name="lane">
-              <option>Beat licensing / exclusive inquiry</option>
-              <option>Plugin waitlist</option>
-              <option>Mixing / mastering</option>
-              <option>Custom production</option>
-              <option>SYNC licensing</option>
-              <option>Apple Music / release update</option>
-            </select>
+            What files or decisions do you already have?
+            <textarea name="assets" rows="3" placeholder="Stems, rough demo, lyrics, beat picked, release date, clean edit need, usage term, etc."></textarea>
           </label>
-          <label>
-            Project notes
-            <textarea name="project_notes" rows="5" placeholder="Genre, deadline, references, links, intended use, budget range, and what you need finished"></textarea>
-          </label>
-          <button class="button primary" type="submit">Prepare inquiry email</button>
+          <input type="hidden" name="selected_beat" data-selected-beat value="">
+          <button class="button primary" type="submit">Prepare strong inquiry email</button>
+          <p class="form-note" data-form-status>
+            This opens your email app with a structured inquiry. No payment or file delivery is active yet.
+          </p>
         </form>
       </section>
     </main>
@@ -295,6 +376,6 @@
       <a href="#top">Back to top</a>
     </footer>
 
-    <script src="js/site.js?v=20260601-offer-copy"></script>
+    <script src="js/site.js?v=20260601-lead-form"></script>
   </body>
 </html>

@@ -550,7 +550,8 @@ dd {
 }
 
 .store-card a,
-.product-card a {
+.product-card a,
+.release-list a {
   color: var(--blue);
   font-weight: 800;
   text-decoration-thickness: 0.12em;
@@ -600,6 +601,71 @@ dd {
   display: grid;
   gap: 1rem;
   padding: 1.2rem;
+}
+
+.offering-fieldset {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+.offering-fieldset legend {
+  grid-column: 1 / -1;
+  margin-bottom: 0.2rem;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.radio-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  gap: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.045);
+  padding: 0.85rem;
+  cursor: pointer;
+}
+
+.radio-card input {
+  width: auto;
+  margin-top: 0.2rem;
+  accent-color: var(--gold);
+}
+
+.radio-card strong,
+.radio-card small {
+  display: block;
+}
+
+.radio-card small {
+  margin-top: 0.15rem;
+  color: rgba(255, 255, 255, 0.58);
+  font-weight: 650;
+}
+
+.radio-card:has(input:checked),
+.radio-card.was-selected {
+  border-color: rgba(255, 90, 31, 0.78);
+  background: rgba(255, 90, 31, 0.14);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.form-note {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.9rem;
 }
 
 label {
@@ -692,7 +758,9 @@ textarea {
   .card-grid,
   .product-row,
   .service-grid,
-  .release-list {
+  .release-list,
+  .offering-fieldset,
+  .form-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -719,7 +787,9 @@ textarea {
   .product-row,
   .service-grid,
   .release-list,
-  .credential-grid {
+  .credential-grid,
+  .offering-fieldset,
+  .form-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1033,7 +1103,8 @@ dt {
 }
 
 .store-card a,
-.product-card a {
+.product-card a,
+.release-list a {
   color: #ffffff;
 }
 
