@@ -120,7 +120,7 @@ const moveToLeadForm = (offering, beat) => {
   }
   leadForm?.scrollIntoView({ behavior: "smooth", block: "start" });
   setTimeout(() => {
-    leadForm?.querySelector("input[name='name']")?.focus({ preventScroll: true });
+    leadForm?.querySelector("input[name='first_name']")?.focus({ preventScroll: true });
   }, 450);
 };
 
@@ -231,10 +231,11 @@ leadForm?.addEventListener("submit", (event) => {
       "",
       `Offering: ${offering}`,
       `Selected beat: ${selectedBeat}`,
-      `Name: ${formData.get("name") || ""}`,
+      `First name: ${formData.get("first_name") || ""}`,
       `Email: ${formData.get("email") || ""}`,
       `Artist / company: ${formData.get("artist") || ""}`,
-      `Phone or social: ${formData.get("contact") || ""}`,
+      `Phone number: ${formData.get("phone") || ""}`,
+      `Social or website: ${formData.get("social") || ""}`,
       `Timeline: ${formData.get("timeline") || ""}`,
       `Budget range: ${formData.get("budget") || ""}`,
       `Links: ${formData.get("links") || ""}`,
