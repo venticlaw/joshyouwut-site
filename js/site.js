@@ -32,8 +32,8 @@ const beats = [
     bpm: 100,
     key: "C minor",
     lane: "Beat contest catalog",
-    use: "Artist / custom licensing",
-    description: "Dark, focused pocket with space for a serious lead vocal and sharp hook energy.",
+    use: "Artist licensing / custom brief",
+    description: "Dark, focused pocket with space for a serious lead vocal, sharp hook energy, and a clear licensing conversation.",
     file: "assets/audio/previews/unfuckwittable-100bpm-cmin-preview.m4a"
   },
   {
@@ -43,7 +43,7 @@ const beats = [
     key: "B minor",
     lane: "Premium energy",
     use: "Sports / sync / artist brief",
-    description: "Big entrance energy with a clean theme feel for artists, sports cuts, and impact edits.",
+    description: "Big entrance energy with a clean theme feel for artists, sports edits, and placement-style briefs.",
     file: "assets/audio/previews/the-elite-theme-140bpm-bm-preview.m4a"
   },
   {
@@ -52,8 +52,8 @@ const beats = [
     bpm: 130,
     key: "C minor",
     lane: "Producer signature",
-    use: "Artist / brand cue",
-    description: "High-character production with attitude, bounce, and a strong JoshYouWut identity signal.",
+    use: "Artist record / brand cue",
+    description: "High-character production with attitude, bounce, and a strong JoshYouWut identity signal for artists or branded moments.",
     file: "assets/audio/previews/trenta-fried-chicken-130bpm-cm-preview.m4a"
   },
   {
@@ -62,8 +62,8 @@ const beats = [
     bpm: 135,
     key: "C# minor",
     lane: "Heavy impact",
-    use: "Artist / sync inquiry",
-    description: "Aggressive, placement-ready momentum for artists or briefs that need weight and movement.",
+    use: "Artist licensing / sync inquiry",
+    description: "Aggressive, placement-ready momentum for artists, sports energy, or briefs that need weight and movement.",
     file: "assets/audio/previews/juggernaut-135bpm-csharpm-preview.m4a"
   },
   {
@@ -72,7 +72,7 @@ const beats = [
     bpm: 85,
     key: "D minor",
     lane: "Lyrical pocket",
-    use: "Artist / rap record",
+    use: "Artist licensing / rap record",
     description: "A precise pocket for technical writing, flow switches, and an artist who wants room to rap.",
     file: "assets/audio/previews/i-made-this-for-jid-85bpm-dm-preview.m4a"
   }
@@ -94,7 +94,7 @@ let activeBeatIndex = 0;
 const getInquiryHref = (beat) => {
   const subject = encodeURIComponent(`Beat licensing inquiry: ${beat.title}`);
   const body = encodeURIComponent(
-    `Beat: ${beat.title}\nBPM: ${beat.bpm}\nKey: ${beat.key}\nUse: ${beat.use}\n\nProject notes:\n`
+    `Beat: ${beat.title}\nBPM: ${beat.bpm}\nKey: ${beat.key}\nUse: ${beat.use}\n\nIntended use:\nRelease timeline:\nExclusive or non-exclusive interest:\nProject notes:\n`
   );
   return `mailto:joshyouwut@gmail.com?subject=${subject}&body=${body}`;
 };
