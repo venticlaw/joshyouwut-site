@@ -1,0 +1,8 @@
+# GitHub Pages should only carry preview audio, not masters.
+assets/audio/*.wav
+assets/audio/*.aif
+assets/audio/*.aiff
+assets/audio/*.flac
+assets/audio/*.zip
+
+.DS_Store

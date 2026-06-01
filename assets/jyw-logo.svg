@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1536 1536" role="img" aria-labelledby="title desc">
+  <title id="title">JoshYouWut logo</title>
+  <desc id="desc">White block JY over W question mark on a black square.</desc>
+  <rect width="1536" height="1536" fill="#000"/>
+  <g fill="#fff" font-family="Arial Black, Impact, sans-serif" font-weight="900" text-anchor="middle">
+    <text x="768" y="650" font-size="490" letter-spacing="-28">JY</text>
+    <rect x="295" y="725" width="946" height="30" rx="0"/>
+    <text x="768" y="1188" font-size="490" letter-spacing="-32">W?</text>
+  </g>
+</svg>
