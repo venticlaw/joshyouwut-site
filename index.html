@@ -257,7 +257,16 @@
             package scoping, plugin waitlists, SYNC briefs, and release updates.
           </p>
         </div>
-        <form class="contact-form" action="mailto:joshyouwut@gmail.com" method="post" enctype="text/plain" data-lead-form>
+        <form
+          class="contact-form"
+          action=""
+          method="post"
+          data-lead-form
+          data-brand="JoshYouWut"
+          data-formspree-endpoint=""
+          data-local-mirror-endpoint=""
+          data-fallback-email="joshyouwut@gmail.com"
+        >
           <fieldset class="offering-fieldset">
             <legend>What are you interested in?</legend>
             <label class="radio-card">
@@ -367,9 +376,10 @@
             <textarea name="assets" rows="3" placeholder="Stems, rough demo, lyrics, beat picked, release date, clean edit need, usage term, etc."></textarea>
           </label>
           <input type="hidden" name="selected_beat" data-selected-beat value="">
-          <button class="button primary" type="submit">Prepare strong inquiry email</button>
+          <input type="hidden" name="source_site" value="JoshYouWut">
+          <button class="button primary" type="submit">Send strong inquiry</button>
           <p class="form-note" data-form-status>
-            This opens your email app with a structured inquiry. No payment or file delivery is active yet.
+            Real capture is endpoint-ready. Until the Formspree endpoint is added, this falls back to a structured email.
           </p>
         </form>
       </section>

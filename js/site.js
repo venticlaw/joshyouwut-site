@@ -222,8 +222,26 @@ leadForm?.addEventListener("submit", (event) => {
   if (!leadForm.reportValidity()) return;
 
   const formData = new FormData(leadForm);
+  const payload = Object.fromEntries(formData.entries());
   const offering = formData.get("offering") || "General inquiry";
   const selectedBeat = formData.get("selected_beat") || "None selected";
+  const formspreeEndpoint = leadForm.dataset.formspreeEndpoint?.trim();
+  const localMirrorEndpoint = leadForm.dataset.localMirrorEndpoint?.trim();
+  const fallbackEmail = leadForm.dataset.fallbackEmail || "joshyouwut@gmail.com";
+  const brand = leadForm.dataset.brand || "JoshYouWut";
+  const normalizedPayload = {
+    ...payload,
+    brand,
+    source_site: "JoshYouWut",
+    source_url: window.location.href,
+    artist_or_company: payload.artist || "",
+    phone_number: payload.phone || "",
+    social_or_website: payload.social || "",
+    budget_range: payload.budget || "",
+    existing_files_or_decisions: payload.assets || "",
+    ingestion_method: formspreeEndpoint ? "formspree" : "static_form_mailto",
+    status: "new"
+  };
   const subject = encodeURIComponent(`JoshYouWut inquiry: ${offering}`);
   const body = encodeURIComponent(
     [
@@ -250,8 +268,60 @@ leadForm?.addEventListener("submit", (event) => {
     ].join("\n")
   );
 
-  window.location.href = `mailto:joshyouwut@gmail.com?subject=${subject}&body=${body}`;
+  const submitButton = leadForm.querySelector("button[type='submit']");
+  submitButton.disabled = true;
   if (formStatus) {
-    formStatus.textContent = "Opening your email app with the structured inquiry.";
+    formStatus.textContent = "Sending inquiry...";
   }
+
+  const mirrorLead = () => {
+    if (!localMirrorEndpoint) return Promise.resolve();
+    return fetch(localMirrorEndpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(normalizedPayload)
+    }).catch(() => {});
+  };
+
+  const submitLead = async () => {
+    if (formspreeEndpoint) {
+      const response = await fetch(formspreeEndpoint, {
+        method: "POST",
+        headers: {
+          Accept: "application/json"
+        },
+        body: new FormData(leadForm)
+      });
+
+      if (!response.ok) {
+        throw new Error("Form endpoint rejected the submission.");
+      }
+
+      await mirrorLead();
+      leadForm.reset();
+      document.querySelectorAll(".radio-card.was-selected").forEach((card) => card.classList.remove("was-selected"));
+      if (selectedBeatInput) selectedBeatInput.value = "";
+      if (formStatus) {
+        formStatus.textContent = "Inquiry sent. Josh has the details needed to follow up.";
+      }
+      return;
+    }
+
+    await mirrorLead();
+    window.location.href = `mailto:${fallbackEmail}?subject=${subject}&body=${body}`;
+    if (formStatus) {
+      formStatus.textContent = "Opening your email app with the structured inquiry.";
+    }
+  };
+
+  submitLead()
+    .catch(() => {
+      window.location.href = `mailto:${fallbackEmail}?subject=${subject}&body=${body}`;
+      if (formStatus) {
+        formStatus.textContent = "The form endpoint was not available, so this opened a structured email fallback.";
+      }
+    })
+    .finally(() => {
+      submitButton.disabled = false;
+    });
 });
