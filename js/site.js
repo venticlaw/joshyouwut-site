@@ -91,6 +91,8 @@ const nextBeatButton = document.querySelector("[data-next-beat]");
 const leadForm = document.querySelector("[data-lead-form]");
 const selectedBeatInput = document.querySelector("[data-selected-beat]");
 const formStatus = document.querySelector("[data-form-status]");
+const contextPanels = document.querySelectorAll("[data-context-panel]");
+const projectFields = document.querySelectorAll("[data-context-field='project']");
 
 let activeBeatIndex = 0;
 
@@ -111,7 +113,37 @@ const selectOffering = (offering = "package") => {
     radio.checked = true;
     radio.closest(".radio-card")?.classList.add("was-selected");
   }
+  updateFormContext(offering);
 };
+
+const updateRequiredState = (element, isRequired) => {
+  const input = element.matches("input, select, textarea") ? element : element.querySelector("input, select, textarea");
+  if (input) {
+    input.required = isRequired;
+  }
+};
+
+function updateFormContext(offering = "package") {
+  const normalizedOffering = offering || "package";
+  const isPlugin = normalizedOffering === "plugin";
+
+  contextPanels.forEach((panel) => {
+    const panelName = panel.dataset.contextPanel;
+    panel.hidden = panelName !== normalizedOffering && !(normalizedOffering === "custom" && panelName === "beat");
+  });
+
+  projectFields.forEach((field) => {
+    field.hidden = isPlugin;
+    field.classList.toggle("is-hidden", isPlugin);
+    updateRequiredState(field, !isPlugin && field.querySelector("[name='timeline'], [name='budget']"));
+  });
+
+  if (formStatus) {
+    formStatus.textContent = isPlugin
+      ? "Plugin waitlist capture only needs first name, email, phone, and the workflow you want help with."
+      : "GitHub Pages stays static. Formspree/local CSV capture can be enabled after endpoint approval; until then this falls back to a structured email.";
+  }
+}
 
 const moveToLeadForm = (offering, beat) => {
   selectOffering(offering);
@@ -213,6 +245,7 @@ leadForm?.addEventListener("change", (event) => {
   if (event.target.matches("[data-offering-radio]")) {
     document.querySelectorAll(".radio-card.was-selected").forEach((card) => card.classList.remove("was-selected"));
     event.target.closest(".radio-card")?.classList.add("was-selected");
+    updateFormContext(event.target.dataset.offeringRadio);
   }
 });
 
@@ -325,3 +358,5 @@ leadForm?.addEventListener("submit", (event) => {
       submitButton.disabled = false;
     });
 });
+
+updateFormContext("package");

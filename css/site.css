@@ -702,6 +702,86 @@ textarea {
   text-transform: uppercase;
 }
 
+.license-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.4rem;
+}
+
+.license-card {
+  display: grid;
+  align-content: start;
+  gap: 0.9rem;
+  border: 1px solid rgba(16, 16, 20, 0.12);
+  border-radius: 8px;
+  background: rgba(255, 253, 247, 0.86);
+  padding: 1.2rem;
+  box-shadow: var(--shadow);
+}
+
+.license-card.featured {
+  border-color: rgba(227, 93, 69, 0.55);
+  background: var(--coal);
+  color: #fff8e8;
+}
+
+.license-card span {
+  color: var(--coral);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.license-card p,
+.license-card li {
+  color: var(--muted);
+}
+
+.license-card.featured p,
+.license-card.featured li {
+  color: rgba(255, 248, 232, 0.72);
+}
+
+.license-card ul {
+  display: grid;
+  gap: 0.45rem;
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.contact-basics {
+  border-top: 1px solid rgba(16, 16, 20, 0.1);
+  padding-top: 1rem;
+}
+
+.inquiry-details {
+  align-items: end;
+}
+
+.context-panel {
+  border: 1px solid rgba(213, 155, 47, 0.38);
+  border-radius: 8px;
+  background: rgba(213, 155, 47, 0.12);
+  padding: 0.9rem;
+}
+
+.context-panel strong {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.context-panel p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.is-hidden {
+  display: none !important;
+}
+
 .site-footer {
   display: flex;
   align-items: center;
@@ -759,6 +839,7 @@ textarea {
   .product-row,
   .service-grid,
   .release-list,
+  .license-grid,
   .offering-fieldset,
   .form-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -787,6 +868,7 @@ textarea {
   .product-row,
   .service-grid,
   .release-list,
+  .license-grid,
   .credential-grid,
   .offering-fieldset,
   .form-grid {
@@ -1024,6 +1106,7 @@ h3 {
 .service-grid article,
 .inquiry-card,
 .release-list article,
+.license-card,
 .contact-form {
   border-color: rgba(255, 255, 255, 0.13);
   background: rgba(18, 18, 19, 0.88);
@@ -1073,6 +1156,7 @@ h3 {
 .split-section,
 .services,
 .sync-section,
+.licensing-section,
 .contact-section {
   padding: clamp(4rem, 9vw, 7.2rem) 0;
 }
@@ -1106,6 +1190,30 @@ dt {
 .product-card a,
 .release-list a {
   color: #ffffff;
+}
+
+.license-card {
+  border-color: rgba(255, 255, 255, 0.13);
+  background: rgba(18, 18, 19, 0.88);
+}
+
+.license-card.featured {
+  border-color: rgba(255, 90, 31, 0.7);
+  background: rgba(255, 90, 31, 0.12);
+}
+
+.license-card p,
+.license-card li {
+  color: rgba(255, 255, 255, 0.66);
+}
+
+.context-panel {
+  border-color: rgba(255, 90, 31, 0.35);
+  background: rgba(255, 90, 31, 0.1);
+}
+
+.context-panel p {
+  color: rgba(255, 255, 255, 0.66);
 }
 
 .product-icon {
