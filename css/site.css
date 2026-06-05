@@ -1055,9 +1055,29 @@ textarea {
   color: var(--muted);
 }
 
+.license-card .price-line {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  margin: 0;
+  border: 1px solid rgba(16, 16, 20, 0.12);
+  border-radius: 999px;
+  background: rgba(16, 16, 20, 0.92);
+  color: #fff8e8;
+  padding: 0.42rem 0.72rem;
+  font-size: 0.86rem;
+  font-weight: 900;
+}
+
 .license-card.featured p,
 .license-card.featured li {
   color: rgba(255, 248, 232, 0.72);
+}
+
+.license-card.featured .price-line {
+  border-color: rgba(255, 248, 232, 0.18);
+  background: var(--gold);
+  color: var(--coal);
 }
 
 .license-card ul {

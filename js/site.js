@@ -97,7 +97,7 @@ const contextPanels = document.querySelectorAll("[data-context-panel]");
 const projectFields = document.querySelectorAll("[data-context-field='project']");
 const ymsExtraFields = document.querySelectorAll("[data-yms-extra-field]");
 const ymsWaitlistProductInput = document.querySelector("[data-yms-waitlist-product]");
-const ymsLaunchPriceInput = document.querySelector("[data-yms-launch-price]");
+const ymsCustomerPriceInput = document.querySelector("[data-yms-customer-price]");
 const submitLabel = document.querySelector("[data-submit-label]");
 
 let activeBeatIndex = 0;
@@ -153,12 +153,12 @@ function updateFormContext(offering = "package") {
   });
 
   if (ymsWaitlistProductInput) ymsWaitlistProductInput.value = isYms ? "Your Mix Sucks" : "";
-  if (ymsLaunchPriceInput) ymsLaunchPriceInput.value = isYms ? "$59" : "";
+  if (ymsCustomerPriceInput) ymsCustomerPriceInput.value = isYms ? "$59" : "";
   if (submitLabel) submitLabel.textContent = isYms ? "Join YMS waiting list" : "Send strong inquiry";
 
   if (formStatus) {
     formStatus.textContent = normalizedOffering === "yms"
-      ? "Your Mix Sucks waiting list captures first name, email, and phone number for the $59 launch path."
+      ? "Your Mix Sucks waiting list captures first name, email, and phone number for the $59 one-time license path. No payment is collected here."
       : isPlugin
       ? "Plugin waitlist capture only needs first name, email, phone, and the workflow you want help with."
       : "GitHub Pages stays static. Formspree/local CSV capture can be enabled after endpoint approval; until then this falls back to a structured email.";
@@ -303,7 +303,7 @@ leadForm?.addEventListener("submit", (event) => {
     offering: String(offering),
     selected_beat: String(selectedBeat),
     waitlist_product: payload.waitlist_product || "",
-    launch_price: payload.launch_price || "",
+    customer_price: payload.customer_price || "",
     first_name: payload.first_name || "",
     email: payload.email || "",
     artist_or_company: payload.artist || "",
@@ -329,7 +329,7 @@ leadForm?.addEventListener("submit", (event) => {
       `Offering: ${offering}`,
       `Selected beat: ${selectedBeat}`,
       `Waitlist product: ${formData.get("waitlist_product") || ""}`,
-      `Launch price: ${formData.get("launch_price") || ""}`,
+      `Customer price: ${formData.get("customer_price") || ""}`,
       `First name: ${formData.get("first_name") || ""}`,
       `Email: ${formData.get("email") || ""}`,
       `Artist / company: ${formData.get("artist") || ""}`,
