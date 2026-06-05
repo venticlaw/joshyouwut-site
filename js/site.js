@@ -31,7 +31,7 @@ const beats = [
     title: "UnfuckWittable",
     bpm: 100,
     key: "C minor",
-    lane: "Beat contest catalog",
+    lane: "Beat store catalog",
     use: "Artist licensing / custom brief",
     description: "Dark, focused pocket with space for a serious lead vocal, sharp hook energy, and a clear licensing conversation.",
     file: "assets/audio/previews/unfuckwittable-100bpm-cmin-preview.m4a"
@@ -109,7 +109,6 @@ const offeringLabels = {
   package: "Project package",
   sync: "SYNC licensing",
   yms: "Your Mix Sucks waiting list",
-  plugin: "Plugin waitlist",
   release: "Release / Apple Music update"
 };
 
@@ -132,7 +131,7 @@ const updateRequiredState = (element, isRequired) => {
 
 function updateFormContext(offering = "package") {
   const normalizedOffering = offering || "package";
-  const isPlugin = normalizedOffering === "plugin" || normalizedOffering === "yms";
+  const isPlugin = normalizedOffering === "yms";
   const isYms = normalizedOffering === "yms";
 
   contextPanels.forEach((panel) => {
@@ -159,8 +158,6 @@ function updateFormContext(offering = "package") {
   if (formStatus) {
     formStatus.textContent = normalizedOffering === "yms"
       ? "Your Mix Sucks waiting list captures first name, email, and phone number for the $59 one-time license path. No payment is collected here."
-      : isPlugin
-      ? "Plugin waitlist capture only needs first name, email, phone, and the workflow you want help with."
       : "GitHub Pages stays static. Formspree/local CSV capture can be enabled after endpoint approval; until then this falls back to a structured email.";
   }
 }
