@@ -892,7 +892,7 @@ dd {
 }
 
 .service-grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .service-grid article {
@@ -1676,6 +1676,7 @@ dt {
 .package-card {
   display: grid;
   gap: 0.8rem;
+  align-content: start;
 }
 
 .package-card span {
@@ -1684,6 +1685,40 @@ dt {
   font-weight: 900;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+.package-price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.package-price strong {
+  color: #fff8e8;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.85rem;
+}
+
+.package-price s,
+.package-price span {
+  color: rgba(255, 248, 232, 0.58);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.package-card ul {
+  display: grid;
+  gap: 0.42rem;
+  margin: 0;
+  padding-left: 1.05rem;
+}
+
+.package-card li {
+  color: rgba(255, 248, 232, 0.72);
+  font-size: 0.9rem;
+  line-height: 1.45;
 }
 
 .package-card .button {
