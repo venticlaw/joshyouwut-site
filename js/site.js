@@ -90,6 +90,7 @@ const currentInquiry = document.querySelector("[data-current-inquiry]");
 const nextBeatButton = document.querySelector("[data-next-beat]");
 const leadForm = document.querySelector("[data-lead-form]");
 const selectedBeatInput = document.querySelector("[data-selected-beat]");
+const selectedPackageInput = document.querySelector("[data-selected-package]");
 const leadIdInput = document.querySelector("[data-lead-id]");
 const capturedAtInput = document.querySelector("[data-captured-at]");
 const formStatus = document.querySelector("[data-form-status]");
@@ -103,10 +104,10 @@ const submitLabel = document.querySelector("[data-submit-label]");
 let activeBeatIndex = 0;
 
 const offeringLabels = {
-  beat: "Beat licensing / exclusive inquiry",
+  beat: "One-off beat purchase",
   mix: "Mixing / mastering",
   custom: "Custom production",
-  package: "Project package",
+  package: "Artist package purchase",
   sync: "SYNC licensing",
   yms: "Your Mix Sucks waiting list",
   release: "Release / Apple Music update"
@@ -162,10 +163,15 @@ function updateFormContext(offering = "package") {
   }
 }
 
-const moveToLeadForm = (offering, beat) => {
+const moveToLeadForm = (offering, beat, packageName = "") => {
   selectOffering(offering);
   if (selectedBeatInput && beat) {
     selectedBeatInput.value = `${beat.title} | ${beat.bpm} BPM | ${beat.key}`;
+  } else if (selectedBeatInput && offering !== "beat") {
+    selectedBeatInput.value = "";
+  }
+  if (selectedPackageInput) {
+    selectedPackageInput.value = packageName;
   }
   leadForm?.scrollIntoView({ behavior: "smooth", block: "start" });
   setTimeout(() => {
@@ -202,7 +208,7 @@ const renderBeatCards = () => {
             <div><dt>Key</dt><dd>${beat.key}</dd></div>
             <div><dt>Use</dt><dd>${beat.use}</dd></div>
           </dl>
-          <a href="#contact" data-offering="beat" data-beat-inquiry="${index}">Request licensing</a>
+          <a href="#contact" data-offering="beat" data-beat-inquiry="${index}">Buy / license beat</a>
         </article>
       `
     )
@@ -260,10 +266,11 @@ document.addEventListener("click", (event) => {
 
   const offering = link.dataset.offering;
   const beatIndex = link.dataset.beatInquiry;
+  const packageName = link.dataset.packageInquiry || "";
   const beat = beatIndex ? beats[Number(beatIndex)] : offering === "beat" ? beats[activeBeatIndex] : null;
 
   event.preventDefault();
-  moveToLeadForm(offering, beat);
+  moveToLeadForm(offering, beat, packageName);
 });
 
 leadForm?.addEventListener("change", (event) => {
@@ -288,6 +295,7 @@ leadForm?.addEventListener("submit", (event) => {
   const payload = Object.fromEntries(formData.entries());
   const offering = formData.get("offering") || "General inquiry";
   const selectedBeat = formData.get("selected_beat") || "None selected";
+  const selectedPackage = formData.get("selected_package") || "None selected";
   const formspreeEndpoint = leadForm.dataset.formspreeEndpoint?.trim();
   const localMirrorEndpoint = leadForm.dataset.localMirrorEndpoint?.trim();
   const fallbackEmail = leadForm.dataset.fallbackEmail || "joshyouwut@gmail.com";
@@ -299,6 +307,7 @@ leadForm?.addEventListener("submit", (event) => {
     source_url: window.location.href,
     offering: String(offering),
     selected_beat: String(selectedBeat),
+    selected_package: String(selectedPackage),
     waitlist_product: payload.waitlist_product || "",
     customer_price: payload.customer_price || "",
     first_name: payload.first_name || "",
@@ -325,6 +334,7 @@ leadForm?.addEventListener("submit", (event) => {
       `Captured at: ${capturedAt}`,
       `Offering: ${offering}`,
       `Selected beat: ${selectedBeat}`,
+      `Selected package: ${selectedPackage}`,
       `Waitlist product: ${formData.get("waitlist_product") || ""}`,
       `Customer price: ${formData.get("customer_price") || ""}`,
       `First name: ${formData.get("first_name") || ""}`,
