@@ -15,7 +15,7 @@
       rel="stylesheet"
     >
     <link rel="icon" type="image/svg+xml" href="assets/jyw-logo.svg">
-    <link rel="stylesheet" href="css/site.css?v=20260603-approved-queue">
+    <link rel="stylesheet" href="css/site.css?v=20260603-yms-logic-verified">
   </head>
   <body>
     <header class="site-header" data-site-header>
@@ -143,8 +143,8 @@
           <p class="eyebrow">Licensing paths</p>
           <h2>Choose the lane before checkout exists.</h2>
           <p>
-            The store is built for GitHub Pages now, but real checkout stays gated until pricing, usage caps,
-            refund language, file delivery, and signed terms are approved. The public path is inquiry-first.
+            The store is built for GitHub Pages now, with pricing, usage caps, refund language,
+            file delivery, and signed terms being prepared behind the scenes. The public path is inquiry-first.
           </p>
         </div>
         <div class="license-grid" aria-label="Beat licensing paths">
@@ -182,15 +182,56 @@
             <a class="button secondary" href="#contact" data-offering="custom">Start custom quote</a>
           </article>
         </div>
+        <div class="checkout-readiness" aria-label="Checkout readiness status">
+          <div>
+            <span>Checkout readiness</span>
+            <strong>Built for static inquiry now. Payments stay off.</strong>
+            <p>Beat previews, lead capture, and quote routing are ready for GitHub Pages. Checkout, automatic delivery, refund terms, and license templates are being prepared before direct purchase goes live.</p>
+          </div>
+          <ul>
+            <li><b>Ready:</b> preview player, selected-beat capture, strong inquiry payload.</li>
+            <li><b>Preparing:</b> prices, license caps, refund policy, payment provider.</li>
+            <li><b>Next:</b> instant downloads and real file delivery after the store path is ready.</li>
+          </ul>
+        </div>
       </section>
 
       <section class="section-shell" id="plugins">
         <div class="section-heading compact">
           <p class="eyebrow">Plugin store preview</p>
           <h2>Tools made by someone who actually uses them.</h2>
-          <p>Plugin concepts are staged as waitlist cards until demos, compatibility notes, licensing, and delivery are approved.</p>
+          <p>Digital tools live here as customer-facing store surfaces first. Your Mix Sucks starts at a $59 launch price while direct checkout, installer delivery, and account flow are prepared.</p>
         </div>
         <div class="product-row">
+          <article class="product-card featured-tool">
+            <span class="product-icon">YMS</span>
+            <div>
+              <p class="tag">Digital purchase · verified Logic Pro AU insert</p>
+              <h3>Your Mix Sucks</h3>
+              <p>
+                The brutally useful mix coach for Logic Pro. Drop it on a track, bus, or mix bus, hit play,
+                and get a 0-100 mix read plus plain-English feedback on frequency balance, dynamics,
+                stereo field, gain staging, masking, and what to fix next. Mix Notes now preserve an
+                Overall tip plus timestamped Timeline notes inside the Logic project.
+              </p>
+            </div>
+            <ul class="tool-specs">
+              <li>Analysis-only: it listens, scores, and teaches without changing your audio.</li>
+              <li>Timestamped Mix Notes append as the track plays and restore when the Logic project reopens.</li>
+              <li>Logic verification confirmed playback analysis, saved timeline notes, compact GAIN label, and FFT edge labels.</li>
+            </ul>
+            <div class="purchase-panel" aria-label="Your Mix Sucks purchase status">
+              <span>Launch price</span>
+              <strong>$59 one-time license</strong>
+              <p>Join the waiting list for store timing, installer availability, compatibility notes, and the launch-price window.</p>
+            </div>
+            <div class="tool-status">
+              <b>Current status</b>
+              <span>Verified in Logic Pro as an AU insert with restored timestamped Mix Notes. Direct checkout and delivery flow are being prepared.</span>
+            </div>
+            <a href="your-mix-sucks.html">View product page</a>
+            <a href="#contact" data-offering="yms">Join waiting list</a>
+          </article>
           <article class="product-card">
             <span class="product-icon">FX</span>
             <h3>Vocal Chain Utility</h3>
@@ -351,6 +392,13 @@
               </span>
             </label>
             <label class="radio-card">
+              <input name="offering" type="radio" value="Your Mix Sucks waiting list" data-offering-radio="yms">
+              <span>
+                <strong>Your Mix Sucks waitlist</strong>
+                <small>First name, email, and phone for the $59 launch list.</small>
+              </span>
+            </label>
+            <label class="radio-card">
               <input name="offering" type="radio" value="Plugin waitlist" data-offering-radio="plugin">
               <span>
                 <strong>Plugin waitlist</strong>
@@ -374,7 +422,7 @@
               Email
               <input name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
             </label>
-            <label>
+            <label data-yms-extra-field>
               Artist / company
               <input name="artist" type="text" placeholder="Artist, manager, brand, or company">
             </label>
@@ -384,7 +432,7 @@
             </label>
           </div>
           <div class="form-grid inquiry-details" data-form-step="3">
-            <label>
+            <label data-yms-extra-field>
               Social, website, or music profile
               <input name="social" type="text" placeholder="Instagram, TikTok, YouTube, Spotify, website, or Linktree">
             </label>
@@ -417,17 +465,21 @@
           </div>
           <div class="context-panel" data-context-panel="plugin" hidden>
             <strong>Plugin waitlist signal</strong>
-            <p>Name the workflow you want help with and your DAW if you know it. Email, first name, and phone are enough to join the waitlist.</p>
+            <p>Name the workflow you want help with and your DAW. For Your Mix Sucks, mention Logic Pro, mix feedback needs, and whether timestamped Mix Notes would help your session review.</p>
           </div>
           <div class="context-panel" data-context-panel="sync" hidden>
             <strong>SYNC brief signal</strong>
             <p>Include usage, deadline, mood, edit length, clean/explicit needs, and where the cue will live.</p>
           </div>
+          <div class="context-panel" data-context-panel="yms" hidden>
+            <strong>Your Mix Sucks waiting list</strong>
+            <p>Enter first name, email, and phone number to join the $59 launch list. Compatibility and installer notes can follow once the store path is ready.</p>
+          </div>
           <label data-context-field="project">
             Links to hear or review
             <input name="links" type="url" placeholder="Song demo, drive link, released work, brief, or reference playlist">
           </label>
-          <label>
+          <label data-yms-extra-field>
             What would make this a win?
             <textarea name="goal" rows="4" placeholder="Beat picked, release goal, genre, reference artists, rights needs, mix problem, plugin idea, sync usage, or what you need Josh to help decide." required></textarea>
           </label>
@@ -435,9 +487,13 @@
             What files or decisions do you already have?
             <textarea name="assets" rows="3" placeholder="Stems, rough demo, lyrics, beat picked, release date, clean edit need, usage term, etc."></textarea>
           </label>
+          <input type="hidden" name="lead_id" data-lead-id value="">
+          <input type="hidden" name="captured_at" data-captured-at value="">
           <input type="hidden" name="selected_beat" data-selected-beat value="">
+          <input type="hidden" name="waitlist_product" data-yms-waitlist-product value="">
+          <input type="hidden" name="launch_price" data-yms-launch-price value="">
           <input type="hidden" name="source_site" value="JoshYouWut">
-          <button class="button primary" type="submit">Send strong inquiry</button>
+          <button class="button primary" type="submit" data-submit-label>Send strong inquiry</button>
           <p class="form-note" data-form-status>
             GitHub Pages stays static. Formspree/local CSV capture can be enabled after endpoint approval; until then this falls back to a structured email.
           </p>
@@ -450,6 +506,6 @@
       <a href="#top">Back to top</a>
     </footer>
 
-    <script src="js/site.js?v=20260603-approved-queue"></script>
+    <script src="js/site.js?v=20260604-yms-waitlist"></script>
   </body>
 </html>

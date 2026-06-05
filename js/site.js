@@ -90,9 +90,15 @@ const currentInquiry = document.querySelector("[data-current-inquiry]");
 const nextBeatButton = document.querySelector("[data-next-beat]");
 const leadForm = document.querySelector("[data-lead-form]");
 const selectedBeatInput = document.querySelector("[data-selected-beat]");
+const leadIdInput = document.querySelector("[data-lead-id]");
+const capturedAtInput = document.querySelector("[data-captured-at]");
 const formStatus = document.querySelector("[data-form-status]");
 const contextPanels = document.querySelectorAll("[data-context-panel]");
 const projectFields = document.querySelectorAll("[data-context-field='project']");
+const ymsExtraFields = document.querySelectorAll("[data-yms-extra-field]");
+const ymsWaitlistProductInput = document.querySelector("[data-yms-waitlist-product]");
+const ymsLaunchPriceInput = document.querySelector("[data-yms-launch-price]");
+const submitLabel = document.querySelector("[data-submit-label]");
 
 let activeBeatIndex = 0;
 
@@ -102,6 +108,7 @@ const offeringLabels = {
   custom: "Custom production",
   package: "Project package",
   sync: "SYNC licensing",
+  yms: "Your Mix Sucks waiting list",
   plugin: "Plugin waitlist",
   release: "Release / Apple Music update"
 };
@@ -125,7 +132,8 @@ const updateRequiredState = (element, isRequired) => {
 
 function updateFormContext(offering = "package") {
   const normalizedOffering = offering || "package";
-  const isPlugin = normalizedOffering === "plugin";
+  const isPlugin = normalizedOffering === "plugin" || normalizedOffering === "yms";
+  const isYms = normalizedOffering === "yms";
 
   contextPanels.forEach((panel) => {
     const panelName = panel.dataset.contextPanel;
@@ -138,8 +146,20 @@ function updateFormContext(offering = "package") {
     updateRequiredState(field, !isPlugin && field.querySelector("[name='timeline'], [name='budget']"));
   });
 
+  ymsExtraFields.forEach((field) => {
+    field.hidden = isYms;
+    field.classList.toggle("is-hidden", isYms);
+    updateRequiredState(field, !isYms && field.querySelector("[name='goal']"));
+  });
+
+  if (ymsWaitlistProductInput) ymsWaitlistProductInput.value = isYms ? "Your Mix Sucks" : "";
+  if (ymsLaunchPriceInput) ymsLaunchPriceInput.value = isYms ? "$59" : "";
+  if (submitLabel) submitLabel.textContent = isYms ? "Join YMS waiting list" : "Send strong inquiry";
+
   if (formStatus) {
-    formStatus.textContent = isPlugin
+    formStatus.textContent = normalizedOffering === "yms"
+      ? "Your Mix Sucks waiting list captures first name, email, and phone number for the $59 launch path."
+      : isPlugin
       ? "Plugin waitlist capture only needs first name, email, phone, and the workflow you want help with."
       : "GitHub Pages stays static. Formspree/local CSV capture can be enabled after endpoint approval; until then this falls back to a structured email.";
   }
@@ -154,6 +174,14 @@ const moveToLeadForm = (offering, beat) => {
   setTimeout(() => {
     leadForm?.querySelector("input[name='first_name']")?.focus({ preventScroll: true });
   }, 450);
+};
+
+const createLeadId = () => {
+  const randomPart =
+    window.crypto && typeof window.crypto.randomUUID === "function"
+      ? window.crypto.randomUUID()
+      : `${Date.now()}-${Math.random().toString(16).slice(2)}`;
+  return `jyw_${randomPart}`;
 };
 
 const renderBeatCards = () => {
@@ -254,6 +282,11 @@ leadForm?.addEventListener("submit", (event) => {
 
   if (!leadForm.reportValidity()) return;
 
+  const capturedAt = new Date().toISOString();
+  const leadId = createLeadId();
+  if (leadIdInput) leadIdInput.value = leadId;
+  if (capturedAtInput) capturedAtInput.value = capturedAt;
+
   const formData = new FormData(leadForm);
   const payload = Object.fromEntries(formData.entries());
   const offering = formData.get("offering") || "General inquiry";
@@ -263,25 +296,40 @@ leadForm?.addEventListener("submit", (event) => {
   const fallbackEmail = leadForm.dataset.fallbackEmail || "joshyouwut@gmail.com";
   const brand = leadForm.dataset.brand || "JoshYouWut";
   const normalizedPayload = {
-    ...payload,
-    brand,
-    source_site: "JoshYouWut",
+    lead_id: leadId,
+    captured_at: capturedAt,
+    source_site: brand,
     source_url: window.location.href,
+    offering: String(offering),
+    selected_beat: String(selectedBeat),
+    waitlist_product: payload.waitlist_product || "",
+    launch_price: payload.launch_price || "",
+    first_name: payload.first_name || "",
+    email: payload.email || "",
     artist_or_company: payload.artist || "",
     phone_number: payload.phone || "",
     social_or_website: payload.social || "",
+    timeline: payload.timeline || "",
     budget_range: payload.budget || "",
+    links: payload.links || "",
+    goal: payload.goal || "",
     existing_files_or_decisions: payload.assets || "",
-    ingestion_method: formspreeEndpoint ? "formspree" : "static_form_mailto",
-    status: "new"
+    raw_message: payload.goal || "",
+    ingestion_method: formspreeEndpoint ? "provider_import" : "static_form_mailto",
+    status: "new",
+    notes: ""
   };
   const subject = encodeURIComponent(`JoshYouWut inquiry: ${offering}`);
   const body = encodeURIComponent(
     [
       "JoshYouWut lead inquiry",
       "",
+      `Lead ID: ${leadId}`,
+      `Captured at: ${capturedAt}`,
       `Offering: ${offering}`,
       `Selected beat: ${selectedBeat}`,
+      `Waitlist product: ${formData.get("waitlist_product") || ""}`,
+      `Launch price: ${formData.get("launch_price") || ""}`,
       `First name: ${formData.get("first_name") || ""}`,
       `Email: ${formData.get("email") || ""}`,
       `Artist / company: ${formData.get("artist") || ""}`,
@@ -360,3 +408,11 @@ leadForm?.addEventListener("submit", (event) => {
 });
 
 updateFormContext("package");
+
+const initialOffering = new URLSearchParams(window.location.search).get("offering");
+if (initialOffering && offeringLabels[initialOffering]) {
+  selectOffering(initialOffering);
+  if (window.location.hash === "#contact") {
+    leadForm?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+}
