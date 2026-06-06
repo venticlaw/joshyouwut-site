@@ -15,7 +15,7 @@
       rel="stylesheet"
     >
     <link rel="icon" type="image/svg+xml" href="assets/jyw-logo.svg">
-    <link rel="stylesheet" href="css/site.css?v=20260606-beat-ux">
+    <link rel="stylesheet" href="css/site.css?v=20260606-section-bands">
   </head>
   <body>
     <header class="site-header" data-site-header>
@@ -32,9 +32,9 @@
         <span></span>
       </button>
       <nav class="site-nav" id="site-nav" data-site-nav>
+        <a href="#services">Services</a>
         <a href="#beats">Beats</a>
         <a href="#plugins">Plugins</a>
-        <a href="#services">Services</a>
         <a href="#sync">SYNC</a>
         <a href="#releases">Releases</a>
         <a class="nav-cta" href="#contact">Inquire</a>
@@ -67,8 +67,8 @@
             </button>
           </div>
           <div class="hero-actions">
-            <a class="button primary" href="#contact" data-offering="package">Start a serious inquiry</a>
-            <a class="button secondary" href="#services">View packages</a>
+            <a class="button primary" href="#services">View artist packages</a>
+            <a class="button secondary" href="#beats">Preview beats</a>
           </div>
         </div>
         <aside class="hero-panel" aria-label="JoshYouWut credentials">
@@ -78,6 +78,11 @@
           <div class="meter-card">
             <span>Genius over discounts</span>
             <strong>The offer is not "cheap beats." It is a stronger record path.</strong>
+          </div>
+          <div class="top-beat-preview">
+            <span>Beat preview</span>
+            <strong>Five beats are loaded in the store.</strong>
+            <a href="#beats">Open beat player</a>
           </div>
           <div class="credential-grid">
             <div>
@@ -104,146 +109,7 @@
         <p>For artists, managers, and brands who need the beat, the mix, and the rights conversation handled like the record matters.</p>
       </section>
 
-      <section class="section-shell split-section beat-store-section" id="beats">
-        <div class="section-heading">
-          <p class="eyebrow">Beat store</p>
-          <h2>Play the catalog. Buy the right beat.</h2>
-          <p>
-            Preview the production, choose a beat, then start the purchase path. One-off leases, premium files,
-            exclusives, custom requests, and SYNC uses are confirmed before payment and delivery.
-          </p>
-          <div class="store-quick-paths" aria-label="Beat purchase paths">
-            <a href="#licensing">Starter lease from $29</a>
-            <a href="#licensing">Premium license from $79</a>
-            <a href="#licensing">Exclusive quotes from $500+</a>
-          </div>
-        </div>
-        <div class="beat-store" data-beat-store>
-          <article class="beat-player" aria-label="Featured beat player">
-            <div class="beat-player-art">
-              <img src="assets/jyw-logo.svg" alt="" aria-hidden="true">
-            </div>
-            <div class="beat-player-copy">
-              <p class="tag" data-current-lane>Inquiry-only beat licensing</p>
-              <h3 data-current-title>Select a beat</h3>
-              <p data-current-description>Choose a track below to load it into the player.</p>
-              <dl class="beat-meta">
-                <div><dt>BPM</dt><dd data-current-bpm>--</dd></div>
-                <div><dt>Key</dt><dd data-current-key>--</dd></div>
-                <div><dt>Use</dt><dd data-current-use>Inquiry</dd></div>
-              </dl>
-              <audio data-beat-audio controls preload="metadata"></audio>
-              <div class="beat-player-actions">
-                <a class="button primary" data-current-inquiry data-offering="beat" href="#contact">Buy / license this beat</a>
-                <button class="button secondary" type="button" data-next-beat>Next beat</button>
-              </div>
-            </div>
-          </article>
-          <div class="beat-grid" data-beat-grid></div>
-        </div>
-      </section>
-
-      <section class="section-shell licensing-section" id="licensing">
-        <div class="section-heading compact">
-          <p class="eyebrow">Licensing paths</p>
-          <h2>Buy one beat or scope the rights first.</h2>
-          <p>
-            Beat pricing starts simple: choose the lane, share the artist context, and Josh can confirm
-            final rights, file delivery, usage caps, and terms before payment moves.
-          </p>
-        </div>
-        <div class="license-grid" aria-label="Beat licensing paths">
-          <article class="license-card">
-            <span>Starter lease</span>
-            <h3>Demo or first release</h3>
-            <p class="price-line">Starts at $29</p>
-            <p>Best when you need a clean MP3/WAV path, clear credit language, and a low-friction way to test the song.</p>
-            <ul>
-              <li>Non-exclusive use</li>
-              <li>Artist release context required</li>
-              <li>Instant delivery planned after live checkout approval</li>
-            </ul>
-            <a class="button secondary" href="#contact" data-offering="beat">Buy starter lease</a>
-          </article>
-          <article class="license-card featured">
-            <span>Premium lease</span>
-            <h3>Serious single</h3>
-            <p class="price-line">Starts at $79</p>
-            <p>Best when the record needs better files, stronger usage terms, and room for proper mixing or stem delivery.</p>
-            <ul>
-              <li>WAV-first delivery concept</li>
-              <li>Stem request captured before quote</li>
-              <li>Upgrade path before the record scales</li>
-            </ul>
-            <a class="button primary" href="#contact" data-offering="beat">Buy premium license</a>
-          </article>
-          <article class="license-card">
-            <span>Exclusive / custom</span>
-            <h3>Own the moment</h3>
-            <p class="price-line">Custom quotes from $500+</p>
-            <p>Best when the beat, custom production, or brand cue needs negotiation before anyone treats it like a cart item.</p>
-            <ul>
-              <li>No new leases after exclusive terms are accepted</li>
-              <li>Publishing and usage discussion required</li>
-              <li>Custom quote before payment</li>
-            </ul>
-            <a class="button secondary" href="#contact" data-offering="custom">Request exclusive buyout</a>
-          </article>
-        </div>
-        <div class="checkout-readiness" aria-label="Checkout readiness status">
-          <div>
-            <span>Checkout readiness</span>
-            <strong>Built for static inquiry now. Payments stay off.</strong>
-            <p>Beat previews, lead capture, and quote routing are ready for GitHub Pages. The prices above are public starting points; final terms are confirmed before checkout, automatic delivery, or signed licenses are activated.</p>
-          </div>
-          <ul>
-            <li><b>Ready:</b> preview player, selected-beat capture, strong inquiry payload.</li>
-            <li><b>Pricing:</b> $29 starter, $79 premium, $500+ custom/exclusive scope.</li>
-            <li><b>Next:</b> payment provider, refund policy, license templates, instant downloads.</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="section-shell" id="plugins">
-        <div class="section-heading compact">
-          <p class="eyebrow">Plugin store</p>
-          <h2>Tools made by someone who actually uses them.</h2>
-          <p>Your Mix Sucks is the active JoshYouWut plugin product: a $59 one-time Logic Pro AU license with a waitlist open now.</p>
-        </div>
-        <div class="product-row">
-          <article class="product-card featured-tool">
-            <span class="product-icon">YMS</span>
-            <div>
-              <p class="tag">$59 one-time license · Logic Pro AU waitlist</p>
-              <h3>Your Mix Sucks</h3>
-              <p>
-                The brutally useful mix coach for Logic Pro. Drop it on a track, bus, or mix bus, hit play,
-                and get a 0-100 mix read plus plain-English feedback on frequency balance, dynamics,
-                stereo field, gain staging, masking, and what to fix next. Mix Notes now preserve an
-                Overall tip plus timestamped Timeline notes inside the Logic project.
-              </p>
-            </div>
-            <ul class="tool-specs">
-              <li>Analysis-only: it listens, scores, and teaches without changing your audio.</li>
-              <li>Timestamped Mix Notes append as the track plays and restore when the Logic project reopens.</li>
-              <li>Logic verification confirmed playback analysis, saved timeline notes, compact GAIN label, and FFT edge labels.</li>
-            </ul>
-            <div class="purchase-panel" aria-label="Your Mix Sucks purchase status">
-              <span>Customer price</span>
-              <strong>$59 one-time license</strong>
-              <p>Join the waiting list for early access notes, installer compatibility, and purchase availability. No payment is collected on this form.</p>
-            </div>
-            <div class="tool-status">
-              <b>Current status</b>
-              <span>Verified in Logic Pro as an AU insert with restored timestamped Mix Notes. The public site is waitlist-first while checkout and installer delivery are finalized.</span>
-            </div>
-            <a href="your-mix-sucks.html">View product page</a>
-            <a href="#contact" data-offering="yms">Join waiting list</a>
-          </article>
-        </div>
-      </section>
-
-      <section class="services section-shell" id="services">
+      <section class="services section-shell section-band service-band" id="services">
         <div class="section-heading">
           <p class="eyebrow">Audio engineering services</p>
           <h2>Serious artist packages with real numbers attached.</h2>
@@ -309,7 +175,146 @@
         </div>
       </section>
 
-      <section class="sync-section section-shell" id="sync">
+      <section class="section-shell split-section beat-store-section section-band beat-band" id="beats">
+        <div class="section-heading">
+          <p class="eyebrow">Beat store</p>
+          <h2>Play the catalog. Buy the right beat.</h2>
+          <p>
+            Preview the production, choose a beat, then start the purchase path. One-off leases, premium files,
+            exclusives, custom requests, and SYNC uses are confirmed before payment and delivery.
+          </p>
+          <div class="store-quick-paths" aria-label="Beat purchase paths">
+            <a href="#licensing">Starter lease from $29</a>
+            <a href="#licensing">Premium license from $79</a>
+            <a href="#licensing">Exclusive quotes from $500+</a>
+          </div>
+        </div>
+        <div class="beat-store" data-beat-store>
+          <article class="beat-player" aria-label="Featured beat player">
+            <div class="beat-player-art">
+              <img src="assets/jyw-logo.svg" alt="" aria-hidden="true">
+            </div>
+            <div class="beat-player-copy">
+              <p class="tag" data-current-lane>Inquiry-only beat licensing</p>
+              <h3 data-current-title>Select a beat</h3>
+              <p data-current-description>Choose a track below to load it into the player.</p>
+              <dl class="beat-meta">
+                <div><dt>BPM</dt><dd data-current-bpm>--</dd></div>
+                <div><dt>Key</dt><dd data-current-key>--</dd></div>
+                <div><dt>Use</dt><dd data-current-use>Inquiry</dd></div>
+              </dl>
+              <audio data-beat-audio controls preload="metadata"></audio>
+              <div class="beat-player-actions">
+                <a class="button primary" data-current-inquiry data-offering="beat" href="#contact">Buy / license this beat</a>
+                <button class="button secondary" type="button" data-next-beat>Next beat</button>
+              </div>
+            </div>
+          </article>
+          <div class="beat-grid" data-beat-grid></div>
+        </div>
+      </section>
+
+      <section class="section-shell licensing-section section-band license-band" id="licensing">
+        <div class="section-heading compact">
+          <p class="eyebrow">Licensing paths</p>
+          <h2>Buy one beat or scope the rights first.</h2>
+          <p>
+            Beat pricing starts simple: choose the lane, share the artist context, and Josh can confirm
+            final rights, file delivery, usage caps, and terms before payment moves.
+          </p>
+        </div>
+        <div class="license-grid" aria-label="Beat licensing paths">
+          <article class="license-card">
+            <span>Starter lease</span>
+            <h3>Demo or first release</h3>
+            <p class="price-line">Starts at $29</p>
+            <p>Best when you need a clean MP3/WAV path, clear credit language, and a low-friction way to test the song.</p>
+            <ul>
+              <li>Non-exclusive use</li>
+              <li>Artist release context required</li>
+              <li>Instant delivery planned after live checkout approval</li>
+            </ul>
+            <a class="button secondary" href="#contact" data-offering="beat">Buy starter lease</a>
+          </article>
+          <article class="license-card featured">
+            <span>Premium lease</span>
+            <h3>Serious single</h3>
+            <p class="price-line">Starts at $79</p>
+            <p>Best when the record needs better files, stronger usage terms, and room for proper mixing or stem delivery.</p>
+            <ul>
+              <li>WAV-first delivery concept</li>
+              <li>Stem request captured before quote</li>
+              <li>Upgrade path before the record scales</li>
+            </ul>
+            <a class="button primary" href="#contact" data-offering="beat">Buy premium license</a>
+          </article>
+          <article class="license-card">
+            <span>Exclusive / custom</span>
+            <h3>Own the moment</h3>
+            <p class="price-line">Custom quotes from $500+</p>
+            <p>Best when the beat, custom production, or brand cue needs negotiation before anyone treats it like a cart item.</p>
+            <ul>
+              <li>No new leases after exclusive terms are accepted</li>
+              <li>Publishing and usage discussion required</li>
+              <li>Custom quote before payment</li>
+            </ul>
+            <a class="button secondary" href="#contact" data-offering="custom">Request exclusive buyout</a>
+          </article>
+        </div>
+        <div class="checkout-readiness" aria-label="Checkout readiness status">
+          <div>
+            <span>Checkout readiness</span>
+            <strong>Built for static inquiry now. Payments stay off.</strong>
+            <p>Beat previews, lead capture, and quote routing are ready for GitHub Pages. The prices above are public starting points; final terms are confirmed before checkout, automatic delivery, or signed licenses are activated.</p>
+          </div>
+          <ul>
+            <li><b>Ready:</b> preview player, selected-beat capture, strong inquiry payload.</li>
+            <li><b>Pricing:</b> $29 starter, $79 premium, $500+ custom/exclusive scope.</li>
+            <li><b>Next:</b> payment provider, refund policy, license templates, instant downloads.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section-shell section-band plugin-band" id="plugins">
+        <div class="section-heading compact">
+          <p class="eyebrow">Plugin store</p>
+          <h2>Tools made by someone who actually uses them.</h2>
+          <p>Your Mix Sucks is the active JoshYouWut plugin product: a $59 one-time Logic Pro AU license with a waitlist open now.</p>
+        </div>
+        <div class="product-row">
+          <article class="product-card featured-tool">
+            <span class="product-icon">YMS</span>
+            <div>
+              <p class="tag">$59 one-time license · Logic Pro AU waitlist</p>
+              <h3>Your Mix Sucks</h3>
+              <p>
+                The brutally useful mix coach for Logic Pro. Drop it on a track, bus, or mix bus, hit play,
+                and get a 0-100 mix read plus plain-English feedback on frequency balance, dynamics,
+                stereo field, gain staging, masking, and what to fix next. Mix Notes now preserve an
+                Overall tip plus timestamped Timeline notes inside the Logic project.
+              </p>
+            </div>
+            <ul class="tool-specs">
+              <li>Analysis-only: it listens, scores, and teaches without changing your audio.</li>
+              <li>Timestamped Mix Notes append as the track plays and restore when the Logic project reopens.</li>
+              <li>Logic verification confirmed playback analysis, saved timeline notes, compact GAIN label, and FFT edge labels.</li>
+            </ul>
+            <div class="purchase-panel" aria-label="Your Mix Sucks purchase status">
+              <span>Customer price</span>
+              <strong>$59 one-time license</strong>
+              <p>Join the waiting list for early access notes, installer compatibility, and purchase availability. No payment is collected on this form.</p>
+            </div>
+            <div class="tool-status">
+              <b>Current status</b>
+              <span>Verified in Logic Pro as an AU insert with restored timestamped Mix Notes. The public site is waitlist-first while checkout and installer delivery are finalized.</span>
+            </div>
+            <a href="your-mix-sucks.html">View product page</a>
+            <a href="#contact" data-offering="yms">Join waiting list</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="sync-section section-shell section-band sync-band" id="sync">
         <div>
           <p class="eyebrow">SYNC licensing</p>
           <h2>Placement-focused music for sports, film, TV, advertising, and creators.</h2>
@@ -329,7 +334,7 @@
         </div>
       </section>
 
-      <section class="section-shell" id="releases">
+      <section class="section-shell section-band proof-band" id="releases">
         <div class="section-heading compact">
           <p class="eyebrow">Commercial releases</p>
           <h2>Fan-facing catalog, Apple Music links, and proof of range.</h2>
@@ -357,7 +362,7 @@
         </div>
       </section>
 
-      <section class="contact-section section-shell" id="contact">
+      <section class="contact-section section-shell section-band contact-band" id="contact">
         <div>
           <p class="eyebrow">Have a question?</p>
           <h2>Send enough signal for a useful follow-up.</h2>
@@ -524,6 +529,6 @@
       <a href="#top">Back to top</a>
     </footer>
 
-    <script src="js/site.js?v=20260606-beat-ux"></script>
+    <script src="js/site.js?v=20260606-section-bands"></script>
   </body>
 </html>
