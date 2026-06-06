@@ -556,6 +556,58 @@ h3 {
   background: var(--gold);
 }
 
+.service-band .section-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.95rem;
+  max-width: 1040px;
+  margin-bottom: 1.5rem;
+}
+
+.service-band .section-heading h2 {
+  max-width: 15ch;
+  font-size: clamp(2.35rem, 5vw, 4.8rem);
+}
+
+.service-band .section-heading > p:not(.eyebrow) {
+  max-width: 68rem;
+  margin: 0;
+}
+
+.service-highlights {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin-top: 0.25rem;
+}
+
+.service-highlights a {
+  display: grid;
+  gap: 0.2rem;
+  min-height: 5rem;
+  border: 1px solid rgba(213, 155, 47, 0.34);
+  border-radius: 8px;
+  background: rgba(213, 155, 47, 0.12);
+  color: #fff8e8;
+  padding: 0.85rem;
+  text-decoration: none;
+}
+
+.service-highlights span {
+  color: var(--gold);
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.service-highlights strong {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(1.15rem, 2vw, 1.55rem);
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+
 .beat-band {
   box-shadow:
     0 0 0 100vmax rgba(6, 14, 24, 0.9),
@@ -1931,6 +1983,10 @@ textarea::placeholder {
   .beat-store-section {
     width: min(100% - 1rem, 1440px);
     padding-top: 2rem;
+  }
+
+  .service-highlights {
+    grid-template-columns: 1fr;
   }
 
   .beat-store-section .section-heading h2,
