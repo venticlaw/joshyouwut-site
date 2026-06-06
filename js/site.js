@@ -91,6 +91,7 @@ const nextBeatButton = document.querySelector("[data-next-beat]");
 const leadForm = document.querySelector("[data-lead-form]");
 const selectedBeatInput = document.querySelector("[data-selected-beat]");
 const selectedPackageInput = document.querySelector("[data-selected-package]");
+const budgetSelect = document.querySelector("select[name='budget']");
 const leadIdInput = document.querySelector("[data-lead-id]");
 const capturedAtInput = document.querySelector("[data-captured-at]");
 const formStatus = document.querySelector("[data-form-status]");
@@ -163,7 +164,7 @@ function updateFormContext(offering = "package") {
   }
 }
 
-const moveToLeadForm = (offering, beat, packageName = "") => {
+const moveToLeadForm = (offering, beat, packageName = "", packageBudget = "") => {
   selectOffering(offering);
   if (selectedBeatInput && beat) {
     selectedBeatInput.value = `${beat.title} | ${beat.bpm} BPM | ${beat.key}`;
@@ -172,6 +173,9 @@ const moveToLeadForm = (offering, beat, packageName = "") => {
   }
   if (selectedPackageInput) {
     selectedPackageInput.value = packageName;
+  }
+  if (budgetSelect && packageBudget) {
+    budgetSelect.value = packageBudget;
   }
   leadForm?.scrollIntoView({ behavior: "smooth", block: "start" });
   setTimeout(() => {
@@ -267,10 +271,11 @@ document.addEventListener("click", (event) => {
   const offering = link.dataset.offering;
   const beatIndex = link.dataset.beatInquiry;
   const packageName = link.dataset.packageInquiry || "";
+  const packageBudget = link.dataset.packageBudget || "";
   const beat = beatIndex ? beats[Number(beatIndex)] : offering === "beat" ? beats[activeBeatIndex] : null;
 
   event.preventDefault();
-  moveToLeadForm(offering, beat, packageName);
+  moveToLeadForm(offering, beat, packageName, packageBudget);
 });
 
 leadForm?.addEventListener("change", (event) => {
