@@ -1776,6 +1776,56 @@ h3 {
   text-transform: uppercase;
 }
 
+.commerce-map {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  padding-top: 1.4rem;
+  padding-bottom: 1.4rem;
+}
+
+.commerce-map a {
+  display: grid;
+  gap: 0.45rem;
+  min-height: 11rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background:
+    linear-gradient(135deg, rgba(255, 90, 31, 0.17), rgba(12, 12, 13, 0.92)),
+    rgba(18, 18, 19, 0.9);
+  color: #ffffff;
+  padding: 1.25rem;
+  text-decoration: none;
+  box-shadow: var(--shadow);
+}
+
+.commerce-map a:nth-child(2) {
+  background:
+    linear-gradient(135deg, rgba(66, 103, 178, 0.28), rgba(12, 12, 13, 0.92)),
+    rgba(18, 18, 19, 0.9);
+}
+
+.commerce-map a:nth-child(3) {
+  background:
+    linear-gradient(135deg, rgba(213, 155, 47, 0.24), rgba(12, 12, 13, 0.92)),
+    rgba(18, 18, 19, 0.9);
+}
+
+.commerce-map span {
+  color: var(--gold);
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.commerce-map strong {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
+.commerce-map small {
+  color: rgba(255, 255, 255, 0.66);
+  line-height: 1.45;
+}
+
 .split-section,
 .services,
 .sync-section,
@@ -1812,6 +1862,35 @@ dt {
 .store-card a,
 .product-card a,
 .release-list a {
+  color: #ffffff;
+}
+
+.beat-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.2rem;
+}
+
+.beat-filters button {
+  min-height: 2.55rem;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.72);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 900;
+  padding: 0.65rem 1rem;
+  text-transform: uppercase;
+}
+
+.beat-filters button.is-active,
+.beat-filters button:hover,
+.beat-filters button:focus-visible {
+  border-color: rgba(255, 90, 31, 0.72);
+  background: rgba(255, 90, 31, 0.18);
   color: #ffffff;
 }
 
@@ -1919,6 +1998,44 @@ dt {
   font-weight: 800;
 }
 
+.purchase-facts {
+  display: grid;
+  gap: 0;
+  margin: 0.2rem 0 0;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.purchase-facts div {
+  display: grid;
+  grid-template-columns: 6.8rem minmax(0, 1fr);
+  gap: 0.8rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.62rem 0.72rem;
+}
+
+.purchase-facts div:first-child {
+  border-top: 0;
+}
+
+.purchase-facts dt,
+.purchase-facts dd {
+  margin: 0;
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+
+.purchase-facts dt {
+  color: var(--gold);
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.purchase-facts dd {
+  color: rgba(255, 248, 232, 0.78);
+  font-weight: 750;
+}
+
 .package-card ul {
   display: grid;
   gap: 0.42rem;
@@ -1955,6 +2072,51 @@ textarea::placeholder {
   color: rgba(255, 255, 255, 0.44);
 }
 
+.form-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.form-steps span {
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.76rem;
+  font-weight: 900;
+  padding: 0.75rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.selection-summary {
+  display: grid;
+  gap: 0.28rem;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(255, 90, 31, 0.38);
+  background: linear-gradient(135deg, rgba(255, 90, 31, 0.16), rgba(255, 255, 255, 0.05));
+  padding: 1rem;
+}
+
+.selection-summary span {
+  color: var(--gold);
+  font-size: 0.74rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.selection-summary strong {
+  color: #ffffff;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.selection-summary small {
+  color: rgba(255, 255, 255, 0.66);
+  line-height: 1.45;
+}
+
 .release-list span {
   color: var(--gold);
 }
@@ -1989,6 +2151,10 @@ textarea::placeholder {
     grid-template-columns: 1fr;
   }
 
+  .commerce-map {
+    grid-template-columns: 1fr;
+  }
+
   .beat-store-section .section-heading h2,
   .beat-store-section .section-heading > p:not(.eyebrow) {
     max-width: none;
@@ -2017,7 +2183,13 @@ textarea::placeholder {
   }
 
   .beat-meta,
-  .beat-grid {
+  .beat-grid,
+  .form-steps {
     grid-template-columns: 1fr;
+  }
+
+  .purchase-facts div {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
   }
 }

@@ -15,7 +15,7 @@
       rel="stylesheet"
     >
     <link rel="icon" type="image/svg+xml" href="assets/jyw-logo.svg">
-    <link rel="stylesheet" href="css/site.css?v=20260606-package-budget">
+    <link rel="stylesheet" href="css/site.css?v=20260607-commerce-ux">
   </head>
   <body>
     <header class="site-header" data-site-header>
@@ -109,6 +109,24 @@
         <p>For artists, managers, and brands who need the beat, the mix, and the rights conversation handled like the record matters.</p>
       </section>
 
+      <section class="commerce-map section-shell" aria-label="Shop paths">
+        <a href="#services">
+          <span>01</span>
+          <strong>Artist packages</strong>
+          <small>$900, $3,500, or $7,000 builds with beats, mix, mastering, and rights support.</small>
+        </a>
+        <a href="#beats">
+          <span>02</span>
+          <strong>Beat store</strong>
+          <small>Preview the catalog, pick a track, then choose starter, premium, or exclusive terms.</small>
+        </a>
+        <a href="#plugins">
+          <span>03</span>
+          <strong>Plugin waitlist</strong>
+          <small>Your Mix Sucks is listed at $59 for Logic Pro AU early access.</small>
+        </a>
+      </section>
+
       <section class="services section-shell section-band service-band" id="services">
         <div class="section-heading">
           <p class="eyebrow">Audio engineering services</p>
@@ -134,6 +152,11 @@
             <span>Music Launch Loadout</span>
             <h3>1 Full Song</h3>
             <p class="package-price"><strong>$900</strong><s>$1,000</s></p>
+            <dl class="purchase-facts">
+              <div><dt>Best for</dt><dd>1 release-ready single</dd></div>
+              <div><dt>Includes</dt><dd>Beat, mix, master, PRO setup</dd></div>
+              <div><dt>Budget field</dt><dd>$500-$1,000</dd></div>
+            </dl>
             <p>For serious artists ready to take the first big leap with one professionally produced, mixed, mastered, and royalty-ready song.</p>
             <ul>
               <li>1 custom beat from JoshYouWut</li>
@@ -151,6 +174,11 @@
             <span>Elite Exclusive Music Bundle</span>
             <h3>5 Full Songs</h3>
             <p class="package-price"><strong>$3,500</strong><s>$4,000</s></p>
+            <dl class="purchase-facts">
+              <div><dt>Best for</dt><dd>5-song EP or mini-album</dd></div>
+              <div><dt>Includes</dt><dd>5 beats, full mix/master, strategy</dd></div>
+              <div><dt>Budget field</dt><dd>$2,500-$5,000</dd></div>
+            </dl>
             <p>For ambitious artists building a professional-quality EP or mini-album with production, finishing, rights, and strategy in one lane.</p>
             <ul>
               <li>5 custom beats from JoshYouWut</li>
@@ -170,6 +198,11 @@
             <span>All-Inclusive Music Bundle</span>
             <h3>10 Full Songs</h3>
             <p class="package-price"><strong>$7,000</strong><s>$7,500</s></p>
+            <dl class="purchase-facts">
+              <div><dt>Best for</dt><dd>10-song project build</dd></div>
+              <div><dt>Includes</dt><dd>Production, mixing, rollout strategy</dd></div>
+              <div><dt>Budget field</dt><dd>$5,000-$10,000</dd></div>
+            </dl>
             <p>The full project path for artists ready to create, refine, and promote a complete EP while developing sound, brand, and visual direction.</p>
             <ul>
               <li>10 custom beats from JoshYouWut</li>
@@ -202,6 +235,12 @@
             <a href="#licensing">Premium license from $79</a>
             <a href="#licensing">Exclusive quotes from $500+</a>
           </div>
+          <div class="beat-filters" aria-label="Filter beat catalog">
+            <button class="is-active" type="button" data-beat-filter="all">All</button>
+            <button type="button" data-beat-filter="artist">Artist records</button>
+            <button type="button" data-beat-filter="sync">SYNC / sports</button>
+            <button type="button" data-beat-filter="rap">Rap pockets</button>
+          </div>
         </div>
         <div class="beat-store" data-beat-store>
           <article class="beat-player" aria-label="Featured beat player">
@@ -219,7 +258,7 @@
               </dl>
               <audio data-beat-audio controls preload="metadata"></audio>
               <div class="beat-player-actions">
-                <a class="button primary" data-current-inquiry data-offering="beat" href="#contact">Buy / license this beat</a>
+                <a class="button primary" data-current-inquiry data-offering="beat" data-package-budget="$250-$500" href="#contact">Buy / license this beat</a>
                 <button class="button secondary" type="button" data-next-beat>Next beat</button>
               </div>
             </div>
@@ -248,7 +287,7 @@
               <li>Artist release context required</li>
               <li>Instant delivery planned after live checkout approval</li>
             </ul>
-            <a class="button secondary" href="#contact" data-offering="beat">Buy starter lease</a>
+            <a class="button secondary" href="#contact" data-offering="beat" data-commerce-label="Starter lease | Starts at $29" data-package-budget="Under $250">Buy starter lease</a>
           </article>
           <article class="license-card featured">
             <span>Premium lease</span>
@@ -260,7 +299,7 @@
               <li>Stem request captured before quote</li>
               <li>Upgrade path before the record scales</li>
             </ul>
-            <a class="button primary" href="#contact" data-offering="beat">Buy premium license</a>
+            <a class="button primary" href="#contact" data-offering="beat" data-commerce-label="Premium lease | Starts at $79" data-package-budget="Under $250">Buy premium license</a>
           </article>
           <article class="license-card">
             <span>Exclusive / custom</span>
@@ -272,7 +311,7 @@
               <li>Publishing and usage discussion required</li>
               <li>Custom quote before payment</li>
             </ul>
-            <a class="button secondary" href="#contact" data-offering="custom">Request exclusive buyout</a>
+            <a class="button secondary" href="#contact" data-offering="custom" data-commerce-label="Exclusive / custom quote | From $500+" data-package-budget="$500-$1,000">Request exclusive buyout</a>
           </article>
         </div>
         <div class="checkout-readiness" aria-label="Checkout readiness status">
@@ -395,6 +434,16 @@
           data-local-mirror-endpoint=""
           data-fallback-email="joshyouwut@gmail.com"
         >
+          <div class="form-steps" aria-label="Inquiry steps">
+            <span>1. Pick offer</span>
+            <span>2. Add contact</span>
+            <span>3. Confirm scope</span>
+          </div>
+          <aside class="selection-summary" data-selection-summary>
+            <span>Selected path</span>
+            <strong data-summary-title>Artist package purchase</strong>
+            <small data-summary-detail>Choose an offer above and the form will keep the package, beat, and budget range attached.</small>
+          </aside>
           <fieldset class="offering-fieldset" data-form-step="1">
             <legend>What are you interested in?</legend>
             <label class="radio-card">
@@ -544,6 +593,6 @@
       <a href="#top">Back to top</a>
     </footer>
 
-    <script src="js/site.js?v=20260606-package-budget"></script>
+    <script src="js/site.js?v=20260607-commerce-ux"></script>
   </body>
 </html>

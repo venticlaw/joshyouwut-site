@@ -33,6 +33,7 @@ const beats = [
     key: "C minor",
     lane: "Beat store catalog",
     use: "Artist licensing / custom brief",
+    tags: ["artist", "rap"],
     description: "Dark, focused pocket with space for a serious lead vocal, sharp hook energy, and a clear licensing conversation.",
     file: "assets/audio/previews/unfuckwittable-100bpm-cmin-preview.m4a"
   },
@@ -43,6 +44,7 @@ const beats = [
     key: "B minor",
     lane: "Premium energy",
     use: "Sports / sync / artist brief",
+    tags: ["artist", "sync"],
     description: "Big entrance energy with a clean theme feel for artists, sports edits, and placement-style briefs.",
     file: "assets/audio/previews/the-elite-theme-140bpm-bm-preview.m4a"
   },
@@ -53,6 +55,7 @@ const beats = [
     key: "C minor",
     lane: "Producer signature",
     use: "Artist record / brand cue",
+    tags: ["artist", "sync"],
     description: "High-character production with attitude, bounce, and a strong JoshYouWut identity signal for artists or branded moments.",
     file: "assets/audio/previews/trenta-fried-chicken-130bpm-cm-preview.m4a"
   },
@@ -63,6 +66,7 @@ const beats = [
     key: "C# minor",
     lane: "Heavy impact",
     use: "Artist licensing / sync inquiry",
+    tags: ["artist", "sync"],
     description: "Aggressive, placement-ready momentum for artists, sports energy, or briefs that need weight and movement.",
     file: "assets/audio/previews/juggernaut-135bpm-csharpm-preview.m4a"
   },
@@ -73,12 +77,14 @@ const beats = [
     key: "D minor",
     lane: "Lyrical pocket",
     use: "Artist licensing / rap record",
+    tags: ["artist", "rap"],
     description: "A precise pocket for technical writing, flow switches, and an artist who wants room to rap.",
     file: "assets/audio/previews/i-made-this-for-jid-85bpm-dm-preview.m4a"
   }
 ];
 
 const beatGrid = document.querySelector("[data-beat-grid]");
+const beatFilterButtons = document.querySelectorAll("[data-beat-filter]");
 const beatAudio = document.querySelector("[data-beat-audio]");
 const currentTitle = document.querySelector("[data-current-title]");
 const currentDescription = document.querySelector("[data-current-description]");
@@ -92,6 +98,8 @@ const leadForm = document.querySelector("[data-lead-form]");
 const selectedBeatInput = document.querySelector("[data-selected-beat]");
 const selectedPackageInput = document.querySelector("[data-selected-package]");
 const budgetSelect = document.querySelector("select[name='budget']");
+const summaryTitle = document.querySelector("[data-summary-title]");
+const summaryDetail = document.querySelector("[data-summary-detail]");
 const leadIdInput = document.querySelector("[data-lead-id]");
 const capturedAtInput = document.querySelector("[data-captured-at]");
 const formStatus = document.querySelector("[data-form-status]");
@@ -103,6 +111,7 @@ const ymsCustomerPriceInput = document.querySelector("[data-yms-customer-price]"
 const submitLabel = document.querySelector("[data-submit-label]");
 
 let activeBeatIndex = 0;
+let activeBeatFilter = "all";
 
 const offeringLabels = {
   beat: "One-off beat purchase",
@@ -122,6 +131,14 @@ const selectOffering = (offering = "package") => {
     radio.closest(".radio-card")?.classList.add("was-selected");
   }
   updateFormContext(offering);
+};
+
+const setSelectionSummary = (title, detail) => {
+  if (summaryTitle) summaryTitle.textContent = title || "Artist package purchase";
+  if (summaryDetail) {
+    summaryDetail.textContent =
+      detail || "Choose an offer above and the form will keep the package, beat, and budget range attached.";
+  }
 };
 
 const updateRequiredState = (element, isRequired) => {
@@ -164,19 +181,29 @@ function updateFormContext(offering = "package") {
   }
 }
 
-const moveToLeadForm = (offering, beat, packageName = "", packageBudget = "") => {
+const moveToLeadForm = (offering, beat, packageName = "", packageBudget = "", commerceLabel = "") => {
   selectOffering(offering);
+  let summary = commerceLabel || offeringLabels[offering] || "JoshYouWut inquiry";
+  let detail = "The selected path is attached to this inquiry.";
+
   if (selectedBeatInput && beat) {
     selectedBeatInput.value = `${beat.title} | ${beat.bpm} BPM | ${beat.key}`;
+    summary = commerceLabel || `Beat license: ${beat.title}`;
+    detail = `${beat.bpm} BPM · ${beat.key} · ${beat.use}`;
   } else if (selectedBeatInput && offering !== "beat") {
     selectedBeatInput.value = "";
   }
   if (selectedPackageInput) {
-    selectedPackageInput.value = packageName;
+    selectedPackageInput.value = packageName || commerceLabel;
+  }
+  if (packageName) {
+    summary = packageName.split("|").map((part) => part.trim()).filter(Boolean).slice(0, 2).join(" · ");
+    detail = packageBudget ? `Budget range auto-filled: ${packageBudget}` : "Package inquiry selected.";
   }
   if (budgetSelect && packageBudget) {
     budgetSelect.value = packageBudget;
   }
+  setSelectionSummary(summary, detail);
   leadForm?.scrollIntoView({ behavior: "smooth", block: "start" });
   setTimeout(() => {
     leadForm?.querySelector("input[name='first_name']")?.focus({ preventScroll: true });
@@ -194,11 +221,15 @@ const createLeadId = () => {
 const renderBeatCards = () => {
   if (!beatGrid) return;
 
-  beatGrid.innerHTML = beats
+  const visibleBeats = beats
+    .map((beat, index) => ({ ...beat, index }))
+    .filter((beat) => activeBeatFilter === "all" || beat.tags.includes(activeBeatFilter));
+
+  beatGrid.innerHTML = visibleBeats
     .map(
-      (beat, index) => `
-        <article class="store-card beat-card ${index === activeBeatIndex ? "is-active" : ""}" data-beat-card="${index}">
-          <button class="beat-card-button" type="button" data-load-beat="${index}">
+      (beat) => `
+        <article class="store-card beat-card ${beat.index === activeBeatIndex ? "is-active" : ""}" data-beat-card="${beat.index}">
+          <button class="beat-card-button" type="button" data-load-beat="${beat.index}">
             <span class="play-icon" aria-hidden="true"></span>
             <span>
               <strong>${beat.title}</strong>
@@ -212,7 +243,7 @@ const renderBeatCards = () => {
             <div><dt>Key</dt><dd>${beat.key}</dd></div>
             <div><dt>Use</dt><dd>${beat.use}</dd></div>
           </dl>
-          <a href="#contact" data-offering="beat" data-beat-inquiry="${index}">Buy / license beat</a>
+          <a href="#contact" data-offering="beat" data-beat-inquiry="${beat.index}" data-package-budget="$250-$500">Buy / license beat</a>
         </article>
       `
     )
@@ -262,6 +293,16 @@ if (beatGrid && beatAudio) {
     const nextIndex = (activeBeatIndex + 1) % beats.length;
     loadBeat(nextIndex, true);
   });
+
+  beatFilterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      activeBeatFilter = button.dataset.beatFilter || "all";
+      beatFilterButtons.forEach((filterButton) => {
+        filterButton.classList.toggle("is-active", filterButton === button);
+      });
+      renderBeatCards();
+    });
+  });
 }
 
 document.addEventListener("click", (event) => {
@@ -272,10 +313,11 @@ document.addEventListener("click", (event) => {
   const beatIndex = link.dataset.beatInquiry;
   const packageName = link.dataset.packageInquiry || "";
   const packageBudget = link.dataset.packageBudget || "";
-  const beat = beatIndex ? beats[Number(beatIndex)] : offering === "beat" ? beats[activeBeatIndex] : null;
+  const commerceLabel = link.dataset.commerceLabel || "";
+  const beat = typeof beatIndex === "string" ? beats[Number(beatIndex)] : offering === "beat" ? beats[activeBeatIndex] : null;
 
   event.preventDefault();
-  moveToLeadForm(offering, beat, packageName, packageBudget);
+  moveToLeadForm(offering, beat, packageName, packageBudget, commerceLabel);
 });
 
 leadForm?.addEventListener("change", (event) => {
