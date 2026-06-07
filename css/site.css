@@ -1297,7 +1297,7 @@ textarea {
   padding-left: 1.1rem;
 }
 
-.checkout-readiness {
+.buyer-path {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.7fr);
   gap: 1rem;
@@ -1309,7 +1309,7 @@ textarea {
   box-shadow: var(--shadow);
 }
 
-.checkout-readiness span {
+.buyer-path span {
   color: var(--coral);
   font-size: 0.78rem;
   font-weight: 900;
@@ -1317,23 +1317,23 @@ textarea {
   text-transform: uppercase;
 }
 
-.checkout-readiness strong {
+.buyer-path strong {
   display: block;
   margin-top: 0.35rem;
   font-family: "Space Grotesk", sans-serif;
   font-size: 1.35rem;
 }
 
-.checkout-readiness p,
-.checkout-readiness li {
+.buyer-path p,
+.buyer-path li {
   color: var(--muted);
 }
 
-.checkout-readiness p {
+.buyer-path p {
   margin-bottom: 0;
 }
 
-.checkout-readiness ul {
+.buyer-path ul {
   display: grid;
   gap: 0.55rem;
   margin: 0;
@@ -1432,7 +1432,7 @@ textarea {
   .service-grid,
   .release-list,
   .license-grid,
-  .checkout-readiness,
+  .buyer-path,
   .offering-fieldset,
   .form-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1477,7 +1477,7 @@ textarea {
   .service-grid,
   .release-list,
   .license-grid,
-  .checkout-readiness,
+  .buyer-path,
   .credential-grid,
   .offering-fieldset,
   .form-grid {
@@ -1729,7 +1729,7 @@ h3 {
 .inquiry-card,
 .release-list article,
 .license-card,
-.checkout-readiness,
+.buyer-path,
 .contact-form {
   border-color: rgba(255, 255, 255, 0.13);
   background: rgba(18, 18, 19, 0.88);
@@ -1909,19 +1909,19 @@ dt {
   color: rgba(255, 255, 255, 0.66);
 }
 
-.checkout-readiness {
+.buyer-path {
   border-color: rgba(255, 255, 255, 0.13);
   background: linear-gradient(135deg, rgba(255, 90, 31, 0.16), rgba(18, 18, 19, 0.9));
 }
 
-.checkout-readiness strong {
+.buyer-path strong {
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-weight: 900;
   text-transform: uppercase;
 }
 
-.checkout-readiness p,
-.checkout-readiness li {
+.buyer-path p,
+.buyer-path li {
   color: rgba(255, 255, 255, 0.7);
 }
 

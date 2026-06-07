@@ -176,8 +176,8 @@ function updateFormContext(offering = "package") {
 
   if (formStatus) {
     formStatus.textContent = normalizedOffering === "yms"
-      ? "Your Mix Sucks waiting list captures first name, email, and phone number for the $59 one-time license path. No payment is collected here."
-      : "GitHub Pages stays static. Formspree/local CSV capture can be enabled after endpoint approval; until then this falls back to a structured email.";
+      ? "Join the Your Mix Sucks list for $59 one-time license updates, compatibility notes, and purchase availability."
+      : "Send the details and JoshYouWut will follow up with the right next step.";
   }
 }
 
@@ -445,7 +445,7 @@ leadForm?.addEventListener("submit", (event) => {
     await mirrorLead();
     window.location.href = `mailto:${fallbackEmail}?subject=${subject}&body=${body}`;
     if (formStatus) {
-      formStatus.textContent = "Opening your email app with the structured inquiry.";
+      formStatus.textContent = "Opening your email app with the inquiry details.";
     }
   };
 
@@ -453,7 +453,7 @@ leadForm?.addEventListener("submit", (event) => {
     .catch(() => {
       window.location.href = `mailto:${fallbackEmail}?subject=${subject}&body=${body}`;
       if (formStatus) {
-        formStatus.textContent = "The form endpoint was not available, so this opened a structured email fallback.";
+        formStatus.textContent = "Opening your email app with the inquiry details.";
       }
     })
     .finally(() => {
