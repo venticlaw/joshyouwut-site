@@ -67,6 +67,43 @@ Use one strong hero/player elevation and mostly flat supporting cards. No glassy
 ## Motion & Interaction
 Use restrained hover/selected states for player tracks, offering cards, and form options. Motion should feel like studio equipment responding: crisp, quick, and useful. Respect reduced-motion preferences.
 
+## Social Media Asset Standards
+Use the same system across site, social, and video stills so every channel feels like the same producer brand.
+
+### Shared Composition
+- Use black or coal as the dominant field with paper/white type.
+- Use gold for the main conversion/action signal and coral for attitude or urgency.
+- Keep the JYW logo visible but not oversized; preferred placements are top-left or bottom-right.
+- Use large uppercase display copy with short lines. Avoid paragraphs on image assets.
+- Use one clear product/service lane per asset: beats, artist packages, Your Mix Sucks, or SYNC.
+- Include useful metadata when the asset is music-facing: BPM, key, lane, price, or package scope.
+- Keep safe margins at 7%-10% of the canvas edge for platform crops.
+- Do not use owner-facing copy, backend notes, launch gates, placeholder language, or implementation status on public social assets.
+
+### YouTube Banner
+- Canvas: `2560x1440`.
+- Safe center content: `1546x423`.
+- Required: JYW logo, brand name, offer line, three commerce lanes.
+- Keep the outer edges atmospheric; key text must live inside the safe center.
+
+### Instagram Carousel
+- Canvas per slide: `1080x1080`.
+- Default set: three slides.
+- Slide rhythm: hook -> offer proof -> action.
+- Use a consistent bottom rail with slide count and brand mark.
+- Each slide must stand alone when reposted outside the carousel.
+
+### Threads Post
+- Format: write a concise text post plus a square/portrait share card.
+- Text should sound direct and buyer-facing, not corporate.
+- Keep the first sentence strong enough to work without the image.
+
+### YouTube Beat Video Template
+- Still canvas: `1920x1080`.
+- Use an existing instrumental preview as the audio bed.
+- Required visual layers: logo, beat title, BPM/key, license CTA, restrained waveform/progress treatment.
+- Export target can be `.webm` when MP4 tooling is unavailable; YouTube accepts WebM uploads.
+
 ## Agent Prompt Guide
 When generating JoshYouWut artifacts:
 - Start from `css/site.css` and `assets/jyw-logo.svg`.

@@ -2055,6 +2055,77 @@ dt {
   font-size: 0.8rem;
 }
 
+.offer-compare {
+  display: grid;
+  gap: 1rem;
+  margin-top: clamp(1.5rem, 4vw, 3rem);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  background: rgba(8, 8, 9, 0.72);
+  box-shadow: var(--shadow);
+}
+
+.offer-compare-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem 1.2rem;
+  align-items: baseline;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 1rem 1.1rem;
+}
+
+.offer-compare-head span {
+  color: var(--gold);
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.offer-compare-head strong {
+  color: #ffffff;
+  font-size: 0.96rem;
+  text-transform: uppercase;
+}
+
+.offer-table {
+  display: grid;
+  overflow-x: auto;
+}
+
+.offer-row {
+  display: grid;
+  grid-template-columns: minmax(11rem, 0.8fr) repeat(3, minmax(12rem, 1fr));
+  min-width: 820px;
+}
+
+.offer-row > div {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 248, 232, 0.72);
+  font-size: 0.88rem;
+  font-weight: 750;
+  line-height: 1.35;
+  padding: 0.85rem 1rem;
+}
+
+.offer-row > div:first-child {
+  border-left: 0;
+  color: var(--gold);
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.offer-row-header > div {
+  border-top: 0;
+  background: rgba(255, 90, 31, 0.13);
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 950;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
 label {
   color: #ffffff;
 }
