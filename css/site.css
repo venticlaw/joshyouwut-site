@@ -1340,6 +1340,36 @@ textarea {
   padding-left: 1.1rem;
 }
 
+.next-step-card {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: 1.4rem;
+  border: 1px solid rgba(255, 90, 31, 0.35);
+  border-radius: 8px;
+  background: rgba(18, 18, 19, 0.78);
+  padding: 1rem;
+}
+
+.next-step-card span {
+  color: var(--gold);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.next-step-card ol {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.next-step-card li {
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 750;
+}
+
 .contact-basics {
   border-top: 1px solid rgba(16, 16, 20, 0.1);
   padding-top: 1rem;

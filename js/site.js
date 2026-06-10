@@ -243,7 +243,7 @@ const renderBeatCards = () => {
             <div><dt>Key</dt><dd>${beat.key}</dd></div>
             <div><dt>Use</dt><dd>${beat.use}</dd></div>
           </dl>
-          <a href="#contact" data-offering="beat" data-beat-inquiry="${beat.index}" data-package-budget="$250-$500">Buy / license beat</a>
+          <a href="#contact" data-offering="beat" data-beat-inquiry="${beat.index}" data-package-budget="$250-$500">Start beat purchase</a>
         </article>
       `
     )
