@@ -106,7 +106,7 @@ const formStatus = document.querySelector("[data-form-status]");
 const contextPanels = document.querySelectorAll("[data-context-panel]");
 const projectFields = document.querySelectorAll("[data-context-field='project']");
 const ymsExtraFields = document.querySelectorAll("[data-yms-extra-field]");
-const ymsWaitlistProductInput = document.querySelector("[data-yms-waitlist-product]");
+const ymsProductInterestInput = document.querySelector("[data-yms-product-interest]");
 const ymsCustomerPriceInput = document.querySelector("[data-yms-customer-price]");
 const submitLabel = document.querySelector("[data-submit-label]");
 
@@ -119,7 +119,7 @@ const offeringLabels = {
   custom: "Custom production",
   package: "Artist package purchase",
   sync: "SYNC licensing",
-  yms: "Your Mix Sucks waiting list",
+  yms: "Your Mix Sucks purchase interest",
   release: "Release / Apple Music update"
 };
 
@@ -170,13 +170,13 @@ function updateFormContext(offering = "package") {
     updateRequiredState(field, !isYms && field.querySelector("[name='goal']"));
   });
 
-  if (ymsWaitlistProductInput) ymsWaitlistProductInput.value = isYms ? "Your Mix Sucks" : "";
+  if (ymsProductInterestInput) ymsProductInterestInput.value = isYms ? "Your Mix Sucks" : "";
   if (ymsCustomerPriceInput) ymsCustomerPriceInput.value = isYms ? "$59" : "";
-  if (submitLabel) submitLabel.textContent = isYms ? "Join YMS waiting list" : "Send strong inquiry";
+  if (submitLabel) submitLabel.textContent = isYms ? "Start YMS purchase path" : "Send strong inquiry";
 
   if (formStatus) {
     formStatus.textContent = normalizedOffering === "yms"
-      ? "Join the Your Mix Sucks list for $59 one-time license updates, compatibility notes, and purchase availability."
+      ? "Start the Your Mix Sucks purchase path for $59 one-time license updates, compatibility notes, and installer details."
       : "Send the details and JoshYouWut will follow up with the right next step.";
   }
 }
@@ -345,7 +345,7 @@ leadForm?.addEventListener("submit", (event) => {
   const selectedPackage = formData.get("selected_package") || "None selected";
   const formspreeEndpoint = leadForm.dataset.formspreeEndpoint?.trim();
   const localMirrorEndpoint = leadForm.dataset.localMirrorEndpoint?.trim();
-  const fallbackEmail = leadForm.dataset.fallbackEmail || "joshyouwut@gmail.com";
+  const fallbackEmail = leadForm.dataset.fallbackEmail || "support@joshyouwut.com";
   const brand = leadForm.dataset.brand || "JoshYouWut";
   const normalizedPayload = {
     lead_id: leadId,
@@ -355,7 +355,7 @@ leadForm?.addEventListener("submit", (event) => {
     offering: String(offering),
     selected_beat: String(selectedBeat),
     selected_package: String(selectedPackage),
-    waitlist_product: payload.waitlist_product || "",
+    product_interest: payload.product_interest || "",
     customer_price: payload.customer_price || "",
     first_name: payload.first_name || "",
     email: payload.email || "",
@@ -382,7 +382,7 @@ leadForm?.addEventListener("submit", (event) => {
       `Offering: ${offering}`,
       `Selected beat: ${selectedBeat}`,
       `Selected package: ${selectedPackage}`,
-      `Waitlist product: ${formData.get("waitlist_product") || ""}`,
+      `Product interest: ${formData.get("product_interest") || ""}`,
       `Customer price: ${formData.get("customer_price") || ""}`,
       `First name: ${formData.get("first_name") || ""}`,
       `Email: ${formData.get("email") || ""}`,

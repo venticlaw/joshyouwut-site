@@ -15,7 +15,7 @@
       rel="stylesheet"
     >
     <link rel="icon" type="image/svg+xml" href="assets/jyw-logo.svg">
-    <link rel="stylesheet" href="css/site.css?v=20260610-launch-readiness">
+    <link rel="stylesheet" href="css/site.css?v=20260613-launch-legal">
   </head>
   <body>
     <header class="site-header" data-site-header>
@@ -122,8 +122,8 @@
         </a>
         <a href="#plugins">
           <span>03</span>
-          <strong>Plugin waitlist</strong>
-          <small>Your Mix Sucks is listed at $59 for Logic Pro AU early access.</small>
+          <strong>Plugin purchase list</strong>
+          <small>Your Mix Sucks is listed at $59 for the Logic Pro AU launch license.</small>
         </a>
       </section>
 
@@ -382,13 +382,13 @@
         <div class="section-heading compact">
           <p class="eyebrow">Plugin store</p>
           <h2>Tools made by someone who actually uses them.</h2>
-          <p>Your Mix Sucks is the active JoshYouWut plugin product: a $59 one-time Logic Pro AU license with a waitlist open now.</p>
+          <p>Your Mix Sucks is the active JoshYouWut plugin product: a $59 one-time Logic Pro AU license with purchase interest open now.</p>
         </div>
         <div class="product-row">
           <article class="product-card featured-tool">
             <span class="product-icon">YMS</span>
             <div>
-              <p class="tag">$59 one-time license · Logic Pro AU waitlist</p>
+              <p class="tag">$59 one-time license · Logic Pro AU purchase list</p>
               <h3>Your Mix Sucks</h3>
               <p>
                 The brutally useful mix coach for Logic Pro. Drop it on a track, bus, or mix bus, hit play,
@@ -405,14 +405,14 @@
             <div class="purchase-panel" aria-label="Your Mix Sucks purchase status">
               <span>Customer price</span>
               <strong>$59 one-time license</strong>
-              <p>Join the waiting list for early access notes, installer compatibility, and purchase availability.</p>
+              <p>Start the purchase path for compatibility notes, installer details, and the next available order step.</p>
             </div>
             <div class="tool-status">
               <b>Logic Pro AU</b>
               <span>Verified as an Audio Unit insert with timestamped Mix Notes that can restore with the Logic project.</span>
             </div>
             <a href="your-mix-sucks.html">View product page</a>
-            <a href="#contact" data-offering="yms">Join waiting list</a>
+            <a href="#contact" data-offering="yms">Start YMS purchase</a>
           </article>
         </div>
       </section>
@@ -471,7 +471,7 @@
           <h2>Send enough signal for a useful follow-up.</h2>
           <p>
             Pick the lane, add the useful context, and get routed toward the right beat purchase,
-            package, mix, SYNC quote, Your Mix Sucks waitlist, or custom offer.
+            package, mix, SYNC quote, Your Mix Sucks purchase interest, or custom offer.
           </p>
           <div class="next-step-card" aria-label="What happens after you submit">
             <span>After you send it</span>
@@ -488,9 +488,10 @@
           method="post"
           data-lead-form
           data-brand="JoshYouWut"
+          data-form-provider="formspree"
           data-formspree-endpoint=""
           data-local-mirror-endpoint=""
-          data-fallback-email="joshyouwut@gmail.com"
+          data-fallback-email="support@joshyouwut.com"
         >
           <div class="form-steps" aria-label="Inquiry steps">
             <span>1. Pick offer</span>
@@ -540,10 +541,10 @@
               </span>
             </label>
             <label class="radio-card">
-              <input name="offering" type="radio" value="Your Mix Sucks waiting list" data-offering-radio="yms">
+              <input name="offering" type="radio" value="Your Mix Sucks purchase interest" data-offering-radio="yms">
               <span>
-                <strong>Your Mix Sucks waitlist</strong>
-                <small>First name, email, and phone for the $59 one-time license list.</small>
+                <strong>Your Mix Sucks purchase list</strong>
+                <small>First name, email, and phone for the $59 one-time license path.</small>
               </span>
             </label>
             <label class="radio-card">
@@ -616,8 +617,8 @@
             <p>Include usage, deadline, mood, edit length, clean/explicit needs, and where the cue will live.</p>
           </div>
           <div class="context-panel" data-context-panel="yms" hidden>
-            <strong>Your Mix Sucks waiting list</strong>
-            <p>Enter first name, email, and phone number to join the $59 one-time license list and receive compatibility updates.</p>
+            <strong>Your Mix Sucks purchase list</strong>
+            <p>Enter first name, email, and phone number to start the $59 one-time license purchase path and receive compatibility details.</p>
           </div>
           <label data-context-field="project">
             Links to hear or review
@@ -635,7 +636,7 @@
           <input type="hidden" name="captured_at" data-captured-at value="">
           <input type="hidden" name="selected_beat" data-selected-beat value="">
           <input type="hidden" name="selected_package" data-selected-package value="">
-          <input type="hidden" name="waitlist_product" data-yms-waitlist-product value="">
+          <input type="hidden" name="product_interest" data-yms-product-interest value="">
           <input type="hidden" name="customer_price" data-yms-customer-price value="">
           <input type="hidden" name="source_site" value="JoshYouWut">
           <button class="button primary" type="submit" data-submit-label>Send strong inquiry</button>
@@ -647,10 +648,20 @@
     </main>
 
     <footer class="site-footer">
-      <p>JoshYouWut.com · Beats, artist packages, plugins, and SYNC-ready music. Contact: joshyouwut@gmail.com.</p>
+      <div>
+        <p>JoshYouWut.com · Beats, artist packages, plugins, and SYNC-ready music. Contact: <a href="mailto:support@joshyouwut.com">support@joshyouwut.com</a>.</p>
+        <nav class="footer-links" aria-label="Legal links">
+          <a href="legal/terms.html">Terms</a>
+          <a href="legal/privacy.html">Privacy</a>
+          <a href="legal/refund-support.html">Refunds</a>
+          <a href="legal/beat-license.html">Beat license</a>
+          <a href="legal/artist-services.html">Artist services</a>
+          <a href="legal/yms-eula.html">YMS EULA</a>
+        </nav>
+      </div>
       <a href="#top">Back to top</a>
     </footer>
 
-    <script src="js/site.js?v=20260610-launch-readiness"></script>
+    <script src="js/site.js?v=20260613-launch-legal"></script>
   </body>
 </html>
