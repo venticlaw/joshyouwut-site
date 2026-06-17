@@ -1,0 +1,36 @@
+{
+  "assetSet": "JoshYouWut Honey Badger Mascots - High Resolution",
+  "source": "Upscaled from Josh-provided Gemini mascot sheet cleanup",
+  "generatedAt": "2026-06-17T19:43:36.282Z",
+  "cleanup": [
+    "Upscaled transparent mascot PNGs to 1200px height",
+    "Replaced incorrect tiny uniform badges with clean JYW circular patches",
+    "Preserved transparent backgrounds for cover and site reuse"
+  ],
+  "assets": [
+    {
+      "file": "jyw-honeybadger-happy-pro.png",
+      "width": 828,
+      "height": 1200,
+      "badge": "clean JYW circular patch"
+    },
+    {
+      "file": "jyw-honeybadger-sad-yms.png",
+      "width": 883,
+      "height": 1200,
+      "badge": "clean JYW circular patch"
+    },
+    {
+      "file": "jyw-honeybadger-angry-feedback.png",
+      "width": 888,
+      "height": 1200,
+      "badge": "clean JYW circular patch"
+    },
+    {
+      "file": "jyw-honeybadger-tech-tablet.png",
+      "width": 921,
+      "height": 1200,
+      "badge": "clean JYW circular patch"
+    }
+  ]
+}
