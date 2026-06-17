@@ -1,0 +1,32 @@
+{
+  "assetSet": "JoshYouWut Honey Badger Mascots",
+  "source": "Gemini-generated character sheet provided by Josh on 2026-06-16",
+  "cleanup": [
+    "Separated four characters into individual assets",
+    "Removed fake checkerboard transparency background",
+    "Trimmed each character with reusable padding",
+    "Exported as transparent PNG"
+  ],
+  "assets": [
+    {
+      "file": "jyw-honeybadger-happy-pro.png",
+      "role": "Positive / pro / prize / win state",
+      "notes": "Yellow jacket, medal and microphone. Strongest fit for celebratory JYW music-brand moments."
+    },
+    {
+      "file": "jyw-honeybadger-sad-yms.png",
+      "role": "Mix problem / pain point / Your Mix Sucks mascot candidate",
+      "notes": "Grey outfit and tear expression. Good fit for before-state YMS plugin messaging."
+    },
+    {
+      "file": "jyw-honeybadger-angry-feedback.png",
+      "role": "Critical feedback / warning / hard-truth state",
+      "notes": "Red hoodie, angry face and steam puff. Useful for aggressive mix critique or urgent CTA visuals."
+    },
+    {
+      "file": "jyw-honeybadger-tech-tablet.png",
+      "role": "Analysis / tech / AI notes / plugin helper",
+      "notes": "Blue hoodie and tablet. Best fit for diagnostics, dashboards, automation, and plugin intelligence."
+    }
+  ]
+}
