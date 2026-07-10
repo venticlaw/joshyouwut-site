@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>$1M Funnel Report | TecDev-Core-OS</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #14171c;
+        --muted: #5f6875;
+        --paper: #f6f7f9;
+        --panel: #ffffff;
+        --line: #dfe4ea;
+        --green: #0f6b55;
+        --blue: #285f9f;
+        --gold: #9b6b1f;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--paper);
+        font: 16px/1.55 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+      .wrap { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
+      header { background: #fff; border-bottom: 1px solid var(--line); }
+      .hero { padding: 42px 0 28px; }
+      .eyebrow { margin: 0 0 8px; color: var(--green); font-size: .76rem; font-weight: 900; text-transform: uppercase; }
+      h1, h2, h3, p { margin-top: 0; }
+      h1 { max-width: 960px; margin-bottom: 12px; font-size: clamp(2.4rem, 7vw, 5rem); line-height: .96; }
+      h2 { margin-bottom: 10px; font-size: clamp(1.55rem, 4vw, 2.6rem); line-height: 1; }
+      h3 { margin-bottom: 8px; }
+      p, li, td { color: var(--muted); }
+      main { display: grid; gap: 16px; padding: 24px 0 56px; }
+      section, article { border: 1px solid var(--line); border-radius: 8px; background: var(--panel); }
+      section { padding: clamp(18px, 4vw, 28px); }
+      .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+      article { padding: 16px; }
+      .number { color: var(--ink); font-size: 1.8rem; font-weight: 950; }
+      table { width: 100%; border-collapse: collapse; overflow-wrap: anywhere; }
+      th, td { padding: 10px; border-top: 1px solid var(--line); text-align: left; vertical-align: top; }
+      th { color: var(--ink); font-size: .8rem; text-transform: uppercase; }
+      .status { display: inline-flex; padding: 5px 8px; border-radius: 999px; color: #fff; background: var(--blue); font-size: .72rem; font-weight: 900; text-transform: uppercase; }
+      .gold { background: var(--gold); }
+      .green { background: var(--green); }
+      ul { margin: 0; padding-left: 20px; }
+      @media (max-width: 760px) { .grid { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap hero">
+        <p class="eyebrow">TecDev-Core-OS Revenue Architecture</p>
+        <h1>$1M funnel report draft</h1>
+        <p>
+          Initial July 9 draft for repeatable, scalable funnels across JWTechDev.ai, JoshYouWut,
+          BOT Funding, and Experimental Media. Claude/Fable review is queued but blocked until
+          Claude CLI login is restored. GPT-5.6 is treated as current OpenAI frontier model if available.
+        </p>
+      </div>
+    </header>
+    <main class="wrap">
+      <section>
+        <p class="eyebrow">Portfolio Target</p>
+        <h2>12-month revenue allocation</h2>
+        <table>
+          <tr><th>Lane</th><th>Target</th><th>Primary engine</th></tr>
+          <tr><td>JWTechDev.ai</td><td>$550,000</td><td>AI Ops setup sprints, workshops, starter kits</td></tr>
+          <tr><td>JoshYouWut / Your Mix Sucks</td><td>$250,000</td><td>Plugin, bundles, premium producer workflow offers</td></tr>
+          <tr><td>BOT Funding</td><td>$150,000</td><td>Grants, sponsorships, partner funding, nonprofit benefits</td></tr>
+          <tr><td>Experimental Media</td><td>$50,000</td><td>Rights-safe content workflow products and setup services</td></tr>
+          <tr><th>Total</th><th>$1,000,000</th><th>Portfolio target</th></tr>
+        </table>
+      </section>
+      <section>
+        <p class="eyebrow">Funnel Summaries</p>
+        <h2>Channel funnels</h2>
+        <div class="grid">
+          <article>
+            <span class="status green">Primary</span>
+            <h3>JWTechDev.ai</h3>
+            <p class="number">$551.8k scenario</p>
+            <ul>
+              <li>$29 Cloud Infrastructure Starter Kit.</li>
+              <li>$750-$2,500 AI Ops audit/workshop.</li>
+              <li>$7,500-$15,000 AI Ops setup sprint.</li>
+              <li>$1,000-$3,000/month continuity review.</li>
+            </ul>
+          </article>
+          <article>
+            <span class="status green">Creator Product</span>
+            <h3>JoshYouWut / YMS</h3>
+            <p class="number">$251.1k scenario</p>
+            <ul>
+              <li>$59 Your Mix Sucks early access.</li>
+              <li>$149-$299 workflow bundle.</li>
+              <li>$500-$1,500 premium audit.</li>
+              <li>$19-$49/month continuity path.</li>
+            </ul>
+          </article>
+          <article>
+            <span class="status gold">Funding</span>
+            <h3>BOT Funding</h3>
+            <p class="number">$150k value scenario</p>
+            <ul>
+              <li>Small grants first: PNC, Publix, Walmart.</li>
+              <li>Mid-size education/workforce grants.</li>
+              <li>CSR and partner resource wins.</li>
+              <li>No portals or outreach without approval.</li>
+            </ul>
+          </article>
+          <article>
+            <span class="status">Experimental</span>
+            <h3>Experimental Media</h3>
+            <p class="number">$50.2k scenario</p>
+            <ul>
+              <li>Rights-safe content planner template.</li>
+              <li>Niche social workflow pack.</li>
+              <li>Content ops setup service.</li>
+              <li>No protected assets or automation until approved.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+      <section>
+        <p class="eyebrow">30-Day Priorities</p>
+        <h2>What moves first</h2>
+        <ul>
+          <li>JW: finish AI Ops offer page draft and define audit/workshop/setup sprint.</li>
+          <li>JYW: finalize YMS CTA, refund, support, delivery, and first 20 scripts.</li>
+          <li>BOT: pick PNC, Publix, Parikh, or Walmart as first route with Safia/Josh materials.</li>
+          <li>EXP: finish queue states, rights-safe proof workflow, and one approved proof candidate.</li>
+          <li>Nucleus: create weekly funnel dashboard and rerun Claude/Fable once login is fixed.</li>
+        </ul>
+      </section>
+      <section>
+        <p class="eyebrow">Model Roles</p>
+        <h2>Fable and OpenAI division of labor</h2>
+        <div class="grid">
+          <article>
+            <span class="status gold">Blocked</span>
+            <h3>Claude/Fable</h3>
+            <p>
+              Best for long-context strategy critique, offer ladder reasoning, VSL/ad review,
+              grant narrative critique, and channel-level synthesis. Current blocker: Claude CLI login.
+            </p>
+          </article>
+          <article>
+            <span class="status">Conditional</span>
+            <h3>GPT-5.6 / OpenAI</h3>
+            <p>
+              Use current OpenAI frontier model for technical explainers, page variants, scripts,
+              revenue models, QA, static pages, transcript repurposing, and code/report generation.
+              Official GPT-5.6 availability still needs confirmation.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
