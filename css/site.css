@@ -1312,6 +1312,54 @@ textarea {
   padding-left: 1.1rem;
 }
 
+.beat-tier-actions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.beat-tier-actions.is-player {
+  grid-column: 1 / -1;
+  margin-top: 0;
+}
+
+.beat-tier-link {
+  display: inline-flex;
+  min-height: 2.55rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(16, 16, 20, 0.16);
+  border-radius: 8px;
+  background: rgba(255, 253, 247, 0.92);
+  color: var(--ink);
+  padding: 0.55rem 0.65rem;
+  font-size: 0.78rem;
+  font-weight: 950;
+  line-height: 1.1;
+  text-align: center;
+  text-decoration: none;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.beat-tier-link:hover,
+.beat-tier-link:focus-visible {
+  border-color: rgba(255, 90, 31, 0.65);
+  background: rgba(255, 90, 31, 0.1);
+  transform: translateY(-1px);
+}
+
+.beat-tier-link[data-license-tier="premium"] {
+  border-color: rgba(255, 194, 51, 0.58);
+  background: var(--gold);
+  color: var(--coal);
+}
+
+.beat-tier-link[data-license-tier="exclusive"] {
+  background: rgba(16, 16, 20, 0.92);
+  color: #fff8e8;
+}
+
 .buyer-path {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.7fr);
@@ -2393,5 +2441,27 @@ textarea::placeholder {
   .purchase-facts div {
     grid-template-columns: 1fr;
     gap: 0.2rem;
+  }
+}
+
+.store-card .beat-tier-link[data-license-tier="starter"] {
+  background: rgba(255, 253, 247, 0.94);
+  color: #101014;
+}
+
+.store-card .beat-tier-link[data-license-tier="premium"] {
+  background: #ff5a1f;
+  color: #ffffff;
+}
+
+.store-card .beat-tier-link[data-license-tier="exclusive"] {
+  background: rgba(16, 16, 20, 0.94);
+  color: #ffffff;
+}
+
+@media (max-width: 620px) {
+  .beat-tier-actions,
+  .beat-tier-actions.is-player {
+    grid-template-columns: 1fr;
   }
 }

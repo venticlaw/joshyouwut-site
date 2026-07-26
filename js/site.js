@@ -83,6 +83,33 @@ const beats = [
   }
 ];
 
+const beatLicenseTiers = {
+  starter: {
+    label: "Starter Lease",
+    price: "$29",
+    budget: "Under $250",
+    note: "MP3/WAV path for one release. No stems.",
+    live: false,
+    url: ""
+  },
+  premium: {
+    label: "Premium Lease",
+    price: "$79",
+    budget: "Under $250",
+    note: "WAV plus available stems/trackouts for a serious single.",
+    live: false,
+    url: ""
+  },
+  exclusive: {
+    label: "Exclusive Buyout",
+    price: "From $500+",
+    budget: "$500-$1,000",
+    note: "Request-first rights conversation before exclusivity is reserved.",
+    live: false,
+    url: ""
+  }
+};
+
 const beatGrid = document.querySelector("[data-beat-grid]");
 const beatFilterButtons = document.querySelectorAll("[data-beat-filter]");
 const beatAudio = document.querySelector("[data-beat-audio]");
@@ -112,6 +139,31 @@ const submitLabel = document.querySelector("[data-submit-label]");
 
 let activeBeatIndex = 0;
 let activeBeatFilter = "all";
+
+const buildBeatCheckoutAction = (beat, tierKey, variant = "card") => {
+  const tier = beatLicenseTiers[tierKey];
+  if (!tier) return "";
+  const isPrimary = tierKey === "premium";
+  const className = variant === "player" ? `button ${isPrimary ? "primary" : "secondary"}` : "beat-tier-link";
+  const label = tier.live && tier.url ? `Buy ${tier.label} ${tier.price}` : `${tier.label} ${tier.price}`;
+
+  if (tier.live && tier.url) {
+    return `<a class="${className}" href="${tier.url}" target="_blank" rel="noopener" data-beat-checkout="${beat.id}" data-license-tier="${tierKey}">${label}</a>`;
+  }
+
+  const offering = tierKey === "exclusive" ? "custom" : "beat";
+  const commerceLabel = `${beat.title} | ${tier.label} | ${tier.price}`;
+  const actionLabel = tierKey === "exclusive" ? `Request ${tier.label}` : `Start ${tier.label} ${tier.price}`;
+  return `<a class="${className}" href="#contact" data-offering="${offering}" data-beat-inquiry="${beat.index ?? activeBeatIndex}" data-commerce-label="${commerceLabel}" data-package-budget="${tier.budget}" data-license-tier="${tierKey}">${actionLabel}</a>`;
+};
+
+const buildBeatTierActions = (beat, variant = "card") => `
+  <div class="beat-tier-actions ${variant === "player" ? "is-player" : ""}" aria-label="${beat.title} license options">
+    ${buildBeatCheckoutAction(beat, "starter", variant)}
+    ${buildBeatCheckoutAction(beat, "premium", variant)}
+    ${buildBeatCheckoutAction(beat, "exclusive", variant)}
+  </div>
+`;
 
 const offeringLabels = {
   beat: "One-off beat purchase",
@@ -243,7 +295,7 @@ const renderBeatCards = () => {
             <div><dt>Key</dt><dd>${beat.key}</dd></div>
             <div><dt>Use</dt><dd>${beat.use}</dd></div>
           </dl>
-          <a href="#contact" data-offering="beat" data-beat-inquiry="${beat.index}" data-package-budget="$250-$500">Start beat purchase</a>
+          ${buildBeatTierActions(beat)}
         </article>
       `
     )
@@ -263,6 +315,12 @@ const loadBeat = (index, shouldPlay = false) => {
   currentLane.textContent = beat.lane;
   currentInquiry.href = "#contact";
   currentInquiry.dataset.beatInquiry = String(index);
+  currentInquiry.dataset.commerceLabel = `${beat.title} | Premium Lease | ${beatLicenseTiers.premium.price}`;
+  currentInquiry.dataset.packageBudget = beatLicenseTiers.premium.budget;
+  const playerActions = document.querySelector(".beat-player-actions");
+  const existingTierActions = playerActions?.querySelector(".beat-tier-actions");
+  existingTierActions?.remove();
+  playerActions?.insertAdjacentHTML("afterbegin", buildBeatTierActions({ ...beat, index }, "player"));
   if (selectedBeatInput && !selectedBeatInput.value) {
     selectedBeatInput.value = `${beat.title} | ${beat.bpm} BPM | ${beat.key}`;
   }
