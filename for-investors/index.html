@@ -1,0 +1,977 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>For Investors | JoshYouWut Plugin Suite</title>
+  <meta name="description" content="A JoshYouWut investor and strategic acquirer page explaining the Plugin Suite, product IP, buyer logic, and acquisition thesis.">
+  <style>
+    :root {
+      --cream: #fdfbf4;
+      --ink: #0a0a0a;
+      --surface: #fff8e8;
+      --muted: #5f626d;
+      --gold: #d59b2f;
+      --gold-bright: #ffc233;
+      --blue: #4267b2;
+      --coral: #e35d45;
+      --mint: #58b99f;
+      --charcoal: #101014;
+      --line: rgba(10, 10, 10, 0.12);
+      --shadow: 0 24px 90px rgba(16, 16, 20, 0.18);
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.45;
+      letter-spacing: 0;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .shell {
+      min-height: 100vh;
+    }
+
+    .deck-top {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 14px clamp(18px, 4vw, 42px);
+      background: rgba(253, 251, 244, 0.92);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(18px);
+    }
+
+    .brand-lockup {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      object-fit: cover;
+      border-radius: 7px;
+      border: 1px solid var(--line);
+      background: var(--charcoal);
+    }
+
+    .brand-name {
+      font-weight: 850;
+      font-size: 15px;
+      white-space: nowrap;
+    }
+
+    .brand-sub {
+      color: var(--muted);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav button {
+      appearance: none;
+      border: 1px solid var(--line);
+      background: var(--charcoal);
+      color: var(--surface);
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .counter {
+      min-width: 62px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .progress {
+      position: fixed;
+      top: 67px;
+      left: 0;
+      z-index: 21;
+      height: 3px;
+      width: 100%;
+      background: rgba(10, 10, 10, 0.08);
+    }
+
+    .progress span {
+      display: block;
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, var(--gold), var(--coral), var(--blue));
+      transition: width 160ms ease;
+    }
+
+    main {
+      width: 100%;
+    }
+
+    .slide {
+      min-height: calc(100vh - 67px);
+      display: grid;
+      align-items: center;
+      padding: clamp(42px, 7vw, 92px) clamp(20px, 5vw, 64px);
+      border-bottom: 1px solid var(--line);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slide-inner {
+      width: min(100%, var(--max));
+      margin: 0 auto;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.78fr);
+      gap: clamp(30px, 5vw, 68px);
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 18px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 850;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 22px;
+      height: 3px;
+      background: var(--gold);
+      border-radius: 99px;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 960px;
+      font-size: clamp(48px, 9vw, 118px);
+      line-height: 0.9;
+      margin-bottom: 24px;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      max-width: 940px;
+      font-size: clamp(36px, 6vw, 76px);
+      line-height: 0.95;
+      margin-bottom: 20px;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      font-size: clamp(18px, 2.4vw, 28px);
+      line-height: 1.05;
+      margin-bottom: 12px;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 840px;
+      color: #2f3035;
+      font-size: clamp(19px, 2.25vw, 28px);
+      line-height: 1.22;
+      margin-bottom: 28px;
+    }
+
+    .tight {
+      max-width: 760px;
+    }
+
+    .meta-row,
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .pill,
+    .mini-stat {
+      border: 1px solid var(--line);
+      background: rgba(255, 248, 232, 0.72);
+      border-radius: 8px;
+      padding: 9px 12px;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--charcoal);
+    }
+
+    .dark {
+      background: var(--charcoal);
+      color: var(--cream);
+    }
+
+    .dark .lead,
+    .dark .card p,
+    .dark .note,
+    .dark .muted,
+    .dark .source-list {
+      color: rgba(253, 251, 244, 0.73);
+    }
+
+    .dark .card,
+    .dark .statement,
+    .dark .metric,
+    .dark .timeline-step {
+      background: rgba(253, 251, 244, 0.07);
+      border-color: rgba(253, 251, 244, 0.16);
+    }
+
+    .dark .pill,
+    .dark .mini-stat {
+      background: rgba(253, 251, 244, 0.08);
+      border-color: rgba(253, 251, 244, 0.18);
+      color: var(--cream);
+    }
+
+    .gold {
+      color: var(--gold-bright);
+    }
+
+    .blue {
+      color: var(--blue);
+    }
+
+    .coral {
+      color: var(--coral);
+    }
+
+    .mint {
+      color: var(--mint);
+    }
+
+    .hero-art {
+      width: 100%;
+      max-height: 520px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+    }
+
+    .logo-plaque {
+      width: min(100%, 420px);
+      display: block;
+      margin-inline: auto;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 30px;
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid.four {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .card,
+    .statement,
+    .metric,
+    .timeline-step {
+      border: 1px solid var(--line);
+      background: rgba(255, 248, 232, 0.82);
+      border-radius: 8px;
+      padding: clamp(18px, 2.2vw, 28px);
+    }
+
+    .card img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 18px;
+      border: 1px solid var(--line);
+    }
+
+    .card p,
+    .statement p,
+    .timeline-step p {
+      color: #3c3e45;
+      margin-bottom: 0;
+      font-size: 16px;
+    }
+
+    .kicker {
+      color: var(--gold);
+      font-weight: 900;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-bottom: 10px;
+    }
+
+    .big-number {
+      display: block;
+      color: var(--gold);
+      font-size: clamp(34px, 5.6vw, 68px);
+      font-weight: 900;
+      line-height: 0.95;
+      margin-bottom: 8px;
+    }
+
+    .metric span:last-child {
+      color: var(--muted);
+      font-weight: 750;
+    }
+
+    .list {
+      display: grid;
+      gap: 14px;
+      margin-top: 28px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .list li {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 12px;
+      align-items: start;
+      color: #2f3035;
+      font-size: clamp(17px, 2vw, 22px);
+      line-height: 1.24;
+    }
+
+    .dark .list li {
+      color: rgba(253, 251, 244, 0.84);
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      margin-top: 8px;
+      background: var(--gold);
+      border-radius: 99px;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 34px;
+    }
+
+    .flow-step {
+      min-height: 138px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .flow-step strong {
+      font-size: 18px;
+      line-height: 1.05;
+    }
+
+    .flow-step small {
+      color: var(--muted);
+      font-weight: 750;
+      line-height: 1.25;
+    }
+
+    .dark .flow-step {
+      background: rgba(253, 251, 244, 0.08);
+      border-color: rgba(253, 251, 244, 0.16);
+    }
+
+    .dark .flow-step small {
+      color: rgba(253, 251, 244, 0.68);
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .timeline-step {
+      min-height: 210px;
+    }
+
+    .timeline-step .period {
+      color: var(--gold);
+      font-weight: 900;
+      margin-bottom: 14px;
+    }
+
+    .math {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 30px;
+    }
+
+    .math .metric {
+      min-height: 150px;
+    }
+
+    .gate {
+      border-left: 5px solid var(--coral);
+    }
+
+    .good {
+      border-left: 5px solid var(--mint);
+    }
+
+    .data {
+      border-left: 5px solid var(--blue);
+    }
+
+    .note {
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 820px;
+    }
+
+    .source-list {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+      padding-left: 18px;
+    }
+
+    .source-list li {
+      margin-bottom: 8px;
+    }
+
+    .print-hint {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 20;
+      background: var(--charcoal);
+      color: var(--surface);
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 12px;
+      font-weight: 800;
+      box-shadow: var(--shadow);
+    }
+
+    @media (max-width: 900px) {
+      .split,
+      .grid,
+      .grid.two,
+      .grid.four,
+      .flow,
+      .timeline,
+      .math {
+        grid-template-columns: 1fr;
+      }
+
+      .slide {
+        min-height: auto;
+      }
+
+      .brand-sub,
+      .print-hint {
+        display: none;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .deck-top,
+      .progress,
+      .print-hint {
+        display: none;
+      }
+
+      .slide {
+        min-height: 100vh;
+        break-after: page;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="deck-top" aria-label="Deck controls">
+      <div class="brand-lockup">
+        <img class="brand-mark" src="assets/plugin-suite-social-preview-1200x630.jpg" alt="">
+        <div>
+          <div class="brand-name">JoshYouWut Plugin Suite</div>
+          <div class="brand-sub">For investors and strategic buyers</div>
+        </div>
+      </div>
+      <nav class="nav" aria-label="Slide navigation">
+        <button type="button" data-prev aria-label="Previous slide">&#8592;</button>
+        <div class="counter"><span data-current>1</span>/<span data-total>16</span></div>
+        <button type="button" data-next aria-label="Next slide">&#8594;</button>
+      </nav>
+    </header>
+    <div class="progress" aria-hidden="true"><span data-progress></span></div>
+
+    <main>
+      <section class="slide dark" id="slide-1">
+        <div class="slide-inner split">
+          <div>
+            <div class="eyebrow">Strategic buyer review</div>
+            <h1>For Investors</h1>
+            <p class="lead">JoshYouWut is building a creator-led pro-audio software company that a larger plugin vendor, marketplace, or music platform could acquire for product IP, cultural trust, and producer workflow expansion.</p>
+            <div class="meta-row">
+              <span class="pill">Your Mix Sucks</span>
+              <span class="pill">Bass Phat</span>
+              <span class="pill">Acquisition thesis</span>
+              <span class="pill">Built to be bought</span>
+            </div>
+          </div>
+          <img class="hero-art" src="assets/plugin-suite-store-header-1600x300.jpg" alt="JoshYouWut Plugin Suite branded header art">
+        </div>
+      </section>
+
+      <section class="slide" id="slide-2">
+        <div class="slide-inner">
+          <div class="eyebrow">Investment thesis</div>
+          <h2>Acquire the producer decision layer before it becomes expensive.</h2>
+          <p class="lead tight">The opportunity is to turn JoshYouWut from a creator brand with products into a defensible pro-audio company: a trusted front door for independent producers before they bounce, release, buy tools, fix bass, or ask for feedback.</p>
+          <div class="grid three">
+            <div class="statement good">
+              <h3>Cultural trust</h3>
+              <p>The brand can speak in the language producers actually use: direct, funny, useful, and unafraid to say what needs fixing.</p>
+            </div>
+            <div class="statement data">
+              <h3>Workflow leverage</h3>
+              <p>Every opt-in diagnosis, support case, and content response can improve rules, presets, onboarding, offer paths, and product roadmap decisions.</p>
+            </div>
+            <div class="statement gate">
+              <h3>Buyable stack</h3>
+              <p>An acquirer would not be buying a single plugin. They would be buying product IP, brand voice, creator distribution, buyer learning, and a suite expansion path.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide dark" id="slide-3">
+        <div class="slide-inner split">
+          <div>
+            <div class="eyebrow">The market gap</div>
+            <h2>Independent producers have too many tools and not enough trusted decisions.</h2>
+            <ul class="list">
+              <li><span class="dot"></span><span>A mix can feel close for days because the creator cannot tell whether the issue is tonal balance, stereo width, masking, gain, low end, or taste.</span></li>
+              <li><span class="dot"></span><span>Traditional plugin companies sell knobs. Modern creators increasingly need guidance, translation checks, and confidence before release.</span></li>
+              <li><span class="dot"></span><span>Feedback services are slow and expensive. Generic AI music tools often feel detached from real DAW workflow, taste, and creator trust.</span></li>
+            </ul>
+          </div>
+          <img class="logo-plaque" src="assets/your-mix-sucks-official-plaque.png" alt="Your Mix Sucks official plaque">
+        </div>
+      </section>
+
+      <section class="slide" id="slide-4">
+        <div class="slide-inner">
+          <div class="eyebrow">What the buyer gets first</div>
+          <h2>YMS diagnoses the session. Bass Phat turns the thesis into a suite.</h2>
+          <div class="grid two">
+            <article class="card">
+              <img src="assets/yms-product-cover-1600x1200.jpg" alt="Your Mix Sucks product visual">
+              <div class="kicker">Launch wedge | $59 direction</div>
+              <h3>Your Mix Sucks</h3>
+              <p>Logic Pro AU mix-analysis plugin with real-time audio analysis, a Go rules engine, FlatBuffers IPC, scoring, and timestamped feedback across tonal balance, stereo field, dynamics, masking, and gain staging.</p>
+            </article>
+            <article class="card">
+              <img src="assets/bass-phat-product-cover-1600x1200.jpg" alt="Bass Phat product visual">
+              <div class="kicker">Suite expansion | development posture</div>
+              <h3>Bass Phat</h3>
+              <p>Standalone Audio Unit bass enhancer with PHAT, COLOR, FOCUS, SUB LOCK, and OUTPUT controls for low-end weight, harmonic translation, mono-safe sub discipline, and honest level matching.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" id="slide-5">
+        <div class="slide-inner">
+          <div class="eyebrow">Acquisition logic</div>
+          <h2>A strategic buyer gets more than code. They get demand, trust, workflows, and attachable product lines.</h2>
+          <div class="grid four">
+            <div class="metric"><span class="big-number">01</span><span>Plugin IP with working product evidence and documented filing prep.</span></div>
+            <div class="metric"><span class="big-number">02</span><span>Creator-led distribution that can speak to producers faster than a cold corporate brand.</span></div>
+            <div class="metric"><span class="big-number">03</span><span>Buyer learning that reveals producer pain by genre, skill level, session type, and urgency.</span></div>
+            <div class="metric"><span class="big-number">04</span><span>A suite thesis that can expand into bundles, subscriptions, education, marketplaces, and support.</span></div>
+          </div>
+          <p class="note">Recent industry activity supports the general pattern that larger audio/software companies acquire specialist plugin assets and brands. This deck uses that as market context, not as a guarantee of outcome.</p>
+        </div>
+      </section>
+
+      <section class="slide dark" id="slide-6">
+        <div class="slide-inner">
+          <div class="eyebrow">Revenue thesis</div>
+          <h2>The buyer gets a low-ticket wedge that can expand into recurring software and services.</h2>
+          <div class="flow" aria-label="Revenue ladder">
+            <div class="flow-step"><strong>Audience</strong><small>Mix autopsies, low-end tests, funny producer pain, YouTube demos.</small></div>
+            <div class="flow-step"><strong>Intent</strong><small>Checklist, waitlist, compatibility questions, and buyer education once approved.</small></div>
+            <div class="flow-step"><strong>Wedge</strong><small>$59 YMS, $49 Bass Phat placeholder, and bundle paths after validation.</small></div>
+            <div class="flow-step"><strong>Expansion</strong><small>$99 Release Verdict, $149-$299 packs, premium audits, and partner offers.</small></div>
+            <div class="flow-step"><strong>Recurring</strong><small>Feedback club, presets, genre packs, training, and support-driven retention.</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" id="slide-7">
+        <div class="slide-inner split">
+          <div>
+            <div class="eyebrow">Distribution</div>
+            <h2>Use the brand voice as the unfair advantage an acquirer cannot easily manufacture.</h2>
+            <p class="lead">The most ownable funnel is not polished plugin advertising. It is useful producer judgment delivered with JYW attitude, then routed into the suite.</p>
+            <ul class="list">
+              <li><span class="dot"></span><span>Short-form pain hooks: "your 808 is loud, not good," "your bounce failed the car test," "your mix is lying because it got louder."</span></li>
+              <li><span class="dot"></span><span>YouTube demos: real before/after sessions, YMS score reads, Bass Phat low-end translation checks.</span></li>
+              <li><span class="dot"></span><span>Offer bridge: content sends producers to the checklist, launch list, Release Verdict, or plugin suite page after approval gates are cleared.</span></li>
+            </ul>
+          </div>
+          <img class="hero-art" src="assets/plugin-suite-social-preview-1200x630.jpg" alt="Plugin Suite social preview">
+        </div>
+      </section>
+
+      <section class="slide dark" id="slide-8">
+        <div class="slide-inner">
+          <div class="eyebrow">Product architecture</div>
+          <h2>The acquisition target is a producer workflow layer, not a novelty plugin.</h2>
+          <div class="grid three">
+            <div class="statement">
+              <div class="kicker">Diagnose</div>
+              <h3>Your Mix Sucks</h3>
+              <p>Scores and explains the problem inside the DAW so producers stop guessing.</p>
+            </div>
+            <div class="statement">
+              <div class="kicker">Correct</div>
+              <h3>Bass Phat</h3>
+              <p>Fixes one of the most emotional and purchase-driving problems: low end that does not translate.</p>
+            </div>
+            <div class="statement">
+              <div class="kicker">Compound</div>
+              <h3>Suite + account layer</h3>
+              <p>Future unlocks: presets, genre packs, verdict history, account features, support workflows, education, and creator benchmarks.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" id="slide-9">
+        <div class="slide-inner">
+          <div class="eyebrow">Diligence asset</div>
+          <h2>The protectable story is layered and ready to organize for buyer review.</h2>
+          <div class="grid two">
+            <div class="statement good">
+              <h3>Copyright first</h3>
+              <p>YMS and Bass Phat should prioritize computer-program copyright prep, deposit review, authorship records, and versioned evidence before major public scale or formal diligence.</p>
+            </div>
+            <div class="statement data">
+              <h3>Patent evaluation second</h3>
+              <p>YMS has the stronger technical disclosure candidate around DAW analysis, IPC, scoring, rule feedback, and workflow. Bass Phat may stay copyright/trade-secret/brand-first unless counsel finds specific novelty.</p>
+            </div>
+            <div class="statement gate">
+              <h3>Trade secrets stay private</h3>
+              <p>Keep scoring thresholds, rule weights, engineer-knowledge structure, prompt packets, and operating rubrics out of public assets.</p>
+            </div>
+            <div class="statement">
+              <h3>Brand assets matter</h3>
+              <p>The voice, marks, product naming, visuals, support macros, launch proofs, and creator trust become diligence assets a buyer can evaluate.</p>
+            </div>
+          </div>
+          <p class="note">No filings, attorney contact, public patent claims, source uploads, or fee payments should happen without Josh approval.</p>
+        </div>
+      </section>
+
+      <section class="slide dark" id="slide-10">
+        <div class="slide-inner">
+          <div class="eyebrow">Strategic upside</div>
+          <h2>A billion-dollar outcome requires a platform story, so the roadmap is built around acquirer value.</h2>
+          <div class="math">
+            <div class="metric">
+              <span class="big-number">$120M</span>
+              <span>ARR scenario: 500k active subscribers at $20/month. At an 8x revenue multiple, that approaches $1B enterprise value. Illustrative only.</span>
+            </div>
+            <div class="metric">
+              <span class="big-number">$200M</span>
+              <span>Annual revenue scenario: 1M creators at $200 annual ARPU across plugins, bundles, education, and support. At 5x revenue, that reaches $1B. Illustrative only.</span>
+            </div>
+          </div>
+          <p class="lead tight">The point for investors and strategic buyers: the roadmap should build assets a larger company values even before those numbers exist.</p>
+        </div>
+      </section>
+
+      <section class="slide" id="slide-11-revenue-road">
+        <div class="slide-inner">
+          <div class="eyebrow">12-month revenue road</div>
+          <h2>How we plan to turn the suite into revenue over the next year.</h2>
+          <p class="lead tight">The year-one plan is staged: validate demand with YMS, attach higher-ticket feedback offers, prove Bass Phat interest, then package recurring value that a buyer can scale.</p>
+          <div class="timeline">
+            <div class="timeline-step">
+              <div class="period">Months 1-3</div>
+              <h3>Paid validation</h3>
+              <p>Launch approved YMS purchase-list path, collect first buyer/support patterns, publish demos, and test $99 Release Verdict as the fastest human-service revenue bridge.</p>
+            </div>
+            <div class="timeline-step">
+              <div class="period">Months 4-6</div>
+              <h3>Bundle and upsell</h3>
+              <p>Bundle YMS with feedback packs, prepare Bass Phat waitlist/demo posture, and move serious buyers into $149-$299 workflow bundles or $500-$1,500 premium audits.</p>
+            </div>
+            <div class="timeline-step">
+              <div class="period">Months 7-9</div>
+              <h3>Recurring layer</h3>
+              <p>Convert proven users into a $19-$49/month feedback club with presets, office hours, mix checks, genre notes, and support-led education.</p>
+            </div>
+            <div class="timeline-step">
+              <div class="period">Months 10-12</div>
+              <h3>Scale package</h3>
+              <p>Document conversion, retention, refund reasons, support issues, testimonials, and product roadmap so the business is easier to fund, partner with, or acquire.</p>
+            </div>
+          </div>
+          <div class="math">
+            <div class="metric">
+              <span class="big-number">$250K</span>
+              <span>Base year-one JYW target from the current Nucleus funnel model: plugins, feedback offers, premium audits, and continuity. This is a planning target, not a guarantee.</span>
+            </div>
+            <div class="metric">
+              <span class="big-number">4 paths</span>
+              <span>Revenue does not depend on one SKU: YMS licenses, Bass Phat/suite bundles, Release Verdict or feedback packs, and recurring membership.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" id="slide-11">
+        <div class="slide-inner">
+          <div class="eyebrow">De-risking plan</div>
+          <h2>Build the company in gates a buyer can diligence.</h2>
+          <div class="timeline">
+            <div class="timeline-step">
+              <div class="period">0-30 days</div>
+              <h3>Proof and permissions</h3>
+              <p>Finalize launch posture, support/refund language, YMS checkout gate, Bass Phat public posture, and copyright prep questions.</p>
+            </div>
+            <div class="timeline-step">
+              <div class="period">31-90 days</div>
+              <h3>Paid validation</h3>
+              <p>Ship approved launch-list funnel, first paid YMS path, Release Verdict beta, and repeatable weekly content loop.</p>
+            </div>
+            <div class="timeline-step">
+              <div class="period">3-12 months</div>
+              <h3>Suite traction</h3>
+              <p>Bundle products, gather testimonials, improve onboarding, segment by genre, and document paid conversion benchmarks.</p>
+            </div>
+            <div class="timeline-step">
+              <div class="period">12-36 months</div>
+              <h3>Strategic value</h3>
+              <p>Expand suite, subscription layer, creator accounts, licensing partnerships, affiliate channel, data room, and acquisition conversations.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide dark" id="slide-12">
+        <div class="slide-inner">
+          <div class="eyebrow">Buyer narrative</div>
+          <h2>Why buy us: acquire the producer trust layer.</h2>
+          <div class="grid three">
+            <div class="statement">
+              <h3>For plugin vendors</h3>
+              <p>JYW adds creator-native content, direct product voice, and an opinionated education/feedback layer that can attach to existing plugin catalogs.</p>
+            </div>
+            <div class="statement">
+              <h3>For marketplaces</h3>
+              <p>The suite can improve discovery, bundles, onboarding, retention, and support because it explains what creators need before they buy.</p>
+            </div>
+            <div class="statement">
+              <h3>For platforms</h3>
+              <p>JYW can become a front door for independent producers: diagnose the record, fix the weak spot, learn the pattern, then buy the next tool.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" id="slide-13">
+        <div class="slide-inner">
+          <div class="eyebrow">Current diligence packet</div>
+          <h2>There are real assets to review, with clear gates still marked.</h2>
+          <div class="grid three">
+            <div class="statement good">
+              <h3>YMS codebase</h3>
+              <p>JUCE AU plugin, Go analysis daemon, IPC protocol, rules engine, installer path, marketing packet, and $59 product direction.</p>
+            </div>
+            <div class="statement good">
+              <h3>Bass Phat validation</h3>
+              <p>Standalone AU repo, universal binary path, code signing checks, AU validation success, and clear low-end control concept.</p>
+            </div>
+            <div class="statement gate">
+              <h3>Commerce setup</h3>
+              <p>Plugin Suite store exists in Lemon Squeezy test mode with hidden products. Live payment, public checkout, delivery, and support remain gated.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide dark" id="slide-14">
+        <div class="slide-inner">
+          <div class="eyebrow">Post-investment operating loop</div>
+          <h2>Every week should create proof a buyer can underwrite.</h2>
+          <div class="flow">
+            <div class="flow-step"><strong>Watch</strong><small>Collect creator pain from comments, support, sessions, and content response.</small></div>
+            <div class="flow-step"><strong>Package</strong><small>Turn pain into scripts, demos, copy, rules, presets, and product tests.</small></div>
+            <div class="flow-step"><strong>Offer</strong><small>Route to launch list, plugin, verdict, bundle, or service after gates are cleared.</small></div>
+            <div class="flow-step"><strong>Measure</strong><small>Track hooks, signups, paid intent, refund reasons, support issues, and usage.</small></div>
+            <div class="flow-step"><strong>Improve</strong><small>Ship better onboarding, scoring, genre logic, bundle paths, and buyer education.</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" id="slide-15">
+        <div class="slide-inner">
+          <div class="eyebrow">What we need to unlock</div>
+          <h2>The fastest path to buyer readiness is approval discipline.</h2>
+          <div class="grid two">
+            <div class="statement gate">
+              <h3>Approval gates</h3>
+              <p>Public checkout, live payment mode, public product claims, file delivery, DNS/domain direction, Bass Phat public posture, support email routing, lead capture backend, and any filing/payment/upload.</p>
+            </div>
+            <div class="statement good">
+              <h3>Buyer-readiness work</h3>
+              <p>Package buyer FAQs, build launch-list page draft, tighten support/refund runbook, prepare demo scripts, create acquisition data room index, and update Nucleus/JYW status.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide dark" id="slide-16">
+        <div class="slide-inner">
+          <div class="eyebrow">Acquisition close</div>
+          <h2>Buy the thing a plugin vendor wishes it had built before culture moved on.</h2>
+          <p class="lead tight">JoshYouWut can become the blunt, trusted, creator-native operating layer for better records: diagnose the weak spot, fix the decision, teach the pattern, and attach the next useful tool.</p>
+          <div class="pill-row">
+            <span class="pill">Protect the IP</span>
+            <span class="pill">Validate the wedge</span>
+            <span class="pill">Grow the suite</span>
+            <span class="pill">Document the data</span>
+            <span class="pill">Prepare the data room</span>
+          </div>
+          <p class="note">Public strategic overview only. This page is not an offer to sell securities, does not guarantee revenue, and does not activate checkout or delivery. Source basis: local JYW business-builder files, Plugin Suite Lemon Squeezy setup packet, YMS and Bass Phat READMEs, IP protection docket, Nucleus million-dollar funnel plan, plus market context from public acquisition announcements.</p>
+          <ul class="source-list">
+            <li><a href="https://focusrite.com/articles/sonnox-joins-the-focusrite-group/">Focusrite Group: Sonnox joins the Focusrite Group</a></li>
+            <li><a href="https://blog.native-instruments.com/native-instruments-brand-news/">Native Instruments brand news: iZotope, Brainworx, Plugin Alliance integration context</a></li>
+            <li><a href="https://www.copyright.gov/register/tx-programs.html">U.S. Copyright Office: computer programs registration guidance</a></li>
+            <li><a href="https://www.uspto.gov/patents/basics/apply/provisional-application?MURL=ProvisionalPatent">USPTO: provisional application guidance</a></li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <div class="print-hint">Use arrows or PgUp/PgDn</div>
+  </div>
+
+  <script>
+    const slides = Array.from(document.querySelectorAll(".slide"));
+    const current = document.querySelector("[data-current]");
+    const total = document.querySelector("[data-total]");
+    const progress = document.querySelector("[data-progress]");
+    const prev = document.querySelector("[data-prev]");
+    const next = document.querySelector("[data-next]");
+
+    total.textContent = String(slides.length);
+
+    function activeIndex() {
+      const viewportMid = window.scrollY + window.innerHeight * 0.46;
+      let index = 0;
+      slides.forEach((slide, i) => {
+        if (slide.offsetTop <= viewportMid) index = i;
+      });
+      return index;
+    }
+
+    function update() {
+      const index = activeIndex();
+      current.textContent = String(index + 1);
+      progress.style.width = `${((index + 1) / slides.length) * 100}%`;
+    }
+
+    function go(delta) {
+      const index = Math.min(slides.length - 1, Math.max(0, activeIndex() + delta));
+      slides[index].scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    prev.addEventListener("click", () => go(-1));
+    next.addEventListener("click", () => go(1));
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowRight" || event.key === "PageDown" || event.key === " ") {
+        event.preventDefault();
+        go(1);
+      }
+      if (event.key === "ArrowLeft" || event.key === "PageUp") {
+        event.preventDefault();
+        go(-1);
+      }
+      if (event.key === "Home") {
+        event.preventDefault();
+        slides[0].scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+      if (event.key === "End") {
+        event.preventDefault();
+        slides[slides.length - 1].scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+    update();
+  </script>
+</body>
+</html>
