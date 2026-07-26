@@ -19,15 +19,6 @@
       "checkout_url": "https://plugin-suite.lemonsqueezy.com/checkout/buy/5e0b5cfa-e183-40c7-b39d-99bcc5d9b726",
       "fallback_offering": "yms"
     },
-    "bassphat": {
-      "name": "BassPhat",
-      "kind": "plugin",
-      "price": "$49",
-      "lemon_product_id": "1246553",
-      "lemon_variant_id": "1948500",
-      "checkout_url": "",
-      "fallback_offering": "plugin-bundle"
-    },
     "plugin_bundle": {
       "name": "Plugin Suite Bundle",
       "kind": "plugin_bundle",
