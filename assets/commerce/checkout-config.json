@@ -23,9 +23,9 @@
       "name": "Plugin Suite Bundle",
       "kind": "plugin_bundle",
       "price": "$89",
-      "lemon_product_id": "",
-      "lemon_variant_id": "",
-      "checkout_url": "https://plugin-suite.lemonsqueezy.com/checkout/custom/48b48405-740b-4de5-a9c1-b7461a4e0c29?signature=48247e823fda801f4a542a0ed73936d0faae944185284f2f925650206d177dd6",
+      "lemon_product_id": "1248739",
+      "lemon_variant_id": "1952103",
+      "checkout_url": "https://plugin-suite.lemonsqueezy.com/checkout/buy/158b6013-6488-443d-947d-6fa070aab8c1",
       "fallback_offering": "plugin-bundle",
       "includes": [
         "yms",
@@ -41,11 +41,11 @@
       "lemon_variant_id": "",
       "checkout_url": "",
       "checkout_urls_by_beat": {
-        "unfuckwittable": "https://plugin-suite.lemonsqueezy.com/checkout/custom/37486e88-9d86-4ee8-97f3-cad00ab09566?signature=108ca8c1cf8b03f8006f508872108264e1fb562a94fbaa80cd4aa57c2432919f",
-        "the-elite-theme": "https://plugin-suite.lemonsqueezy.com/checkout/custom/28d9c269-1ad7-4a8d-b0c2-b2326b240dc4?signature=ef92ed062bbb8740dbc2c427c5c89284ee956da878b7835c17738925683e201a",
-        "trenta-fried-chicken": "https://plugin-suite.lemonsqueezy.com/checkout/custom/cc0934b1-1bd4-4b29-bb40-9988c628bb17?signature=59815bc62628558b22a6fc5d0f5c4e62e6a33f0da4bb6bc3365c7df707759710",
-        "juggernaut": "https://plugin-suite.lemonsqueezy.com/checkout/custom/59478c1d-a057-4894-9f02-687f4b161c2a?signature=460950c26a4cbb9ef68007ab987363c99d8491f77a4d842a1904190061e7385c",
-        "i-made-this-for-jid": "https://plugin-suite.lemonsqueezy.com/checkout/custom/2759cf86-9dac-4fef-a96a-169d20569e7c?signature=74d86dc8112caf2e6617f3c18d76897689590a352265383b86fa1b8a8dc23c56"
+        "unfuckwittable": "https://plugin-suite.lemonsqueezy.com/checkout/custom/fbd108c4-d9c0-48f9-8bce-e428003c0a16?signature=f9ae3f9d7a2bf33fe769cf86da43fc5c6e1e3a2990bf7e0914932f0955488bf6",
+        "the-elite-theme": "https://plugin-suite.lemonsqueezy.com/checkout/custom/c42b6a38-7705-4701-86a7-be5b671819f9?signature=6c22e0fbb2a363a97485df6de7976f800a1c123fb713c6b8bb90814b772a6afd",
+        "trenta-fried-chicken": "https://plugin-suite.lemonsqueezy.com/checkout/custom/4a15cd16-d12a-4d26-aedb-7cdacb81f14d?signature=cebfdde72a4d7124b854bcf8d43d71f1673591b7c28207a263a50cfcf8f07dde",
+        "juggernaut": "https://plugin-suite.lemonsqueezy.com/checkout/custom/8df3ed33-e4df-4844-80c6-95956a31ce56?signature=64c361e7d21a42e0895598919bc49e83f82ef64a23c5588f5734dfdc6a355638",
+        "i-made-this-for-jid": "https://plugin-suite.lemonsqueezy.com/checkout/custom/dfc42564-7282-4f15-8222-a3efd866263d?signature=f4b2ce5828ed8de661499c73671c9b1f652b7e5f30bf42dbab6e35a718ad2c01"
       },
       "fallback_offering": "beat"
     },
@@ -57,11 +57,11 @@
       "lemon_variant_id": "",
       "checkout_url": "",
       "checkout_urls_by_beat": {
-        "unfuckwittable": "https://plugin-suite.lemonsqueezy.com/checkout/custom/3609b5af-b1a5-4513-9a8c-5c1a8007f0c2?signature=ce14d6b62214d589926603c42062c3e07c0e18f797622f3aec214e5957faa55d",
-        "the-elite-theme": "https://plugin-suite.lemonsqueezy.com/checkout/custom/469b0369-95f0-4abe-a8b2-cd594adbb59d?signature=8ae3c287cc388162da41c4965fb26f1ded96dbff70191bf423f795ad708cc46a",
-        "trenta-fried-chicken": "https://plugin-suite.lemonsqueezy.com/checkout/custom/bb2372f0-5249-42de-b7a3-6b200119fd1b?signature=f356d0a525caacb7a26fae28e061b0fb9af5501c929ac8f0f32a6a2fe886f8ca",
-        "juggernaut": "https://plugin-suite.lemonsqueezy.com/checkout/custom/eb1f4618-36d6-40fc-ab93-84e29c80a5e9?signature=428c521abdfba0d5e74a5a57b90f7d864bfb1f9cf44b17a96fbfb7327820129a",
-        "i-made-this-for-jid": "https://plugin-suite.lemonsqueezy.com/checkout/custom/6094119b-8884-439b-a905-933632e6ada2?signature=051c5c3b4da6f032e4fb78f6a4c24834b44c9d4d3bb056a09453f7aeb36ad5db"
+        "unfuckwittable": "https://plugin-suite.lemonsqueezy.com/checkout/custom/f582c61c-b8eb-4f5f-95c7-e4e4828f8c0d?signature=1aea34d368e57b908a75ad996a2a218955832d23a64dea7782f0b74f62670830",
+        "the-elite-theme": "https://plugin-suite.lemonsqueezy.com/checkout/custom/d19c5a43-33d4-453e-93e4-a30672aceb66?signature=2ac240690021b564d3ea9525c0aaa9f7244f088d0f0e220d9dc0c1f75cc5e659",
+        "trenta-fried-chicken": "https://plugin-suite.lemonsqueezy.com/checkout/custom/993dc9e3-26f1-4bd2-bfeb-9d97e5b9c56c?signature=d370fae932c9a1ec33924ab15a4c584122eb12e36236b6ec3b84a62d0b66d8cc",
+        "juggernaut": "https://plugin-suite.lemonsqueezy.com/checkout/custom/8e36a546-1198-44be-bbd9-282ceea392aa?signature=5b5fb94388beeb216921a2e783ae4b970b13b5ebfddb57746a2a31b0f2b60666",
+        "i-made-this-for-jid": "https://plugin-suite.lemonsqueezy.com/checkout/custom/59afb8c0-a2d6-4a0e-8c72-fee3a47915d9?signature=ff2ad34136e278758031a8f305a591be47168536eda319eabd5d1695a1f94617"
       },
       "fallback_offering": "beat"
     },
@@ -80,6 +80,6 @@
     "Exclusive beats, custom production, artist packages, and SYNC remain inquiry-first.",
     "Static GitHub Pages can consume hosted checkout URLs. It must not create Lemon checkouts directly because that requires an API key."
   ],
-  "updated_at": "2026-07-26T23:30:38.124Z",
+  "updated_at": "2026-07-26T23:34:49.610Z",
   "public_approved_at": "2026-07-26T18:30:00-04:00"
 }
