@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /proofs/
+Disallow: /house-to-bet-the-house-on-vote-20260613.html
+Disallow: /house-to-bet-the-house-on-vote-20260617.html
+Disallow: /house-to-bet-absolute-character-proofs-20260620.html
+Disallow: /house-to-bet-absolute-concept-20260620.html
+Disallow: /house-to-bet-absolute-full-run-20260621.html
