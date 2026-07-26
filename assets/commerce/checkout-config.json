@@ -5,8 +5,8 @@
     "id": "439153",
     "url": "https://plugin-suite.lemonsqueezy.com"
   },
-  "public_active": false,
-  "mode": "test_checkout_urls_generated",
+  "public_active": true,
+  "mode": "test_checkout_urls_public_approved",
   "inactive_label": "Start purchase path",
   "active_label": "Buy now",
   "products": {
@@ -80,5 +80,6 @@
     "Exclusive beats, custom production, artist packages, and SYNC remain inquiry-first.",
     "Static GitHub Pages can consume hosted checkout URLs. It must not create Lemon checkouts directly because that requires an API key."
   ],
-  "updated_at": "2026-07-26T22:23:55.658Z"
+  "updated_at": "2026-07-26T22:23:55.658Z",
+  "public_approved_at": "2026-07-26T18:30:00-04:00"
 }
