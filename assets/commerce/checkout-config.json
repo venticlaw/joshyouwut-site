@@ -1,0 +1,68 @@
+{
+  "provider": "lemon_squeezy",
+  "store": {
+    "name": "Plugin Suite",
+    "id": "439153",
+    "url": "https://plugin-suite.lemonsqueezy.com"
+  },
+  "public_active": false,
+  "mode": "setup_pending",
+  "inactive_label": "Start purchase path",
+  "active_label": "Buy now",
+  "products": {
+    "yms": {
+      "name": "Your Mix Sucks",
+      "kind": "plugin",
+      "price": "$59",
+      "lemon_product_id": "1246551",
+      "lemon_variant_id": "1948498",
+      "checkout_url": "",
+      "fallback_offering": "yms"
+    },
+    "bassphat": {
+      "name": "BassPhat",
+      "kind": "plugin",
+      "price": "$49",
+      "lemon_product_id": "1246553",
+      "lemon_variant_id": "1948500",
+      "checkout_url": "",
+      "fallback_offering": "plugin-bundle"
+    },
+    "plugin_bundle": {
+      "name": "Plugin Suite Bundle",
+      "kind": "plugin_bundle",
+      "price": "$89",
+      "lemon_product_id": "",
+      "lemon_variant_id": "",
+      "checkout_url": "",
+      "fallback_offering": "plugin-bundle",
+      "includes": ["yms", "bassphat"],
+      "savings": "$19"
+    },
+    "beat_starter": {
+      "name": "Starter Lease",
+      "kind": "beat_license",
+      "price": "$29",
+      "lemon_product_id": "",
+      "lemon_variant_id": "",
+      "checkout_url": "",
+      "checkout_urls_by_beat": {},
+      "fallback_offering": "beat"
+    },
+    "beat_premium": {
+      "name": "Premium Lease",
+      "kind": "beat_license",
+      "price": "$79",
+      "lemon_product_id": "",
+      "lemon_variant_id": "",
+      "checkout_url": "",
+      "checkout_urls_by_beat": {},
+      "fallback_offering": "beat"
+    }
+  },
+  "notes": [
+    "Do not set public_active to true until the Lemon store is live, buyer-facing URLs are approved, deliverables are attached or manual fulfillment is documented, and a test purchase passes.",
+    "Exclusive beats, custom production, artist packages, and SYNC remain inquiry-first.",
+    "Static GitHub Pages can consume hosted checkout URLs. It must not create Lemon checkouts directly because that requires an API key."
+  ]
+}

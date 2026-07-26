@@ -136,19 +136,23 @@ const ymsExtraFields = document.querySelectorAll("[data-yms-extra-field]");
 const ymsProductInterestInput = document.querySelector("[data-yms-product-interest]");
 const ymsCustomerPriceInput = document.querySelector("[data-yms-customer-price]");
 const submitLabel = document.querySelector("[data-submit-label]");
+const commerceConfigPath = new URL("../assets/commerce/checkout-config.json", document.currentScript?.src || window.location.href).href;
 
 let activeBeatIndex = 0;
 let activeBeatFilter = "all";
+let checkoutConfig = null;
 
 const buildBeatCheckoutAction = (beat, tierKey, variant = "card") => {
   const tier = beatLicenseTiers[tierKey];
   if (!tier) return "";
   const isPrimary = tierKey === "premium";
   const className = variant === "player" ? `button ${isPrimary ? "primary" : "secondary"}` : "beat-tier-link";
-  const label = tier.live && tier.url ? `Buy ${tier.label} ${tier.price}` : `${tier.label} ${tier.price}`;
+  const checkoutUrl = tier.urlsByBeat?.[beat.id] || tier.url;
+  const hasLiveCheckout = tier.live && checkoutUrl;
+  const label = hasLiveCheckout ? `Buy ${tier.label} ${tier.price}` : `${tier.label} ${tier.price}`;
 
-  if (tier.live && tier.url) {
-    return `<a class="${className}" href="${tier.url}" target="_blank" rel="noopener" data-beat-checkout="${beat.id}" data-license-tier="${tierKey}">${label}</a>`;
+  if (hasLiveCheckout) {
+    return `<a class="${className}" href="${checkoutUrl}" target="_blank" rel="noopener" data-beat-checkout="${beat.id}" data-license-tier="${tierKey}">${label}</a>`;
   }
 
   const offering = tierKey === "exclusive" ? "custom" : "beat";
@@ -375,6 +379,7 @@ if (beatGrid && beatAudio) {
 document.addEventListener("click", (event) => {
   const link = event.target.closest("[data-offering]");
   if (!link) return;
+  if (link.dataset.checkoutActive === "true") return;
 
   const offering = link.dataset.offering;
   const beatIndex = link.dataset.beatInquiry;
@@ -537,3 +542,75 @@ if (initialOffering && offeringLabels[initialOffering]) {
     leadForm?.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 }
+
+const getCheckoutProduct = (productKey) => checkoutConfig?.products?.[productKey] || null;
+
+const canUseCheckout = (product) =>
+  Boolean(checkoutConfig?.public_active && product?.checkout_url && /^https:\/\/.+\.lemonsqueezy\.com\//.test(product.checkout_url));
+
+const validLemonUrlsByKey = (urlsByKey = {}) =>
+  Object.fromEntries(
+    Object.entries(urlsByKey).filter(([, url]) => /^https:\/\/.+\.lemonsqueezy\.com\//.test(String(url)))
+  );
+
+const applyDirectCheckoutLink = (link, productKey) => {
+  const product = getCheckoutProduct(productKey);
+  if (!product) return;
+
+  const active = canUseCheckout(product);
+  const fallbackOffering = product.fallback_offering || link.dataset.offering || "package";
+  const label = active ? `Buy ${product.name} ${product.price}` : link.dataset.inactiveLabel || `${checkoutConfig?.inactive_label || "Start purchase path"} ${product.price}`;
+
+  link.textContent = label.trim();
+  link.dataset.checkoutActive = String(active);
+
+  if (active) {
+    link.href = product.checkout_url;
+    link.target = "_blank";
+    link.rel = "noopener";
+    link.removeAttribute("data-offering");
+    return;
+  }
+
+  link.href = link.dataset.fallbackHref || "#contact";
+  link.removeAttribute("target");
+  link.removeAttribute("rel");
+  link.dataset.offering = fallbackOffering;
+};
+
+const applyCheckoutConfig = () => {
+  document.querySelectorAll("[data-checkout-product]").forEach((link) => {
+    applyDirectCheckoutLink(link, link.dataset.checkoutProduct);
+  });
+
+  const starter = getCheckoutProduct("beat_starter");
+  const premium = getCheckoutProduct("beat_premium");
+
+  if (starter) {
+    beatLicenseTiers.starter.price = starter.price || beatLicenseTiers.starter.price;
+    beatLicenseTiers.starter.url = canUseCheckout(starter) ? starter.checkout_url : "";
+    beatLicenseTiers.starter.urlsByBeat = validLemonUrlsByKey(starter.checkout_urls_by_beat || {});
+    beatLicenseTiers.starter.live = Boolean(checkoutConfig?.public_active && (beatLicenseTiers.starter.url || Object.keys(beatLicenseTiers.starter.urlsByBeat).length));
+  }
+
+  if (premium) {
+    beatLicenseTiers.premium.price = premium.price || beatLicenseTiers.premium.price;
+    beatLicenseTiers.premium.url = canUseCheckout(premium) ? premium.checkout_url : "";
+    beatLicenseTiers.premium.urlsByBeat = validLemonUrlsByKey(premium.checkout_urls_by_beat || {});
+    beatLicenseTiers.premium.live = Boolean(checkoutConfig?.public_active && (beatLicenseTiers.premium.url || Object.keys(beatLicenseTiers.premium.urlsByBeat).length));
+  }
+
+  if (beatGrid && beatAudio) {
+    renderBeatCards();
+    loadBeat(activeBeatIndex);
+  }
+};
+
+fetch(commerceConfigPath, { cache: "no-store" })
+  .then((response) => (response.ok ? response.json() : null))
+  .then((config) => {
+    if (!config) return;
+    checkoutConfig = config;
+    applyCheckoutConfig();
+  })
+  .catch(() => {});
