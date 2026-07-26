@@ -788,6 +788,53 @@ dd {
   gap: 1rem;
 }
 
+.product-card.bundle-tool {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(16rem, 0.55fr);
+  align-items: center;
+  gap: clamp(1rem, 3vw, 1.6rem);
+  border-color: rgba(255, 202, 88, 0.46);
+  background:
+    linear-gradient(135deg, rgba(255, 202, 88, 0.18), rgba(66, 103, 178, 0.12)),
+    rgba(10, 10, 10, 0.82);
+}
+
+.bundle-pricing {
+  border: 1px solid rgba(255, 202, 88, 0.52);
+  border-radius: 8px;
+  background: rgba(253, 251, 244, 0.94);
+  color: #0a0a0a;
+  padding: clamp(1rem, 3vw, 1.35rem);
+}
+
+.bundle-pricing span,
+.bundle-pricing strong,
+.bundle-pricing small {
+  display: block;
+}
+
+.bundle-pricing span {
+  color: #ff5a1f;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.bundle-pricing strong {
+  margin-top: 0.25rem;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(2.35rem, 6vw, 4rem);
+  line-height: 0.9;
+}
+
+.bundle-pricing small {
+  margin-top: 0.65rem;
+  color: rgba(10, 10, 10, 0.68);
+  font-weight: 800;
+}
+
 .plugin-logo-card,
 .official-product-logo {
   margin: 0;
@@ -1607,6 +1654,10 @@ textarea {
   }
 
   .yms-proof-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-card.bundle-tool {
     grid-template-columns: 1fr;
   }
 }

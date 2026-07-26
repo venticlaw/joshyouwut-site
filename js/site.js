@@ -172,6 +172,7 @@ const offeringLabels = {
   package: "Artist package purchase",
   sync: "SYNC licensing",
   yms: "Your Mix Sucks purchase interest",
+  "plugin-bundle": "Plugin Suite bundle purchase interest",
   release: "Release / Apple Music update"
 };
 
@@ -202,8 +203,9 @@ const updateRequiredState = (element, isRequired) => {
 
 function updateFormContext(offering = "package") {
   const normalizedOffering = offering || "package";
-  const isPlugin = normalizedOffering === "yms";
+  const isPlugin = normalizedOffering === "yms" || normalizedOffering === "plugin-bundle";
   const isYms = normalizedOffering === "yms";
+  const isPluginBundle = normalizedOffering === "plugin-bundle";
 
   contextPanels.forEach((panel) => {
     const panelName = panel.dataset.contextPanel;
@@ -217,19 +219,26 @@ function updateFormContext(offering = "package") {
   });
 
   ymsExtraFields.forEach((field) => {
-    field.hidden = isYms;
-    field.classList.toggle("is-hidden", isYms);
-    updateRequiredState(field, !isYms && field.querySelector("[name='goal']"));
+    field.hidden = isPlugin;
+    field.classList.toggle("is-hidden", isPlugin);
+    updateRequiredState(field, !isPlugin && field.querySelector("[name='goal']"));
   });
 
-  if (ymsProductInterestInput) ymsProductInterestInput.value = isYms ? "Your Mix Sucks" : "";
-  if (ymsCustomerPriceInput) ymsCustomerPriceInput.value = isYms ? "$59" : "";
-  if (submitLabel) submitLabel.textContent = isYms ? "Start YMS purchase path" : "Send strong inquiry";
+  if (ymsProductInterestInput) {
+    ymsProductInterestInput.value = isYms ? "Your Mix Sucks" : isPluginBundle ? "Plugin Suite Bundle: Your Mix Sucks + BassPhat" : "";
+  }
+  if (ymsCustomerPriceInput) ymsCustomerPriceInput.value = isYms ? "$59" : isPluginBundle ? "$89" : "";
+  if (submitLabel) {
+    submitLabel.textContent = isYms ? "Start YMS purchase path" : isPluginBundle ? "Start bundle purchase path" : "Send strong inquiry";
+  }
 
   if (formStatus) {
-    formStatus.textContent = normalizedOffering === "yms"
-      ? "Start the Your Mix Sucks purchase path for $59 one-time license updates, compatibility notes, and installer details."
-      : "Send the details and JoshYouWut will follow up with the right next step.";
+    formStatus.textContent =
+      normalizedOffering === "yms"
+        ? "Start the Your Mix Sucks purchase path for $59 one-time license updates, compatibility notes, and installer details."
+        : normalizedOffering === "plugin-bundle"
+          ? "Start the $89 Plugin Suite bundle path for Your Mix Sucks and BassPhat compatibility notes, launch status, and order next steps."
+          : "Send the details and JoshYouWut will follow up with the right next step.";
   }
 }
 
