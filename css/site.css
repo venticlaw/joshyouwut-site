@@ -792,15 +792,20 @@ dd {
 }
 
 .product-row {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.25rem;
   margin-top: 1.4rem;
 }
 
 .product-card.featured-tool {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
+  grid-template-columns: minmax(16rem, 0.48fr) minmax(0, 1fr);
   align-items: start;
-  gap: 1rem;
+  gap: clamp(1rem, 3vw, 1.45rem);
+}
+
+.product-card.featured-tool .plugin-logo-card {
+  grid-row: 1 / span 4;
 }
 
 .product-card.suite-tool {
@@ -881,12 +886,14 @@ dd {
 }
 
 .plugin-logo-card.product-media-card {
-  padding: clamp(0.8rem, 2vw, 1rem);
-  overflow: hidden;
+  min-height: 0;
+  padding: clamp(1rem, 2.5vw, 1.35rem);
+  overflow: visible;
 }
 
 .plugin-logo-card.product-media-card img {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: auto;
+  max-height: clamp(11rem, 28vw, 18rem);
   object-fit: contain;
 }
 
@@ -1663,7 +1670,6 @@ textarea {
   }
 
   .card-grid,
-  .product-row,
   .service-grid,
   .release-list,
   .license-grid,
@@ -1679,6 +1685,16 @@ textarea {
 
   .product-card.bundle-tool {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .product-card.featured-tool {
+    grid-template-columns: 1fr;
+  }
+
+  .product-card.featured-tool .plugin-logo-card {
+    grid-row: auto;
   }
 }
 
