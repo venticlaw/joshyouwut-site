@@ -14,6 +14,7 @@
       "name": "Your Mix Sucks",
       "kind": "plugin",
       "price": "$59",
+      "license_scope": "One-time license for the current major version. Future major versions, new paid feature editions, and platform expansions may be sold separately.",
       "lemon_product_id": "1246551",
       "lemon_variant_id": "1948498",
       "checkout_url": "https://plugin-suite.lemonsqueezy.com/checkout/buy/5e0b5cfa-e183-40c7-b39d-99bcc5d9b726",
@@ -23,6 +24,7 @@
       "name": "Plugin Suite Bundle",
       "kind": "plugin_bundle",
       "price": "$89",
+      "license_scope": "Bundle covers the current major version of Your Mix Sucks and BassPhat. Future major versions, new paid feature editions, and platform expansions may be sold separately.",
       "lemon_product_id": "1248739",
       "lemon_variant_id": "1952103",
       "checkout_url": "https://plugin-suite.lemonsqueezy.com/checkout/buy/158b6013-6488-443d-947d-6fa070aab8c1",
@@ -69,6 +71,7 @@
       "name": "BassPhat",
       "kind": "plugin",
       "price": "$49",
+      "license_scope": "One-time license for the current major version. Future major versions, new paid feature editions, and platform expansions may be sold separately.",
       "lemon_product_id": "1246553",
       "lemon_variant_id": "1948500",
       "checkout_url": "https://plugin-suite.lemonsqueezy.com/checkout/buy/a5f265e6-8c87-48a3-9b8d-9120f1b38c39",
@@ -78,8 +81,9 @@
   "notes": [
     "Do not set public_active to true until the Lemon store is live, buyer-facing URLs are approved, deliverables are attached or manual fulfillment is documented, and a test purchase passes.",
     "Exclusive beats, custom production, artist packages, and SYNC remain inquiry-first.",
+    "Plugin prices are current-major-version licenses, not lifetime-update promises.",
     "Static GitHub Pages can consume hosted checkout URLs. It must not create Lemon checkouts directly because that requires an API key."
   ],
-  "updated_at": "2026-07-26T23:34:49.610Z",
+  "updated_at": "2026-07-27T21:12:00.000Z",
   "public_approved_at": "2026-07-26T18:30:00-04:00"
 }

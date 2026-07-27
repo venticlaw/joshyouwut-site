@@ -136,7 +136,9 @@ const ymsExtraFields = document.querySelectorAll("[data-yms-extra-field]");
 const ymsProductInterestInput = document.querySelector("[data-yms-product-interest]");
 const ymsCustomerPriceInput = document.querySelector("[data-yms-customer-price]");
 const submitLabel = document.querySelector("[data-submit-label]");
-const commerceConfigPath = new URL("../assets/commerce/checkout-config.json", document.currentScript?.src || window.location.href).href;
+const commerceConfigUrl = new URL("../assets/commerce/checkout-config.json", document.currentScript?.src || window.location.href);
+commerceConfigUrl.searchParams.set("v", "20260727-versioned-plugin-license");
+const commerceConfigPath = commerceConfigUrl.href;
 
 let activeBeatIndex = 0;
 let activeBeatFilter = "all";
@@ -253,11 +255,11 @@ function updateFormContext(offering = "package") {
   if (formStatus) {
     formStatus.textContent =
       normalizedOffering === "yms"
-        ? "Start the Your Mix Sucks purchase path for $59 one-time license updates, compatibility notes, and installer details."
+        ? "Start the Your Mix Sucks $59 current-version purchase path for compatibility notes and installer details."
         : normalizedOffering === "bassphat"
-          ? "Start the BassPhat purchase path for $49 one-time license updates, compatibility notes, and installer details."
+          ? "Start the BassPhat $49 current-version purchase path for compatibility notes and installer details."
           : normalizedOffering === "plugin-bundle"
-            ? "Start the $89 Plugin Suite bundle path for Your Mix Sucks and BassPhat compatibility notes, launch status, and order next steps."
+            ? "Start the $89 Plugin Suite bundle path for the current major versions of Your Mix Sucks and BassPhat."
           : "Use checkout for one-off purchases. Send this form when the scope, rights, or brief needs review.";
   }
 }
