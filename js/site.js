@@ -195,7 +195,7 @@ const setSelectionSummary = (title, detail) => {
   if (summaryTitle) summaryTitle.textContent = title || "Artist package purchase";
   if (summaryDetail) {
     summaryDetail.textContent =
-      detail || "Choose an offer above and the form will keep the package, beat, and budget range attached.";
+      detail || "Choose the scope and the form will keep the package, budget range, and context attached.";
   }
 };
 
@@ -258,7 +258,7 @@ function updateFormContext(offering = "package") {
           ? "Start the BassPhat purchase path for $49 one-time license updates, compatibility notes, and installer details."
           : normalizedOffering === "plugin-bundle"
             ? "Start the $89 Plugin Suite bundle path for Your Mix Sucks and BassPhat compatibility notes, launch status, and order next steps."
-          : "Send the details and JoshYouWut will follow up with the right next step.";
+          : "Use checkout for one-off purchases. Send this form when the scope, rights, or brief needs review.";
   }
 }
 
