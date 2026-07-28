@@ -137,7 +137,7 @@ const ymsProductInterestInput = document.querySelector("[data-yms-product-intere
 const ymsCustomerPriceInput = document.querySelector("[data-yms-customer-price]");
 const submitLabel = document.querySelector("[data-submit-label]");
 const commerceConfigUrl = new URL("../assets/commerce/checkout-config.json", document.currentScript?.src || window.location.href);
-commerceConfigUrl.searchParams.set("v", "20260727-versioned-plugin-license");
+commerceConfigUrl.searchParams.set("v", "20260728-live-store");
 const commerceConfigPath = commerceConfigUrl.href;
 
 let activeBeatIndex = 0;
@@ -244,22 +244,22 @@ function updateFormContext(offering = "package") {
   if (ymsCustomerPriceInput) ymsCustomerPriceInput.value = isYms ? "$59" : isBassPhat ? "$49" : isPluginBundle ? "$89" : "";
   if (submitLabel) {
     submitLabel.textContent = isYms
-      ? "Start YMS purchase path"
+      ? "Buy Your Mix Sucks"
       : isBassPhat
-        ? "Start BassPhat purchase path"
+        ? "Buy BassPhat"
         : isPluginBundle
-          ? "Start bundle purchase path"
+          ? "Buy Plugin Suite Bundle"
           : "Send strong inquiry";
   }
 
   if (formStatus) {
     formStatus.textContent =
       normalizedOffering === "yms"
-        ? "Start the Your Mix Sucks $59 current-version purchase path for compatibility notes and installer details."
+        ? "Buy Your Mix Sucks for $59. Checkout opens in Lemon Squeezy; keep the receipt for installer, license, and support reference."
         : normalizedOffering === "bassphat"
-          ? "Start the BassPhat $49 current-version purchase path for compatibility notes and installer details."
+          ? "Buy BassPhat for $49. Checkout opens in Lemon Squeezy; keep the receipt for installer, license, and support reference."
           : normalizedOffering === "plugin-bundle"
-            ? "Start the $89 Plugin Suite bundle path for the current major versions of Your Mix Sucks and BassPhat."
+            ? "Buy the $89 Plugin Suite Bundle for the current major versions of Your Mix Sucks and BassPhat."
           : "Use checkout for one-off purchases. Send this form when the scope, rights, or brief needs review.";
   }
 }
@@ -577,7 +577,7 @@ const applyDirectCheckoutLink = (link, productKey) => {
 
   const active = canUseCheckout(product);
   const fallbackOffering = product.fallback_offering || link.dataset.offering || "package";
-  const label = active ? `Buy ${product.name} ${product.price}` : link.dataset.inactiveLabel || `${checkoutConfig?.inactive_label || "Start purchase path"} ${product.price}`;
+  const label = active ? `Buy ${product.name} ${product.price}` : link.dataset.inactiveLabel || `${checkoutConfig?.inactive_label || "Buy now"} ${product.price}`;
 
   link.textContent = label.trim();
   link.dataset.checkoutActive = String(active);

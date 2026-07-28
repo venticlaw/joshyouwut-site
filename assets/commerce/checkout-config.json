@@ -6,8 +6,8 @@
     "url": "https://plugin-suite.lemonsqueezy.com"
   },
   "public_active": true,
-  "mode": "test_checkout_urls_public_approved",
-  "inactive_label": "Start purchase path",
+  "mode": "live_checkout_urls_public",
+  "inactive_label": "Buy now",
   "active_label": "Buy now",
   "products": {
     "yms": {
@@ -79,11 +79,11 @@
     }
   },
   "notes": [
-    "Do not set public_active to true until the Lemon store is live, buyer-facing URLs are approved, deliverables are attached or manual fulfillment is documented, and a test purchase passes.",
+    "Store is live. Public checkout links are active; delivery assets still require API/dashboard verification before instant fulfillment is represented as complete.",
     "Exclusive beats, custom production, artist packages, and SYNC remain inquiry-first.",
     "Plugin prices are current-major-version licenses, not lifetime-update promises.",
     "Static GitHub Pages can consume hosted checkout URLs. It must not create Lemon checkouts directly because that requires an API key."
   ],
-  "updated_at": "2026-07-27T21:12:00.000Z",
+  "updated_at": "2026-07-28T10:37:49.000Z",
   "public_approved_at": "2026-07-26T18:30:00-04:00"
 }
