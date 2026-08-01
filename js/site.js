@@ -110,6 +110,33 @@ const beatLicenseTiers = {
   }
 };
 
+const packageOptions = {
+  "launch-loadout": {
+    label: "Music Launch Loadout",
+    summary: "Music Launch Loadout · 1 Full Song",
+    detail: "$900 sale price · $1,000 original",
+    selectedPackage: "Music Launch Loadout | 1 Full Song | $900 sale / $1,000 original",
+    budget: "$500-$1,000",
+    price: "$900"
+  },
+  "elite-ep": {
+    label: "Elite Exclusive Music Bundle",
+    summary: "Elite Exclusive Music Bundle · 5 Full Songs",
+    detail: "$3,500 sale price · $4,000 original",
+    selectedPackage: "Elite Exclusive Music Bundle | 5 Full Songs | $3,500 sale / $4,000 original",
+    budget: "$2,500-$5,000",
+    price: "$3,500"
+  },
+  "all-inclusive": {
+    label: "All-Inclusive Music Bundle",
+    summary: "All-Inclusive Music Bundle · 10 Full Songs",
+    detail: "$7,000 sale price · $7,500 original",
+    selectedPackage: "All-Inclusive Music Bundle | 10 Full Songs | $7,000 sale / $7,500 original",
+    budget: "$5,000-$10,000",
+    price: "$7,000"
+  }
+};
+
 const beatGrid = document.querySelector("[data-beat-grid]");
 const beatFilterButtons = document.querySelectorAll("[data-beat-filter]");
 const beatAudio = document.querySelector("[data-beat-audio]");
@@ -143,6 +170,7 @@ const commerceConfigPath = commerceConfigUrl.href;
 let activeBeatIndex = 0;
 let activeBeatFilter = "all";
 let checkoutConfig = null;
+let selectedPackageKey = "";
 
 const contactHrefFor = (offering = "package") =>
   leadForm ? "#contact" : `contact.html?offering=${encodeURIComponent(offering)}#contact`;
@@ -200,7 +228,7 @@ const setSelectionSummary = (title, detail) => {
   if (summaryTitle) summaryTitle.textContent = title || "Artist package purchase";
   if (summaryDetail) {
     summaryDetail.textContent =
-      detail || "Choose the scope and the form will keep the package, budget range, and context attached.";
+      detail || "Choose the scope and the form will keep the package and project context together.";
   }
 };
 
@@ -214,6 +242,7 @@ const updateRequiredState = (element, isRequired) => {
 function updateFormContext(offering = "package") {
   const normalizedOffering = offering || "package";
   const isPlugin = normalizedOffering === "yms" || normalizedOffering === "bassphat" || normalizedOffering === "plugin-bundle";
+  const isPackage = normalizedOffering === "package";
   const isYms = normalizedOffering === "yms";
   const isBassPhat = normalizedOffering === "bassphat";
   const isPluginBundle = normalizedOffering === "plugin-bundle";
@@ -224,9 +253,11 @@ function updateFormContext(offering = "package") {
   });
 
   projectFields.forEach((field) => {
-    field.hidden = isPlugin;
-    field.classList.toggle("is-hidden", isPlugin);
-    updateRequiredState(field, !isPlugin && field.querySelector("[name='timeline'], [name='budget']"));
+    const isBudgetField = Boolean(field.querySelector("[name='budget']"));
+    const shouldHide = isPlugin || (isPackage && isBudgetField);
+    field.hidden = shouldHide;
+    field.classList.toggle("is-hidden", shouldHide);
+    updateRequiredState(field, !shouldHide && field.querySelector("[name='timeline'], [name='budget']"));
   });
 
   ymsExtraFields.forEach((field) => {
@@ -235,8 +266,12 @@ function updateFormContext(offering = "package") {
     updateRequiredState(field, !isPlugin && field.querySelector("[name='goal']"));
   });
 
+  const selectedPackage = selectedPackageKey ? packageOptions[selectedPackageKey] : null;
+
   if (ymsProductInterestInput) {
-    ymsProductInterestInput.value = isYms
+    ymsProductInterestInput.value = selectedPackage
+      ? selectedPackage.label
+      : isYms
       ? "Your Mix Sucks"
       : isBassPhat
         ? "BassPhat"
@@ -244,7 +279,7 @@ function updateFormContext(offering = "package") {
           ? "Plugin Suite Bundle: Your Mix Sucks + BassPhat"
           : "";
   }
-  if (ymsCustomerPriceInput) ymsCustomerPriceInput.value = isYms ? "$59" : isBassPhat ? "$49" : isPluginBundle ? "$89" : "";
+  if (ymsCustomerPriceInput) ymsCustomerPriceInput.value = selectedPackage ? selectedPackage.price : isYms ? "$59" : isBassPhat ? "$49" : isPluginBundle ? "$89" : "";
   if (submitLabel) {
     submitLabel.textContent = "Contact Josh";
   }
@@ -257,14 +292,25 @@ function updateFormContext(offering = "package") {
           ? "Buy BassPhat through the Lemon Squeezy checkout button. Use this form only for support, compatibility, or unusual purchase questions."
           : normalizedOffering === "plugin-bundle"
             ? "Buy the Plugin Suite Bundle through the Lemon Squeezy checkout button. Use this form only for support, compatibility, or unusual purchase questions."
+            : selectedPackage
+              ? `${selectedPackage.label} is selected. No budget range is needed because the package price is already set; share timeline, links, and the details Josh should review.`
             : "Use Lemon Squeezy for self-serve purchases. Use this form only when Josh needs to review scope, rights, support, or a custom brief.";
   }
 }
 
 const moveToLeadForm = (offering, beat, packageName = "", packageBudget = "", commerceLabel = "") => {
+  if (offering === "package") {
+    const matchedPackage = Object.entries(packageOptions).find(([, option]) =>
+      packageName.includes(option.label) || commerceLabel.includes(option.label)
+    );
+    selectedPackageKey = matchedPackage?.[0] || selectedPackageKey;
+  } else {
+    selectedPackageKey = "";
+  }
   selectOffering(offering);
+  const packageOption = selectedPackageKey ? packageOptions[selectedPackageKey] : null;
   let summary = commerceLabel || offeringLabels[offering] || "JoshYouWut inquiry";
-  let detail = "The selected path is attached to this inquiry.";
+  let detail = "The selected path is included with this inquiry.";
 
   if (selectedBeatInput && beat) {
     selectedBeatInput.value = `${beat.title} | ${beat.bpm} BPM | ${beat.key}`;
@@ -274,14 +320,14 @@ const moveToLeadForm = (offering, beat, packageName = "", packageBudget = "", co
     selectedBeatInput.value = "";
   }
   if (selectedPackageInput) {
-    selectedPackageInput.value = packageName || commerceLabel;
+    selectedPackageInput.value = packageOption?.selectedPackage || packageName || commerceLabel;
   }
-  if (packageName) {
-    summary = packageName.split("|").map((part) => part.trim()).filter(Boolean).slice(0, 2).join(" · ");
-    detail = packageBudget ? `Budget range auto-filled: ${packageBudget}` : "Package inquiry selected.";
+  if (packageOption || packageName) {
+    summary = packageOption?.summary || packageName.split("|").map((part) => part.trim()).filter(Boolean).slice(0, 2).join(" · ");
+    detail = packageOption?.detail || "Package inquiry selected.";
   }
-  if (budgetSelect && packageBudget) {
-    budgetSelect.value = packageBudget;
+  if (budgetSelect) {
+    budgetSelect.value = packageOption?.budget || packageBudget || budgetSelect.value;
   }
   setSelectionSummary(summary, detail);
   leadForm?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -410,6 +456,10 @@ document.addEventListener("click", (event) => {
 
 leadForm?.addEventListener("change", (event) => {
   if (event.target.matches("[data-offering-radio]")) {
+    if (event.target.dataset.offeringRadio !== "package") {
+      selectedPackageKey = "";
+      if (selectedPackageInput) selectedPackageInput.value = "";
+    }
     document.querySelectorAll(".radio-card.was-selected").forEach((card) => card.classList.remove("was-selected"));
     event.target.closest(".radio-card")?.classList.add("was-selected");
     updateFormContext(event.target.dataset.offeringRadio);
@@ -549,11 +599,24 @@ leadForm?.addEventListener("submit", (event) => {
     });
 });
 
+const searchParams = new URLSearchParams(window.location.search);
+const initialOffering = searchParams.get("offering");
+const initialPackageKey = searchParams.get("package");
+
+if (initialPackageKey && packageOptions[initialPackageKey]) {
+  selectedPackageKey = initialPackageKey;
+}
+
 updateFormContext("package");
 
-const initialOffering = new URLSearchParams(window.location.search).get("offering");
 if (initialOffering && offeringLabels[initialOffering]) {
   selectOffering(initialOffering);
+  const initialPackage = selectedPackageKey ? packageOptions[selectedPackageKey] : null;
+  if (initialOffering === "package" && initialPackage) {
+    if (selectedPackageInput) selectedPackageInput.value = initialPackage.selectedPackage;
+    if (budgetSelect) budgetSelect.value = initialPackage.budget;
+    setSelectionSummary(initialPackage.summary, initialPackage.detail);
+  }
   if (window.location.hash === "#contact") {
     leadForm?.scrollIntoView({ behavior: "smooth", block: "start" });
   }
@@ -577,6 +640,13 @@ const applyDirectCheckoutLink = (link, productKey) => {
   const fallbackOffering = product.fallback_offering || link.dataset.offering || "package";
   const label = active ? `Buy ${product.name} ${product.price}` : link.dataset.inactiveLabel || `${checkoutConfig?.inactive_label || "Buy now"} ${product.price}`;
 
+  if (!active && link.dataset.hideWhenInactive === "true") {
+    link.hidden = true;
+    link.dataset.checkoutActive = "false";
+    return;
+  }
+
+  link.hidden = false;
   link.textContent = label.trim();
   link.dataset.checkoutActive = String(active);
 

@@ -76,12 +76,43 @@
       "lemon_variant_id": "1948500",
       "checkout_url": "https://plugin-suite.lemonsqueezy.com/checkout/buy/a5f265e6-8c87-48a3-9b8d-9120f1b38c39",
       "fallback_offering": "bassphat"
+    },
+    "package_launch_loadout": {
+      "name": "Music Launch Loadout",
+      "kind": "artist_package",
+      "price": "$900",
+      "sale_price": "$900",
+      "original_price": "$1,000",
+      "checkout_url": "",
+      "fallback_offering": "package",
+      "package_key": "launch-loadout"
+    },
+    "package_elite_ep": {
+      "name": "Elite Exclusive Music Bundle",
+      "kind": "artist_package",
+      "price": "$3,500",
+      "sale_price": "$3,500",
+      "original_price": "$4,000",
+      "checkout_url": "",
+      "fallback_offering": "package",
+      "package_key": "elite-ep"
+    },
+    "package_all_inclusive": {
+      "name": "All-Inclusive Music Bundle",
+      "kind": "artist_package",
+      "price": "$7,000",
+      "sale_price": "$7,000",
+      "original_price": "$7,500",
+      "checkout_url": "",
+      "fallback_offering": "package",
+      "package_key": "all-inclusive"
     }
   },
   "notes": [
     "Store is live. Public checkout links are active; delivery assets still require API/dashboard verification before instant fulfillment is represented as complete.",
     "Customer-facing rule: Buy CTAs must open Lemon Squeezy. Contact Josh CTAs may open the form for support, compatibility, custom rights, SYNC, or larger briefs.",
-    "Exclusive beats, custom production, artist packages, and SYNC need approved Lemon checkout or invoice links before public Buy CTAs are shown.",
+    "Artist packages are modeled as Lemon products in this config; add hosted checkout URLs to activate self-serve package Buy CTAs.",
+    "Exclusive beats, custom production, and SYNC need approved Lemon checkout or invoice links before public Buy CTAs are shown.",
     "Plugin prices are current-major-version licenses, not lifetime-update promises.",
     "Static GitHub Pages can consume hosted checkout URLs. It must not create Lemon checkouts directly because that requires an API key."
   ],
