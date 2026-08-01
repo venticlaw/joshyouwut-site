@@ -287,14 +287,14 @@ function updateFormContext(offering = "package") {
   if (formStatus) {
     formStatus.textContent =
       normalizedOffering === "yms"
-        ? "Buy Your Mix Sucks through the Lemon Squeezy checkout button. Use this form only for support, compatibility, or unusual purchase questions."
+        ? "Tell us what is blocking the mix check: install, compatibility, purchase, or workflow."
         : normalizedOffering === "bassphat"
-          ? "Buy BassPhat through the Lemon Squeezy checkout button. Use this form only for support, compatibility, or unusual purchase questions."
+          ? "Tell us what is blocking the low end: install, compatibility, purchase, or workflow."
           : normalizedOffering === "plugin-bundle"
-            ? "Buy the Plugin Suite Bundle through the Lemon Squeezy checkout button. Use this form only for support, compatibility, or unusual purchase questions."
+            ? "Tell us what you are trying to fix in the session and what is getting in the way."
             : selectedPackage
-              ? `${selectedPackage.label} is selected. No budget range is needed because the package price is already set; share timeline, links, and the details Josh should review.`
-            : "Use Lemon Squeezy for self-serve purchases. Use this form only when Josh needs to review scope, rights, support, or a custom brief.";
+              ? `${selectedPackage.label} is selected. Share the timeline, links, and stakes so the next step is clean.`
+            : "Send the project context, rights needs, support issue, or custom brief. The clearer you are, the faster this moves.";
   }
 }
 
