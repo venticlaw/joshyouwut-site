@@ -23,6 +23,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
 }
 
 body {
@@ -150,6 +151,120 @@ code {
   align-items: center;
   min-height: calc(100vh - 5rem);
   padding: clamp(3rem, 8vw, 6.25rem) 0 3rem;
+}
+
+.storefront-hero {
+  min-height: auto;
+  padding-bottom: clamp(2rem, 5vw, 4rem);
+}
+
+.storefront-section {
+  padding: 0 0 clamp(4rem, 8vw, 6rem);
+}
+
+.storefront-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.storefront-card {
+  display: grid;
+  gap: 0.75rem;
+  min-height: 15rem;
+  align-content: end;
+  border: 1px solid rgba(16, 16, 20, 0.12);
+  border-radius: 8px;
+  background: rgba(255, 253, 247, 0.92);
+  color: var(--ink);
+  padding: clamp(1rem, 2.5vw, 1.35rem);
+  text-decoration: none;
+  box-shadow: var(--shadow);
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.storefront-card:hover,
+.storefront-card:focus-visible {
+  border-color: var(--coral);
+  outline: none;
+  transform: translateY(-2px);
+}
+
+.storefront-card.is-featured {
+  background: var(--coal);
+  color: #fff8e8;
+}
+
+.storefront-card span {
+  color: var(--coral);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.storefront-card strong {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(1.35rem, 2vw, 1.8rem);
+  line-height: 1.05;
+}
+
+.storefront-card small {
+  color: inherit;
+  opacity: 0.72;
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.product-detail-hero {
+  min-height: auto;
+}
+
+.product-proof-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  padding-bottom: clamp(4rem, 8vw, 6rem);
+}
+
+.product-proof-grid article {
+  display: grid;
+  gap: 0.7rem;
+  border: 1px solid rgba(16, 16, 20, 0.12);
+  border-radius: 8px;
+  background: rgba(255, 253, 247, 0.88);
+  padding: 1.15rem;
+  box-shadow: var(--shadow);
+}
+
+.product-proof-grid span {
+  color: var(--coral);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.product-proof-grid strong {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.25rem;
+}
+
+.product-proof-grid p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.product-proof-grid a {
+  color: var(--blue);
+  font-weight: 900;
+}
+
+#player,
+#packages,
+#plugins,
+#install {
+  scroll-margin-top: 6rem;
 }
 
 .eyebrow {
@@ -2563,6 +2678,11 @@ textarea::placeholder {
     grid-template-columns: 1fr;
   }
 
+  .storefront-grid,
+  .product-proof-grid {
+    grid-template-columns: 1fr;
+  }
+
   .beat-store-section .section-heading h2,
   .beat-store-section .section-heading > p:not(.eyebrow) {
     max-width: none;
@@ -2622,5 +2742,9 @@ textarea::placeholder {
   .beat-tier-actions,
   .beat-tier-actions.is-player {
     grid-template-columns: 1fr;
+  }
+
+  .storefront-card {
+    min-height: 11rem;
   }
 }

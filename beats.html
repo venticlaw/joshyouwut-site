@@ -17,7 +17,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="assets/jyw-logo.svg">
-    <link rel="stylesheet" href="css/site.css?v=20260801-buyer-paths">
+    <link rel="stylesheet" href="css/site.css?v=20260801-clean-storefront">
   </head>
   <body>
     <header class="site-header" data-site-header>
@@ -31,7 +31,7 @@
         <a href="beats.html">Beats</a>
         <a href="plugins.html">Plugins</a>
         <a href="contact.html?offering=sync#contact">SYNC</a>
-        <a class="nav-cta" href="contact.html#contact">Contact Josh</a>
+        <a class="nav-cta" href="services.html">Artist packages</a>
       </nav>
     </header>
 
@@ -42,7 +42,7 @@
           <h1>Play first. Buy the right license.</h1>
           <p class="hero-lede">Preview the catalog, choose the beat that fits the record, then buy a Starter or Premium lease through Lemon Squeezy. Use Contact Josh only for exclusive rights, custom production, or unusual terms.</p>
           <div class="hero-actions">
-            <a class="button primary" href="#beats">Preview beats</a>
+            <a class="button primary" href="#player">Preview beats</a>
             <a class="button secondary" href="#licensing">Compare licenses</a>
           </div>
         </div>
@@ -70,7 +70,7 @@
           </div>
         </div>
         <div class="beat-store" data-beat-store>
-          <article class="beat-player" aria-label="Featured beat player">
+          <article class="beat-player" id="player" aria-label="Featured beat player">
             <div class="beat-player-art"><img src="assets/jyw-logo.svg" alt="" aria-hidden="true"></div>
             <div class="beat-player-copy">
               <p class="tag" data-current-lane>Beat store catalog</p>
@@ -83,7 +83,6 @@
               </dl>
               <audio data-beat-audio controls preload="metadata"></audio>
               <div class="beat-player-actions">
-                <a class="button secondary" data-current-inquiry data-offering="beat" data-package-budget="$250-$500" href="contact.html?offering=beat#contact">Contact Josh</a>
                 <button class="button secondary" type="button" data-next-beat>Next beat</button>
               </div>
             </div>
@@ -105,7 +104,7 @@
             <p class="price-line">Starts at $29</p>
             <p>Best when you need a low-friction way to test the song.</p>
             <ul><li>Non-exclusive use</li><li>No stems</li><li>Checkout opens from the selected beat</li></ul>
-            <a class="button secondary" href="#beats">Choose a beat</a>
+            <a class="button secondary" href="#player">Choose a beat</a>
           </article>
           <article class="license-card featured">
             <span>Premium lease</span>
@@ -113,7 +112,7 @@
             <p class="price-line">Starts at $79</p>
             <p>Best when the record needs stronger files and room for a proper mix.</p>
             <ul><li>WAV-focused path</li><li>Stems/trackouts baseline above Starter</li><li>Checkout opens from the selected beat</li></ul>
-            <a class="button primary" href="#beats">Choose a beat</a>
+            <a class="button primary" href="#player">Choose a beat</a>
           </article>
           <article class="license-card">
             <span>Exclusive / custom</span>
@@ -140,6 +139,6 @@
       </div>
       <a href="#top">Back to top</a>
     </footer>
-    <script src="js/site.js?v=20260801-buyer-paths"></script>
+    <script src="js/site.js?v=20260801-clean-storefront"></script>
   </body>
 </html>

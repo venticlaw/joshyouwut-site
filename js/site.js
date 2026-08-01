@@ -164,7 +164,7 @@ const ymsProductInterestInput = document.querySelector("[data-yms-product-intere
 const ymsCustomerPriceInput = document.querySelector("[data-yms-customer-price]");
 const submitLabel = document.querySelector("[data-submit-label]");
 const commerceConfigUrl = new URL("../assets/commerce/checkout-config.json", document.currentScript?.src || window.location.href);
-commerceConfigUrl.searchParams.set("v", "20260801-buyer-paths");
+commerceConfigUrl.searchParams.set("v", "20260801-clean-storefront");
 const commerceConfigPath = commerceConfigUrl.href;
 
 let activeBeatIndex = 0;
@@ -387,10 +387,12 @@ const loadBeat = (index, shouldPlay = false) => {
   currentKey.textContent = beat.key;
   currentUse.textContent = beat.use;
   currentLane.textContent = beat.lane;
-  currentInquiry.href = contactHrefFor("beat");
-  currentInquiry.dataset.beatInquiry = String(index);
-  currentInquiry.dataset.commerceLabel = `${beat.title} | Premium Lease | ${beatLicenseTiers.premium.price}`;
-  currentInquiry.dataset.packageBudget = beatLicenseTiers.premium.budget;
+  if (currentInquiry) {
+    currentInquiry.href = contactHrefFor("beat");
+    currentInquiry.dataset.beatInquiry = String(index);
+    currentInquiry.dataset.commerceLabel = `${beat.title} | Premium Lease | ${beatLicenseTiers.premium.price}`;
+    currentInquiry.dataset.packageBudget = beatLicenseTiers.premium.budget;
+  }
   const playerActions = document.querySelector(".beat-player-actions");
   const existingTierActions = playerActions?.querySelector(".beat-tier-actions");
   existingTierActions?.remove();
