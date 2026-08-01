@@ -80,7 +80,8 @@
   },
   "notes": [
     "Store is live. Public checkout links are active; delivery assets still require API/dashboard verification before instant fulfillment is represented as complete.",
-    "Exclusive beats, custom production, artist packages, and SYNC remain inquiry-first.",
+    "Customer-facing rule: Buy CTAs must open Lemon Squeezy. Contact Josh CTAs may open the form for support, compatibility, custom rights, SYNC, or larger briefs.",
+    "Exclusive beats, custom production, artist packages, and SYNC need approved Lemon checkout or invoice links before public Buy CTAs are shown.",
     "Plugin prices are current-major-version licenses, not lifetime-update promises.",
     "Static GitHub Pages can consume hosted checkout URLs. It must not create Lemon checkouts directly because that requires an API key."
   ],

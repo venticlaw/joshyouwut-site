@@ -159,7 +159,7 @@ const buildBeatCheckoutAction = (beat, tierKey, variant = "card") => {
 
   const offering = tierKey === "exclusive" ? "custom" : "beat";
   const commerceLabel = `${beat.title} | ${tier.label} | ${tier.price}`;
-  const actionLabel = tierKey === "exclusive" ? `Request ${tier.label}` : `Start ${tier.label} ${tier.price}`;
+  const actionLabel = tierKey === "exclusive" ? "Contact Josh" : `Contact Josh about ${tier.label}`;
   return `<a class="${className}" href="#contact" data-offering="${offering}" data-beat-inquiry="${beat.index ?? activeBeatIndex}" data-commerce-label="${commerceLabel}" data-package-budget="${tier.budget}" data-license-tier="${tierKey}">${actionLabel}</a>`;
 };
 
@@ -177,9 +177,9 @@ const offeringLabels = {
   custom: "Custom production",
   package: "Artist package purchase",
   sync: "SYNC licensing",
-  yms: "Your Mix Sucks purchase interest",
-  bassphat: "BassPhat purchase interest",
-  "plugin-bundle": "Plugin Suite bundle purchase interest",
+  yms: "Your Mix Sucks support / compatibility question",
+  bassphat: "BassPhat support / compatibility question",
+  "plugin-bundle": "Plugin Suite bundle support / compatibility question",
   release: "Release / Apple Music update"
 };
 
@@ -243,24 +243,18 @@ function updateFormContext(offering = "package") {
   }
   if (ymsCustomerPriceInput) ymsCustomerPriceInput.value = isYms ? "$59" : isBassPhat ? "$49" : isPluginBundle ? "$89" : "";
   if (submitLabel) {
-    submitLabel.textContent = isYms
-      ? "Buy Your Mix Sucks"
-      : isBassPhat
-        ? "Buy BassPhat"
-        : isPluginBundle
-          ? "Buy Plugin Suite Bundle"
-          : "Send strong inquiry";
+    submitLabel.textContent = "Contact Josh";
   }
 
   if (formStatus) {
     formStatus.textContent =
       normalizedOffering === "yms"
-        ? "Buy Your Mix Sucks for $59. Checkout opens in Lemon Squeezy; keep the receipt for installer, license, and support reference."
+        ? "Buy Your Mix Sucks through the Lemon Squeezy checkout button. Use this form only for support, compatibility, or unusual purchase questions."
         : normalizedOffering === "bassphat"
-          ? "Buy BassPhat for $49. Checkout opens in Lemon Squeezy; keep the receipt for installer, license, and support reference."
+          ? "Buy BassPhat through the Lemon Squeezy checkout button. Use this form only for support, compatibility, or unusual purchase questions."
           : normalizedOffering === "plugin-bundle"
-            ? "Buy the $89 Plugin Suite Bundle for the current major versions of Your Mix Sucks and BassPhat."
-          : "Use checkout for one-off purchases. Send this form when the scope, rights, or brief needs review.";
+            ? "Buy the Plugin Suite Bundle through the Lemon Squeezy checkout button. Use this form only for support, compatibility, or unusual purchase questions."
+            : "Use Lemon Squeezy for self-serve purchases. Use this form only when Josh needs to review scope, rights, support, or a custom brief.";
   }
 }
 
