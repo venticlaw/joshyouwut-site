@@ -137,12 +137,15 @@ const ymsProductInterestInput = document.querySelector("[data-yms-product-intere
 const ymsCustomerPriceInput = document.querySelector("[data-yms-customer-price]");
 const submitLabel = document.querySelector("[data-submit-label]");
 const commerceConfigUrl = new URL("../assets/commerce/checkout-config.json", document.currentScript?.src || window.location.href);
-commerceConfigUrl.searchParams.set("v", "20260728-live-store");
+commerceConfigUrl.searchParams.set("v", "20260801-buyer-paths");
 const commerceConfigPath = commerceConfigUrl.href;
 
 let activeBeatIndex = 0;
 let activeBeatFilter = "all";
 let checkoutConfig = null;
+
+const contactHrefFor = (offering = "package") =>
+  leadForm ? "#contact" : `contact.html?offering=${encodeURIComponent(offering)}#contact`;
 
 const buildBeatCheckoutAction = (beat, tierKey, variant = "card") => {
   const tier = beatLicenseTiers[tierKey];
@@ -160,7 +163,7 @@ const buildBeatCheckoutAction = (beat, tierKey, variant = "card") => {
   const offering = tierKey === "exclusive" ? "custom" : "beat";
   const commerceLabel = `${beat.title} | ${tier.label} | ${tier.price}`;
   const actionLabel = tierKey === "exclusive" ? "Contact Josh" : `Contact Josh about ${tier.label}`;
-  return `<a class="${className}" href="#contact" data-offering="${offering}" data-beat-inquiry="${beat.index ?? activeBeatIndex}" data-commerce-label="${commerceLabel}" data-package-budget="${tier.budget}" data-license-tier="${tierKey}">${actionLabel}</a>`;
+  return `<a class="${className}" href="${contactHrefFor(offering)}" data-offering="${offering}" data-beat-inquiry="${beat.index ?? activeBeatIndex}" data-commerce-label="${commerceLabel}" data-package-budget="${tier.budget}" data-license-tier="${tierKey}">${actionLabel}</a>`;
 };
 
 const buildBeatTierActions = (beat, variant = "card") => `
@@ -338,7 +341,7 @@ const loadBeat = (index, shouldPlay = false) => {
   currentKey.textContent = beat.key;
   currentUse.textContent = beat.use;
   currentLane.textContent = beat.lane;
-  currentInquiry.href = "#contact";
+  currentInquiry.href = contactHrefFor("beat");
   currentInquiry.dataset.beatInquiry = String(index);
   currentInquiry.dataset.commerceLabel = `${beat.title} | Premium Lease | ${beatLicenseTiers.premium.price}`;
   currentInquiry.dataset.packageBudget = beatLicenseTiers.premium.budget;
@@ -391,6 +394,7 @@ if (beatGrid && beatAudio) {
 document.addEventListener("click", (event) => {
   const link = event.target.closest("[data-offering]");
   if (!link) return;
+  if (!leadForm) return;
   if (link.dataset.checkoutActive === "true") return;
 
   const offering = link.dataset.offering;
@@ -584,7 +588,7 @@ const applyDirectCheckoutLink = (link, productKey) => {
     return;
   }
 
-  link.href = link.dataset.fallbackHref || "#contact";
+  link.href = link.dataset.fallbackHref || contactHrefFor(fallbackOffering);
   link.removeAttribute("target");
   link.removeAttribute("rel");
   link.dataset.offering = fallbackOffering;
