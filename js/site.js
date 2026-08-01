@@ -203,15 +203,15 @@ const buildBeatTierActions = (beat, variant = "card") => `
 `;
 
 const offeringLabels = {
-  beat: "One-off beat purchase",
-  mix: "Mixing / mastering",
-  custom: "Custom production",
-  package: "Artist package purchase",
+  beat: "Beat question before buying",
+  mix: "Mixing / mastering question",
+  custom: "Exclusive or custom request",
+  package: "Question before buying",
   sync: "SYNC licensing",
-  yms: "Your Mix Sucks support / compatibility question",
-  bassphat: "BassPhat support / compatibility question",
-  "plugin-bundle": "Plugin Suite bundle support / compatibility question",
-  release: "Release / Apple Music update"
+  yms: "Bug or product support",
+  bassphat: "BassPhat support",
+  "plugin-bundle": "Plugin Suite support",
+  release: "Trust / proof question"
 };
 
 const selectOffering = (offering = "package") => {
@@ -225,10 +225,10 @@ const selectOffering = (offering = "package") => {
 };
 
 const setSelectionSummary = (title, detail) => {
-  if (summaryTitle) summaryTitle.textContent = title || "Artist package purchase";
+  if (summaryTitle) summaryTitle.textContent = title || "Question before buying";
   if (summaryDetail) {
     summaryDetail.textContent =
-      detail || "Choose the scope and the form will keep the package and project context together.";
+      detail || "Use the form when you need clarity, support, or a human follow-up before moving forward.";
   }
 };
 
@@ -287,14 +287,14 @@ function updateFormContext(offering = "package") {
   if (formStatus) {
     formStatus.textContent =
       normalizedOffering === "yms"
-        ? "Tell us what is blocking the mix check: install, compatibility, purchase, or workflow."
+        ? "Tell us what broke, what you expected, and what system you are using."
         : normalizedOffering === "bassphat"
-          ? "Tell us what is blocking the low end: install, compatibility, purchase, or workflow."
+          ? "Tell us what broke, what you expected, and what system you are using."
           : normalizedOffering === "plugin-bundle"
-            ? "Tell us what you are trying to fix in the session and what is getting in the way."
+            ? "Tell us which product is involved and what is stopping you from using it confidently."
             : selectedPackage
-              ? `${selectedPackage.label} is selected. Share the timeline, links, and stakes so the next step is clean.`
-            : "Send the project context, rights needs, support issue, or custom brief. The clearer you are, the faster this moves.";
+              ? `${selectedPackage.label} is selected. Ask the question that would make you comfortable moving forward.`
+            : "Send the question, bug, trust concern, rights need, or custom brief. The clearer you are, the faster this moves.";
   }
 }
 
@@ -310,7 +310,7 @@ const moveToLeadForm = (offering, beat, packageName = "", packageBudget = "", co
   selectOffering(offering);
   const packageOption = selectedPackageKey ? packageOptions[selectedPackageKey] : null;
   let summary = commerceLabel || offeringLabels[offering] || "JoshYouWut inquiry";
-  let detail = "The selected path is included with this inquiry.";
+  let detail = "Tell us what would help you feel clear enough to move.";
 
   if (selectedBeatInput && beat) {
     selectedBeatInput.value = `${beat.title} | ${beat.bpm} BPM | ${beat.key}`;
@@ -324,7 +324,7 @@ const moveToLeadForm = (offering, beat, packageName = "", packageBudget = "", co
   }
   if (packageOption || packageName) {
     summary = packageOption?.summary || packageName.split("|").map((part) => part.trim()).filter(Boolean).slice(0, 2).join(" · ");
-    detail = packageOption?.detail || "Package inquiry selected.";
+    detail = packageOption ? `${packageOption.detail} · Ask the question before you commit.` : "Ask the question before you commit.";
   }
   if (budgetSelect) {
     budgetSelect.value = packageOption?.budget || packageBudget || budgetSelect.value;
