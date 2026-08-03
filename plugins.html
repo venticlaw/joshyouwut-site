@@ -17,7 +17,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="assets/jyw-logo.svg">
-    <link rel="stylesheet" href="css/site.css?v=20260801-mobile-card-contrast">
+    <link rel="stylesheet" href="css/site.css?v=20260803-mac-daw-compat">
   </head>
   <body>
     <header class="site-header" data-site-header>
@@ -61,14 +61,18 @@
           <article class="product-card featured-tool">
             <figure class="plugin-logo-card product-media-card"><img src="assets/plugins/your-mix-sucks-official-plaque.png" alt="Your Mix Sucks official product logo"></figure>
             <div>
-              <p class="tag">$59 one-time current-version license · Logic Pro AU</p>
+              <p class="tag">$59 one-time current-version license · macOS AU</p>
               <h3>Your Mix Sucks</h3>
               <p>A brutally useful mix coach that analyzes the mix, scores the problem areas, and explains why suggested fixes matter.</p>
+            </div>
+            <div class="compatibility-badges" aria-label="Your Mix Sucks compatibility">
+              <span class="daw-badge"><b>Logic Pro</b><small>Audio Unit</small></span>
+              <span class="daw-badge"><b>Ableton Live</b><small>AU on macOS</small></span>
             </div>
             <ul class="tool-specs">
               <li>Timestamped Mix Notes and saved analysis snapshots.</li>
               <li>Plain-English reasons so producers learn while fixing.</li>
-              <li>Current AU build is Logic Pro focused.</li>
+              <li>Install the Mac AU, then rescan or reopen the DAW.</li>
             </ul>
             <div class="product-actions">
               <a href="contact.html?offering=yms#contact" data-checkout-product="yms" data-inactive-label="Buy Your Mix Sucks">Buy Your Mix Sucks</a>
@@ -78,9 +82,13 @@
           <article class="product-card featured-tool">
             <figure class="plugin-logo-card product-media-card"><img src="assets/plugins/bass-phat-official-plaque.png" alt="BassPhat official product logo"></figure>
             <div>
-              <p class="tag">$49 one-time current-version license · Low-frequency color</p>
+              <p class="tag">$49 one-time current-version license · macOS AU</p>
               <h3>BassPhat</h3>
               <p>A simple low-end booster and color tool for bass, 808s, kicks, and low-end groups.</p>
+            </div>
+            <div class="compatibility-badges" aria-label="BassPhat compatibility">
+              <span class="daw-badge"><b>Logic Pro</b><small>Audio Unit</small></span>
+              <span class="daw-badge"><b>Ableton Live</b><small>AU on macOS</small></span>
             </div>
             <ul class="tool-specs">
               <li>Harmonic color and bass weight without losing control.</li>
@@ -113,8 +121,12 @@
         <div class="plugin-install-flow" id="install" aria-label="Plugin purchase and installation path">
           <div><span>01</span><strong>Buy</strong><p>Choose the plugin or bundle that matches the problem in the session.</p></div>
           <div><span>02</span><strong>Receipt</strong><p>Keep the receipt as the license and support reference.</p></div>
-          <div><span>03</span><strong>Install</strong><p>Install the Mac plugin package and let your DAW rescan the new tool.</p></div>
-          <div><span>04</span><strong>Open DAW</strong><p>Launch Logic Pro after install. Ableton/VST3 support is a separate compatibility workstream.</p></div>
+          <div><span>03</span><strong>Install</strong><p>Run the Mac installer. AU plug-ins land in the standard macOS Audio Unit location.</p></div>
+          <div><span>04</span><strong>Open DAW</strong><p>Logic Pro validates Audio Units automatically. In Ableton Live, enable Audio Units and rescan Plug-In Sources if needed.</p></div>
+        </div>
+        <div class="compatibility-note">
+          <strong>Rollout target: Logic Pro and Ableton Live on macOS.</strong>
+          <p>Logic Pro uses Audio Units. Ableton Live on macOS also supports Audio Units, so the first buyer flow can stay familiar: install the Mac package, reopen or rescan the DAW, then load the plugin from the DAW's plug-in browser. VST3 can be evaluated later for broader DAW coverage, but this rollout is Mac-first.</p>
         </div>
       </section>
     </main>

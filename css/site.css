@@ -941,6 +941,40 @@ dd {
   grid-row: 1 / span 4;
 }
 
+.compatibility-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.daw-badge {
+  display: inline-grid;
+  gap: 0.1rem;
+  min-width: 8.8rem;
+  border: 1px solid rgba(16, 16, 20, 0.14);
+  border-radius: 8px;
+  background: rgba(253, 251, 244, 0.94);
+  color: var(--ink);
+  padding: 0.62rem 0.72rem;
+}
+
+.daw-badge b,
+.daw-badge small {
+  display: block;
+}
+
+.daw-badge b {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.98rem;
+  line-height: 1.05;
+}
+
+.daw-badge small {
+  color: rgba(16, 16, 20, 0.62);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
 .product-card.suite-tool {
   display: grid;
   gap: 1rem;
@@ -2408,6 +2442,27 @@ dt {
   margin: 0;
   color: rgba(253, 251, 244, 0.66);
   font-size: 0.9rem;
+}
+
+.compatibility-note {
+  display: grid;
+  gap: 0.45rem;
+  margin-top: 1rem;
+  border: 1px solid rgba(88, 185, 159, 0.32);
+  border-radius: 8px;
+  background: rgba(88, 185, 159, 0.1);
+  color: #fffaf0;
+  padding: clamp(1rem, 2vw, 1.2rem);
+}
+
+.compatibility-note strong {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.05rem;
+}
+
+.compatibility-note p {
+  margin: 0;
+  color: rgba(253, 251, 244, 0.72);
 }
 
 .plugin-band .tool-status b {
