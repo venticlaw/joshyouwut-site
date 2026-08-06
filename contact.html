@@ -7,7 +7,7 @@
     <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Contact Josh | JoshYouWut</title>
-    <meta name="description" content="Contact JoshYouWut for product questions, plugin bugs, support, trust concerns, artist package questions, custom rights, and SYNC briefs.">
+    <meta name="description" content="Contact JoshYouWut for beat licensing questions, support, trust concerns, artist package questions, custom rights, and SYNC briefs.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
@@ -24,7 +24,6 @@
       <nav class="site-nav" id="site-nav" data-site-nav>
         <a href="services.html">Services</a>
         <a href="beats.html">Beats</a>
-        <a href="plugins.html">Plugins</a>
         <a href="contact.html?offering=sync#contact">SYNC</a>
         <a class="nav-cta" href="#contact">Contact Josh</a>
       </nav>
@@ -35,7 +34,7 @@
         <div class="hero-copy">
           <p class="eyebrow">Questions · bugs · trust</p>
           <h1>Need a human before you move?</h1>
-          <p class="hero-lede">If you are ready to buy, go straight to the product. Use this form when you have a question, hit a bug, need support, want package guidance, or need enough trust to take the next step.</p>
+          <p class="hero-lede">If you are ready to buy a beat, go straight to the beat store. Use this form when you have a question, need support, want package guidance, or need enough trust to take the next step.</p>
         </div>
       </section>
 
@@ -58,8 +57,8 @@
           </aside>
           <fieldset class="offering-fieldset" data-form-step="1">
             <legend>What do you need help with?</legend>
-            <label class="radio-card"><input name="offering" type="radio" value="Question before buying" data-offering-radio="package" required><span><strong>Question before buying</strong><small>Packages, beats, plugins, pricing, rights, fit, or whether this is the right move.</small></span></label>
-            <label class="radio-card"><input name="offering" type="radio" value="Bug or product support" data-offering-radio="yms"><span><strong>Bug / product support</strong><small>Plugin install, DAW compatibility, checkout, license, or purchase support.</small></span></label>
+            <label class="radio-card"><input name="offering" type="radio" value="Question before buying" data-offering-radio="package" required><span><strong>Question before buying</strong><small>Packages, beats, pricing, rights, fit, or whether this is the right move.</small></span></label>
+            <label class="radio-card"><input name="offering" type="radio" value="Order or product support" data-offering-radio="beat"><span><strong>Order / product support</strong><small>Beat checkout, file delivery, license questions, or purchase support.</small></span></label>
             <label class="radio-card"><input name="offering" type="radio" value="Trust / proof question" data-offering-radio="release"><span><strong>Trust / proof question</strong><small>Credits, examples, ownership comfort, release planning, or questions before committing.</small></span></label>
             <label class="radio-card"><input name="offering" type="radio" value="Exclusive or custom request" data-offering-radio="custom"><span><strong>Exclusive / custom request</strong><small>Beat ownership, custom production, publishing, or terms that need a human answer.</small></span></label>
             <label class="radio-card"><input name="offering" type="radio" value="SYNC licensing" data-offering-radio="sync"><span><strong>SYNC licensing</strong><small>Sports, film, TV, ads, creator, or brand use.</small></span></label>
@@ -78,12 +77,10 @@
           <div class="context-panel" data-context-panel="beat" hidden><strong>Beat licensing question</strong><p>Tell us which beat, what you are releasing, and what would make you confident enough to move.</p></div>
           <div class="context-panel" data-context-panel="package"><strong>Question before buying</strong><p>Tell us what you are considering, what feels unclear, and what answer would help you make the decision.</p></div>
           <div class="context-panel" data-context-panel="sync" hidden><strong>SYNC brief signal</strong><p>Include usage, deadline, mood, edit length, clean/explicit needs, and where the cue will live.</p></div>
-          <div class="context-panel" data-context-panel="yms" hidden><strong>Bug / product support</strong><p>Tell us the product, DAW, macOS version, what happened, and what you expected to happen.</p></div>
-          <div class="context-panel" data-context-panel="bassphat" hidden><strong>BassPhat support</strong><p>Tell us your DAW, macOS version, bass workflow, install issue, or purchase question.</p></div>
-          <div class="context-panel" data-context-panel="plugin-bundle" hidden><strong>Plugin Suite support</strong><p>Tell us which plugin is involved and what is stopping you from using it confidently.</p></div>
+          <div class="context-panel" data-context-panel="yms" hidden><strong>Order / product support</strong><p>Tell us the beat, license, order issue, what happened, and what you expected to happen.</p></div>
           <label data-context-field="project">Helpful links<input name="links" type="url" placeholder="Song demo, screenshot link, receipt, product page, brief, or reference"></label>
-          <label data-yms-extra-field>What is the real question or issue?<textarea name="goal" rows="4" placeholder="What are you trying to buy, fix, verify, or understand? Include the product, beat, package, rights question, bug, or trust concern." required></textarea></label>
-          <label data-context-field="project">What should Josh know before replying?<textarea name="assets" rows="3" placeholder="Timeline, files ready, release goal, budget concern, DAW/macOS version, screenshot details, or what would make you comfortable moving forward."></textarea></label>
+          <label data-yms-extra-field>What is the real question or issue?<textarea name="goal" rows="4" placeholder="What are you trying to buy, fix, verify, or understand? Include the beat, package, rights question, order issue, or trust concern." required></textarea></label>
+          <label data-context-field="project">What should Josh know before replying?<textarea name="assets" rows="3" placeholder="Timeline, files ready, release goal, budget concern, screenshot details, or what would make you comfortable moving forward."></textarea></label>
           <input type="hidden" name="lead_id" data-lead-id value="">
           <input type="hidden" name="captured_at" data-captured-at value="">
           <input type="hidden" name="selected_beat" data-selected-beat value="">
@@ -99,14 +96,13 @@
 
     <footer class="site-footer">
       <div>
-        <p>JoshYouWut.com · Beats, artist packages, plugins, and SYNC-ready music. Contact: <a href="mailto:support@joshyouwut.com">support@joshyouwut.com</a>.</p>
+        <p>JoshYouWut.com · Beats, artist packages, and SYNC-ready music. Contact: <a href="mailto:support@joshyouwut.com">support@joshyouwut.com</a>.</p>
         <nav class="footer-links" aria-label="Legal links">
           <a href="legal/terms.html">Terms</a>
           <a href="legal/privacy.html">Privacy</a>
           <a href="legal/refund-support.html">Refunds</a>
           <a href="legal/beat-license.html">Beat license</a>
           <a href="legal/artist-services.html">Artist services</a>
-          <a href="legal/yms-eula.html">YMS EULA</a>
         </nav>
       </div>
       <a href="#top">Back to top</a>
