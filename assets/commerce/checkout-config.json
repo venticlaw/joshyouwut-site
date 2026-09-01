@@ -1,46 +1,19 @@
 {
   "provider": "lemon_squeezy",
   "store": {
-    "name": "Plugin Suite",
+    "name": "JoshYouWut",
     "id": "439153",
-    "url": "https://plugin-suite.lemonsqueezy.com"
+    "url": "https://joshyouwut.com"
   },
   "public_active": true,
   "mode": "live_checkout_urls_public",
   "inactive_label": "Buy now",
   "active_label": "Buy now",
   "products": {
-    "yms": {
-      "name": "Your Mix Sucks",
-      "kind": "plugin",
-      "price": "$59",
-      "license_scope": "One-time license for the current major version. Future major versions, new paid feature editions, and platform expansions may be sold separately.",
-      "lemon_product_id": "1246551",
-      "lemon_variant_id": "1948498",
-      "checkout_url": "https://plugin-suite.lemonsqueezy.com/checkout/buy/5e0b5cfa-e183-40c7-b39d-99bcc5d9b726",
-      "fallback_offering": "yms"
-    },
-    "plugin_bundle": {
-      "name": "Plugin Suite Bundle",
-      "kind": "plugin_bundle",
-      "price": "$89",
-      "license_scope": "Bundle covers the current major version of Your Mix Sucks and BassPhat. Future major versions, new paid feature editions, and platform expansions may be sold separately.",
-      "lemon_product_id": "1248739",
-      "lemon_variant_id": "1952103",
-      "checkout_url": "https://plugin-suite.lemonsqueezy.com/checkout/buy/158b6013-6488-443d-947d-6fa070aab8c1",
-      "fallback_offering": "plugin-bundle",
-      "includes": [
-        "yms",
-        "bassphat"
-      ],
-      "savings": "$19"
-    },
     "beat_starter": {
       "name": "Starter Lease",
       "kind": "beat_license",
       "price": "$29",
-      "lemon_product_id": "",
-      "lemon_variant_id": "",
       "checkout_url": "",
       "checkout_urls_by_beat": {
         "unfuckwittable": "https://plugin-suite.lemonsqueezy.com/checkout/custom/fbd108c4-d9c0-48f9-8bce-e428003c0a16?signature=f9ae3f9d7a2bf33fe769cf86da43fc5c6e1e3a2990bf7e0914932f0955488bf6",
@@ -55,8 +28,6 @@
       "name": "Premium Lease",
       "kind": "beat_license",
       "price": "$79",
-      "lemon_product_id": "",
-      "lemon_variant_id": "",
       "checkout_url": "",
       "checkout_urls_by_beat": {
         "unfuckwittable": "https://plugin-suite.lemonsqueezy.com/checkout/custom/f582c61c-b8eb-4f5f-95c7-e4e4828f8c0d?signature=1aea34d368e57b908a75ad996a2a218955832d23a64dea7782f0b74f62670830",
@@ -66,16 +37,6 @@
         "i-made-this-for-jid": "https://plugin-suite.lemonsqueezy.com/checkout/custom/59afb8c0-a2d6-4a0e-8c72-fee3a47915d9?signature=ff2ad34136e278758031a8f305a591be47168536eda319eabd5d1695a1f94617"
       },
       "fallback_offering": "beat"
-    },
-    "bassphat": {
-      "name": "BassPhat",
-      "kind": "plugin",
-      "price": "$49",
-      "license_scope": "One-time license for the current major version. Future major versions, new paid feature editions, and platform expansions may be sold separately.",
-      "lemon_product_id": "1246553",
-      "lemon_variant_id": "1948500",
-      "checkout_url": "https://plugin-suite.lemonsqueezy.com/checkout/buy/a5f265e6-8c87-48a3-9b8d-9120f1b38c39",
-      "fallback_offering": "bassphat"
     },
     "package_launch_loadout": {
       "name": "Music Launch Loadout",
@@ -108,7 +69,9 @@
       "package_key": "all-inclusive"
     }
   },
-  "notes": [],
-  "updated_at": "2026-07-28T10:37:49.000Z",
-  "public_approved_at": "2026-07-26T18:30:00-04:00"
+  "notes": [
+    "JYW is now scoped to beats, SYNC/custom music, and artist services only.",
+    "Current beat checkout URLs still use the existing Lemon Squeezy checkout domain. Create a dedicated JYW Lemon Squeezy store/domain when ready for full brand alignment."
+  ],
+  "updated_at": "2026-08-31T00:00:00-04:00"
 }

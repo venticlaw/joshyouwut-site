@@ -159,9 +159,9 @@ const capturedAtInput = document.querySelector("[data-captured-at]");
 const formStatus = document.querySelector("[data-form-status]");
 const contextPanels = document.querySelectorAll("[data-context-panel]");
 const projectFields = document.querySelectorAll("[data-context-field='project']");
-const ymsExtraFields = document.querySelectorAll("[data-yms-extra-field]");
-const ymsProductInterestInput = document.querySelector("[data-yms-product-interest]");
-const ymsCustomerPriceInput = document.querySelector("[data-yms-customer-price]");
+const detailFields = document.querySelectorAll("[data-detail-field]");
+const productInterestInput = document.querySelector("[data-product-interest]");
+const customerPriceInput = document.querySelector("[data-customer-price]");
 const submitLabel = document.querySelector("[data-submit-label]");
 const commerceConfigUrl = new URL("../assets/commerce/checkout-config.json", document.currentScript?.src || window.location.href);
 commerceConfigUrl.searchParams.set("v", "20260801-clean-storefront");
@@ -208,9 +208,6 @@ const offeringLabels = {
   custom: "Exclusive or custom request",
   package: "Question before buying",
   sync: "SYNC licensing",
-  yms: "Bug or product support",
-  bassphat: "BassPhat support",
-  "plugin-bundle": "Plugin Suite support",
   release: "Trust / proof question"
 };
 
@@ -240,12 +237,8 @@ const updateRequiredState = (element, isRequired) => {
 };
 
 function updateFormContext(offering = "package") {
-  const normalizedOffering = offering || "package";
-  const isPlugin = normalizedOffering === "yms" || normalizedOffering === "bassphat" || normalizedOffering === "plugin-bundle";
+  const normalizedOffering = offeringLabels[offering] ? offering : "package";
   const isPackage = normalizedOffering === "package";
-  const isYms = normalizedOffering === "yms";
-  const isBassPhat = normalizedOffering === "bassphat";
-  const isPluginBundle = normalizedOffering === "plugin-bundle";
 
   contextPanels.forEach((panel) => {
     const panelName = panel.dataset.contextPanel;
@@ -254,47 +247,33 @@ function updateFormContext(offering = "package") {
 
   projectFields.forEach((field) => {
     const isBudgetField = Boolean(field.querySelector("[name='budget']"));
-    const shouldHide = isPlugin || (isPackage && isBudgetField);
+    const shouldHide = isPackage && isBudgetField;
     field.hidden = shouldHide;
     field.classList.toggle("is-hidden", shouldHide);
     updateRequiredState(field, !shouldHide && field.querySelector("[name='timeline'], [name='budget']"));
   });
 
-  ymsExtraFields.forEach((field) => {
-    field.hidden = isPlugin;
-    field.classList.toggle("is-hidden", isPlugin);
-    updateRequiredState(field, !isPlugin && field.querySelector("[name='goal']"));
+  detailFields.forEach((field) => {
+    field.hidden = false;
+    field.classList.remove("is-hidden");
+    updateRequiredState(field, Boolean(field.querySelector("[name='goal']")));
   });
 
   const selectedPackage = selectedPackageKey ? packageOptions[selectedPackageKey] : null;
 
-  if (ymsProductInterestInput) {
-    ymsProductInterestInput.value = selectedPackage
-      ? selectedPackage.label
-      : isYms
-      ? "Your Mix Sucks"
-      : isBassPhat
-        ? "BassPhat"
-        : isPluginBundle
-          ? "Plugin Suite Bundle: Your Mix Sucks + BassPhat"
-          : "";
+  if (productInterestInput) {
+    productInterestInput.value = selectedPackage ? selectedPackage.label : "";
   }
-  if (ymsCustomerPriceInput) ymsCustomerPriceInput.value = selectedPackage ? selectedPackage.price : isYms ? "$59" : isBassPhat ? "$49" : isPluginBundle ? "$89" : "";
+  if (customerPriceInput) customerPriceInput.value = selectedPackage ? selectedPackage.price : "";
   if (submitLabel) {
     submitLabel.textContent = "Contact Josh";
   }
 
   if (formStatus) {
     formStatus.textContent =
-      normalizedOffering === "yms"
-        ? "Tell us what broke, what you expected, and what system you are using."
-        : normalizedOffering === "bassphat"
-          ? "Tell us what broke, what you expected, and what system you are using."
-          : normalizedOffering === "plugin-bundle"
-            ? "Tell us which product is involved and what is stopping you from using it confidently."
-            : selectedPackage
-              ? `${selectedPackage.label} is selected. Ask the question that would make you comfortable moving forward.`
-            : "Send the question, bug, trust concern, rights need, or custom brief. The clearer you are, the faster this moves.";
+      selectedPackage
+        ? `${selectedPackage.label} is selected. Ask the question that would make you comfortable moving forward.`
+        : "Send the question, trust concern, rights need, order issue, or custom brief. The clearer you are, the faster this moves.";
   }
 }
 

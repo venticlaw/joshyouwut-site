@@ -17,7 +17,7 @@ The visual energy should sit between boutique studio, record-label one-sheet, an
 - **Gold:** `#D59B2F` — primary commerce/action accent.
 - **Coral:** `#E35D45` — urgency, brand attitude, high-value labels.
 - **Mint:** `#58B99F` — confirmation, availability, engineering/product freshness.
-- **Data Blue:** `#4267B2` — technical/plugin or sync detail, use sparingly.
+- **Data Blue:** `#4267B2` — SYNC, licensing, and catalog-detail moments, use sparingly.
 
 Dark-mode sections should use coal/black with paper text. Light sections should use paper/surface with ink text. Gold is the main conversion accent; coral is the personality accent.
 
@@ -35,7 +35,7 @@ Dark-mode sections should use coal/black with paper text. Light sections should 
 - **Beat player:** dark shell, strong selected state, clear BPM/key/mood metadata, simple play/stop controls, and no hidden licensing ambiguity.
 - **Offer cards:** lead with outcome and fit, then scope. Avoid price-first layouts unless Josh approves a public price.
 - **Inquiry form:** decision-tree style with radio/checkbox choices. Capture useful lead info: offer interest, budget readiness, timeline, rights/use case, artist/brand info, and contact fields.
-- **Waitlists:** first name, email, and phone when product/plugin interest is involved.
+- **Inquiry forms:** use only when a buyer has questions, support needs, trust concerns, custom rights needs, artist packages, or SYNC briefs.
 - **Logo use:** black square/black field with white logo is preferred. Do not distort, crop, recolor, or put the logo on low-contrast backgrounds.
 
 ## Layout Principles
@@ -51,7 +51,7 @@ Use one strong hero/player elevation and mostly flat supporting cards. No glassy
 ## Do's and Don'ts
 - Do make the brand feel premium but reachable.
 - Do make every offer explain who it is for, what problem it solves, and what happens after inquiry.
-- Do keep JYW and Your Mix Sucks related but visually distinct when needed.
+- Do keep JYW focused on beat licensing, artist packages, custom music, and SYNC.
 - Do use the actual JYW logo asset.
 - Do make rights/licensing language clear and non-legalistic.
 - Don't imply checkout, instant downloads, or automated delivery unless that system is live and approved.
@@ -75,7 +75,7 @@ Use the same system across site, social, and video stills so every channel feels
 - Use gold for the main conversion/action signal and coral for attitude or urgency.
 - Keep the JYW logo visible but not oversized; preferred placements are top-left or bottom-right.
 - Use large uppercase display copy with short lines. Avoid paragraphs on image assets.
-- Use one clear product/service lane per asset: beats, artist packages, Your Mix Sucks, or SYNC.
+- Use one clear product/service lane per asset: beats, artist packages, custom production, or SYNC.
 - Include useful metadata when the asset is music-facing: BPM, key, lane, price, or package scope.
 - Keep safe margins at 7%-10% of the canvas edge for platform crops.
 - Do not use owner-facing copy, backend notes, launch gates, placeholder language, or implementation status on public social assets.

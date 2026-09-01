@@ -24,7 +24,7 @@
       <nav class="site-nav" id="site-nav" data-site-nav>
         <a href="services.html">Services</a>
         <a href="beats.html">Beats</a>
-        <a href="contact.html?offering=sync#contact">SYNC</a>
+        <a href="sync.html">SYNC</a>
         <a class="nav-cta" href="#contact">Contact Josh</a>
       </nav>
     </header>
@@ -66,27 +66,26 @@
           <div class="form-grid contact-basics" data-form-step="2">
             <label>First name<input name="first_name" type="text" autocomplete="given-name" placeholder="First name" required></label>
             <label>Email<input name="email" type="email" autocomplete="email" placeholder="you@example.com" required></label>
-            <label data-yms-extra-field>Artist / company<input name="artist" type="text" placeholder="Artist, manager, brand, or company"></label>
+            <label data-detail-field>Artist / company<input name="artist" type="text" placeholder="Artist, manager, brand, or company"></label>
             <label>Phone number<input name="phone" type="tel" autocomplete="tel" placeholder="407-555-0123" required></label>
           </div>
           <div class="form-grid inquiry-details" data-form-step="3">
-            <label data-yms-extra-field>Social, website, or music profile<input name="social" type="text" placeholder="Instagram, TikTok, YouTube, Spotify, website, or Linktree"></label>
+            <label data-detail-field>Social, website, or music profile<input name="social" type="text" placeholder="Instagram, TikTok, YouTube, Spotify, website, or Linktree"></label>
             <label data-context-field="project">Timeline<select name="timeline" required><option value="">Select one</option><option>This week</option><option>2-4 weeks</option><option>1-2 months</option><option>Flexible / planning ahead</option></select></label>
             <label data-context-field="project">Budget range<select name="budget" required><option value="">Select one</option><option>Under $250</option><option>$250-$500</option><option>$500-$1,000</option><option>$1,000-$2,500</option><option>$2,500-$5,000</option><option>$2,500+</option><option>$5,000-$10,000</option><option>$10,000+</option><option>Need guidance</option></select></label>
           </div>
           <div class="context-panel" data-context-panel="beat" hidden><strong>Beat licensing question</strong><p>Tell us which beat, what you are releasing, and what would make you confident enough to move.</p></div>
           <div class="context-panel" data-context-panel="package"><strong>Question before buying</strong><p>Tell us what you are considering, what feels unclear, and what answer would help you make the decision.</p></div>
           <div class="context-panel" data-context-panel="sync" hidden><strong>SYNC brief signal</strong><p>Include usage, deadline, mood, edit length, clean/explicit needs, and where the cue will live.</p></div>
-          <div class="context-panel" data-context-panel="yms" hidden><strong>Order / product support</strong><p>Tell us the beat, license, order issue, what happened, and what you expected to happen.</p></div>
           <label data-context-field="project">Helpful links<input name="links" type="url" placeholder="Song demo, screenshot link, receipt, product page, brief, or reference"></label>
-          <label data-yms-extra-field>What is the real question or issue?<textarea name="goal" rows="4" placeholder="What are you trying to buy, fix, verify, or understand? Include the beat, package, rights question, order issue, or trust concern." required></textarea></label>
+          <label data-detail-field>What is the real question or issue?<textarea name="goal" rows="4" placeholder="What are you trying to buy, fix, verify, or understand? Include the beat, package, rights question, order issue, or trust concern." required></textarea></label>
           <label data-context-field="project">What should Josh know before replying?<textarea name="assets" rows="3" placeholder="Timeline, files ready, release goal, budget concern, screenshot details, or what would make you comfortable moving forward."></textarea></label>
           <input type="hidden" name="lead_id" data-lead-id value="">
           <input type="hidden" name="captured_at" data-captured-at value="">
           <input type="hidden" name="selected_beat" data-selected-beat value="">
           <input type="hidden" name="selected_package" data-selected-package value="">
-          <input type="hidden" name="product_interest" data-yms-product-interest value="">
-          <input type="hidden" name="customer_price" data-yms-customer-price value="">
+          <input type="hidden" name="product_interest" data-product-interest value="">
+          <input type="hidden" name="customer_price" data-customer-price value="">
           <input type="hidden" name="source_site" value="JoshYouWut">
           <button class="button primary" type="submit" data-submit-label>Contact Josh</button>
           <p class="form-note" data-form-status>Send the question, bug, or concern and JoshYouWut will follow up with the right next step.</p>
@@ -107,6 +106,6 @@
       </div>
       <a href="#top">Back to top</a>
     </footer>
-    <script src="js/site.js?v=20260801-contact-support-trust"></script>
+    <script src="js/site.js?v=20260831-beat-sync-marketplace"></script>
   </body>
 </html>

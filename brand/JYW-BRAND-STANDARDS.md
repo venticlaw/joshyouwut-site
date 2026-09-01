@@ -12,7 +12,7 @@ Do not buy a beat. Build the record.
 - Primary field: black / coal.
 - Primary type: paper / white.
 - Conversion accent: JYW orange-gold.
-- Secondary accents: coral for urgency, mint for confirmation, JYW blue for technical/plugin or data moments.
+- Secondary accents: coral for urgency, mint for confirmation, JYW blue for SYNC, licensing, or catalog-detail moments.
 - Texture: waveform rhythm, studio-console structure, hard section bands, crisp type.
 - Avoid: owner notes, backend copy, generic music stock visuals, decorative blobs, vague "beats for everyone" claims.
 
@@ -29,7 +29,7 @@ Do not buy a beat. Build the record.
 
 ## Social Kit
 ### YouTube Banner
-Use `2560x1440`. Put important content inside the center `1546x423` safe area. Lead with brand, offer, and the three money paths: artist packages, beat licensing, Your Mix Sucks.
+Use `2560x1440`. Put important content inside the center `1546x423` safe area. Lead with brand, offer, and the three money paths: artist packages, beat licensing, and SYNC/custom music.
 
 ### Instagram Carousel
 Use `1080x1080` slides. Default rhythm: hook, offer, action. Each slide needs a short headline, useful metadata, and a visible brand mark.
