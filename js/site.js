@@ -317,8 +317,8 @@ const renderBeatCards = () => {
   beatGrid.innerHTML = visibleBeats
     .map(
       (beat) => `
-        <article class="store-card beat-card ${beat.index === activeBeatIndex ? "is-active" : ""}" data-beat-card="${beat.index}">
-          <button class="beat-card-button" type="button" data-load-beat="${beat.index}" aria-label="${beat.index === activeBeatIndex && !beatAudio?.paused ? "Pause" : "Play"} ${escapeHtml(beat.title)}" aria-pressed="${beat.index === activeBeatIndex}">
+        <article class="store-card beat-card track-row ${beat.index === activeBeatIndex ? "is-active" : ""}" data-beat-card="${beat.index}">
+          <button class="beat-card-button" type="button" data-load-beat="${beat.index}" aria-label="${beat.index === activeBeatIndex && !beatAudio?.paused ? "Pause" : "Play"} ${escapeHtml(beat.title)}" ${beat.index === activeBeatIndex ? 'aria-current="true"' : ""}>
             <span class="play-icon" aria-hidden="true"></span>
             <span>
               <strong>${escapeHtml(beat.title)}</strong>
@@ -326,14 +326,8 @@ const renderBeatCards = () => {
             </span>
           </button>
           ${Number.isFinite(beat.featured_order) ? '<span class="beat-featured">Featured</span>' : ""}
-          <p class="tag">${escapeHtml(beat.lane)}</p>
-          <p>${escapeHtml(beat.description)}</p>
-          <dl>
-            <div><dt>BPM</dt><dd>${Number.isFinite(beat.bpm) ? escapeHtml(beat.bpm) : "Not listed"}</dd></div>
-            <div><dt>Key</dt><dd>${escapeHtml(beat.key)}</dd></div>
-            <div><dt>Use</dt><dd>${escapeHtml(beat.use)}</dd></div>
-          </dl>
-          ${buildBeatTierActions(beat)}
+          <span class="track-genre">${escapeHtml(beat.lane)}</span>
+          <button class="button secondary track-license" type="button" data-open-license="${beat.index}" aria-label="Choose a license for ${escapeHtml(beat.title)}">License <span>${escapeHtml(beatLicenseTiers.starter.price)}</span></button>
         </article>
       `
     )
@@ -343,20 +337,74 @@ const renderBeatCards = () => {
 const renderPlayerActions = () => {
   const actions = document.querySelector(".beat-player-actions");
   const beat = beats[activeBeatIndex];
-  if (actions && beat) actions.innerHTML = buildBeatTierActions({ ...beat, index: activeBeatIndex }, "player");
+  if (!actions || !beat) return;
+  let button = actions.querySelector("[data-open-license]");
+  if (!button) {
+    button = document.createElement("button");
+    button.className = "button primary";
+    button.type = "button";
+    actions.append(button);
+  }
+  button.dataset.openLicense = String(activeBeatIndex);
+  button.textContent = `Get this beat ${beatLicenseTiers.starter.price}`;
 };
 
-const playSelectedBeat = () => beatAudio?.play().catch((error) => {
-  if (error.name !== "AbortError" && playState) playState.textContent = "Preview could not play. Use the audio controls to retry or choose another beat.";
+const updateBeatSelection = () => {
+  beatGrid?.querySelectorAll("[data-load-beat]").forEach((button) => {
+    const index = Number(button.dataset.loadBeat);
+    const beat = beats[index];
+    const selected = index === activeBeatIndex;
+    button.closest("[data-beat-card]").classList.toggle("is-active", selected);
+    if (selected) button.setAttribute("aria-current", "true"); else button.removeAttribute("aria-current");
+    button.setAttribute("aria-label", `${selected && !beatAudio.paused ? "Pause" : "Play"} ${beat.title}`);
+    button.querySelector("small").textContent = `${beatBpmLabel(beat)} · ${beat.key}${selected ? (beatAudio.paused ? " · Selected" : " · Playing") : ""}`;
+  });
+};
+
+const licenseDialog = document.querySelector("[data-license-dialog]");
+const openBeatLicense = (index) => {
+  const beat = beats[index];
+  if (!beat || !licenseDialog) return;
+  const focusedTier = licenseDialog.contains(document.activeElement) ? document.activeElement.dataset.licenseTier : null;
+  licenseDialog.dataset.beatIndex = String(index);
+  document.querySelector("[data-license-title]").textContent = beat.title;
+  const live = beatLicenseTiers.starter.live && validBeatCheckoutUrl(beatLicenseTiers.starter.urlsByBeat?.[beat.id]);
+  document.querySelector("[data-license-status]").textContent = live ? "Choose Starter to continue to secure checkout." : "To arrange your license, send Josh the selected beat and tier below.";
+  licenseDialog.querySelector(".license-dialog-actions").innerHTML = [
+    ["starter", "One non-exclusive song release. MP3/WAV. No stems."],
+    ["premium", "Ask about stems and the scope of your release."],
+    ["exclusive", "Discuss exclusive rights, publishing and custom terms."]
+  ].map(([key, detail]) => `<section class="license-option"><h3>${escapeHtml(beatLicenseTiers[key].label)}</h3><p>${escapeHtml(detail)}</p>${buildBeatCheckoutAction({...beat,index}, key, "player")}</section>`).join("");
+  if (!licenseDialog.open) licenseDialog.showModal();
+  if (["starter", "premium", "exclusive"].includes(focusedTier)) licenseDialog.querySelector(`[data-license-tier="${focusedTier}"]`)?.focus();
+};
+document.addEventListener("click", (event) => {
+  const trigger = event.target.closest("[data-open-license]");
+  if (trigger) openBeatLicense(Number(trigger.dataset.openLicense));
 });
+document.querySelector("[data-license-close]")?.addEventListener("click", () => licenseDialog?.close());
+document.querySelector("a[href='#licensing']")?.addEventListener("click", () => {
+  const guide = document.querySelector("[data-license-guide]");
+  if (guide) guide.open = true;
+});
+
+const playSelectedBeat = () => {
+  if (beatAudio?.error) beatAudio.load();
+  return beatAudio?.play().catch((error) => {
+  if (error.name !== "AbortError" && playState) playState.textContent = "Preview could not play. Use the audio controls to retry or choose another beat.";
+  });
+};
 
 const loadBeat = (index, shouldPlay = false) => {
   const beat = beats[index];
   if (!beat || !beatAudio) return;
 
   activeBeatIndex = index;
+  beatAudio.dataset.beatId = beat.id;
+  beatAudio.dataset.previewDuration = String(beat.duration_seconds || 60);
   if (playState) playState.textContent = `Ready: ${beat.title}`;
   currentTitle.textContent = beat.title;
+  currentTitle.title = beat.title;
   currentDescription.textContent = beat.description;
   currentBpm.textContent = Number.isFinite(beat.bpm) ? beat.bpm : "Not listed";
   currentKey.textContent = beat.key;
@@ -378,7 +426,8 @@ const loadBeat = (index, shouldPlay = false) => {
     beatAudio.load();
   }
 
-  renderBeatCards();
+  updateBeatSelection();
+  document.dispatchEvent(new CustomEvent("jyw:beat-selected", {detail: {id:beat.id,title:beat.title}}));
 
   if (shouldPlay) {
     playSelectedBeat();
@@ -478,21 +527,19 @@ if (beatGrid && beatAudio) {
   nextBeatButton?.addEventListener("click", () => {
     stepBeat(1);
   });
+  document.querySelector("[data-player-toggle]")?.addEventListener("click", () => {
+    if (beatAudio.paused) playSelectedBeat(); else beatAudio.pause();
+  });
   previousBeatButton?.addEventListener("click", () => stepBeat(-1));
   beatAudio.addEventListener("ended", () => {
     if (repeatBeat?.checked) { beatAudio.currentTime = 0; playSelectedBeat(); }
     else if (autoAdvance?.checked) stepBeat(1);
     else if (playState) playState.textContent = `Finished: ${beats[activeBeatIndex]?.title || "Preview"}`;
   });
-  ["play", "pause", "waiting"].forEach((type) => beatAudio.addEventListener(type, () => {
-    if (playState) playState.textContent = `${type === "play" ? "Playing" : type === "waiting" ? "Buffering" : "Paused"}: ${beats[activeBeatIndex]?.title || "Preview"}`;
+  ["play", "playing", "pause", "waiting"].forEach((type) => beatAudio.addEventListener(type, () => {
+    if (playState) playState.textContent = `${type === "play" || type === "playing" ? "Playing" : type === "waiting" ? "Buffering" : "Paused"}: ${beats[activeBeatIndex]?.title || "Preview"}`;
     // Update play labels without replacing the focused catalog button.
-    beatGrid.querySelectorAll("[data-load-beat]").forEach((button) => {
-      const index = Number(button.dataset.loadBeat);
-      const beat = beats[index];
-      button.setAttribute("aria-label", `${index === activeBeatIndex && !beatAudio.paused ? "Pause" : "Play"} ${beat.title}`);
-      button.querySelector("small").textContent = `${beatBpmLabel(beat)} · ${beat.key}${index === activeBeatIndex ? (beatAudio.paused ? " · Selected" : " · Playing") : ""}`;
-    });
+    updateBeatSelection();
   }));
   beatAudio.addEventListener("error", () => { if (playState) playState.textContent = "Preview unavailable. Choose another beat or retry with the audio controls."; });
   document.querySelector("[data-beat-search]")?.addEventListener("submit", (event) => event.preventDefault());
@@ -763,8 +810,9 @@ const applyCheckoutConfig = () => {
   }
 
   if (beatGrid && beatAudio) {
-    renderBeatCards();
+    beatGrid.querySelectorAll(".track-license span").forEach((price) => { price.textContent = beatLicenseTiers.starter.price; });
     renderPlayerActions();
+    if (licenseDialog?.open) openBeatLicense(Number(licenseDialog.dataset.beatIndex));
   }
 };
 

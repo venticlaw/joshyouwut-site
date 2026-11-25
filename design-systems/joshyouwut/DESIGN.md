@@ -115,6 +115,13 @@ Use the same system across site, social, and video stills so every channel feels
 - Export target can be `.webm` when MP4 tooling is unavailable; YouTube accepts WebM uploads.
 
 ## Agent Prompt Guide
+### Beat Store Player
+- One persistent audio engine serves the entire catalog; rows select tracks without restarting the interface or losing keyboard focus.
+- Real audio waveforms provide seek feedback. Native audio controls remain the script-failure fallback.
+- HIG mapping: clarity through a single current-track identity, deference through compact catalog rows, and depth through a separate license dialog.
+- Preserve 44px control targets, visible focus, safe-area clearance, reduced-motion support, and responsive dock layout.
+- Browser visual QA at 390px and 1440px remains pending while the Mac is locked; automated DOM tests are not visual approval.
+
 When generating JoshYouWut artifacts:
 - Start from `css/site.css` and `assets/jyw-logo.svg`.
 - Preserve the black/cream/gold/coral/mint palette.

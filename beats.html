@@ -18,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="assets/jyw-logo.svg">
     <link rel="stylesheet" href="css/site.css?v=20260801-mobile-card-contrast">
-    <link rel="stylesheet" href="css/beat-store.css?v=20261124">
+    <link rel="stylesheet" href="css/beat-store.css?v=20261124-unified">
   </head>
   <body class="beat-store-page">
     <header class="site-header" data-site-header>
@@ -35,45 +35,43 @@
       </nav>
     </header>
 
+    <article class="beat-player" id="player" aria-label="Beat player">
+      <div class="beat-player-art"><img src="assets/jyw-logo.svg" alt="" aria-hidden="true"></div>
+      <div class="beat-player-copy">
+        <div class="player-identity"><p class="tag" data-current-lane>Now playing</p><h3 data-current-title>Select a beat</h3></div>
+        <p data-current-description>Choose a track below to load it into the player.</p>
+        <dl class="beat-meta"><div><dt>BPM</dt><dd data-current-bpm>--</dd></div><div><dt>Key</dt><dd data-current-key>--</dd></div><div><dt>Use</dt><dd data-current-use>Artist licensing</dd></div></dl>
+        <audio data-beat-audio controls preload="metadata" aria-label="Selected beat preview"></audio>
+        <p data-play-state role="status" aria-live="polite">Loading catalog...</p>
+        <div class="beat-dock-controls" aria-label="Playback controls">
+          <button class="button secondary" type="button" data-previous-beat disabled title="Previous beat" aria-label="Previous beat"><img src="assets/icons/lucide/skip-back.svg" width="20" height="20" alt="" aria-hidden="true"></button>
+          <button class="button primary" type="button" data-player-toggle disabled aria-label="Play selected beat" title="Play or pause"><span class="play-icon" aria-hidden="true"></span></button>
+          <button class="button secondary" type="button" data-next-beat disabled title="Next beat" aria-label="Next beat"><img src="assets/icons/lucide/skip-forward.svg" width="20" height="20" alt="" aria-hidden="true"></button>
+        </div>
+        <div class="waveform-seek"><canvas data-beat-waveform aria-hidden="true"></canvas><input aria-label="Preview position" id="preview-position" data-waveform-seek type="range" min="0" max="1000" value="0" disabled aria-valuetext="0:00"></div>
+        <div class="player-time"><span data-player-elapsed>0:00</span><span aria-hidden="true"> / </span><span data-player-duration>0:00</span></div>
+        <label class="player-volume">Volume<input data-player-volume type="range" min="0" max="1" step="0.05" value="1"></label>
+        <details class="player-options"><summary aria-label="Playback settings" title="Playback settings"><img src="assets/icons/lucide/sliders-horizontal.svg" width="20" height="20" alt="" aria-hidden="true"></summary><div><label><input type="checkbox" data-auto-advance checked> Auto-advance</label><label><input type="checkbox" data-repeat-beat> Repeat</label></div></details>
+        <div class="beat-player-actions"></div>
+      </div>
+    </article>
+
     <main id="top">
       <section class="hero section-shell page-hero">
         <div class="hero-copy">
           <p class="eyebrow">Beat store</p>
           <h1>JoshYouWut beats</h1>
-          <p class="hero-lede">Find your next record. Listen, then choose your license.</p>
+          <p class="hero-lede">Find your sound. Preview the catalog. Make your next record.</p>
         </div>
       </section>
 
       <section class="section-shell split-section beat-store-section section-band beat-band" id="beats">
         <div class="section-heading">
           <p class="eyebrow">Catalog</p>
-          <h2>Find your pocket.</h2>
+          <h2>All beats</h2>
           <a href="#licensing">Compare licenses</a>
         </div>
         <div class="beat-store" data-beat-store>
-          <article class="beat-player" id="player" aria-label="Featured beat player">
-            <div class="beat-player-art"><img src="assets/jyw-logo.svg" alt="" aria-hidden="true"></div>
-            <div class="beat-player-copy">
-              <p class="tag" data-current-lane>Beat store catalog</p>
-              <h3 data-current-title>Select a beat</h3>
-              <p data-current-description>Choose a track below to load it into the player.</p>
-              <dl class="beat-meta">
-                <div><dt>BPM</dt><dd data-current-bpm>--</dd></div>
-                <div><dt>Key</dt><dd data-current-key>--</dd></div>
-                <div><dt>Use</dt><dd data-current-use>Artist licensing</dd></div>
-              </dl>
-              <audio data-beat-audio controls preload="none" aria-label="Selected beat full preview"></audio>
-              <p data-play-state role="status" aria-live="polite">Loading catalog...</p>
-              <div class="beat-transport" aria-label="Playback options">
-                <button class="button secondary" type="button" data-previous-beat disabled title="Previous beat" aria-label="Previous beat">&#9198;</button>
-                <button class="button secondary" type="button" data-next-beat disabled title="Next beat" aria-label="Next beat">&#9197;</button>
-                <label><input type="checkbox" data-auto-advance checked> Auto-advance</label>
-                <label><input type="checkbox" data-repeat-beat> Repeat</label>
-              </div>
-              <div class="beat-player-actions">
-              </div>
-            </div>
-          </article>
           <form class="beat-search" data-beat-search role="search" aria-label="Search beats">
             <label>Search<input type="search" data-beat-query placeholder="Title, mood, or tag"></label>
             <label>Genre<select data-beat-genre><option value="all">All genres</option></select></label>
@@ -88,7 +86,8 @@
         </div>
       </section>
 
-      <section class="section-shell licensing-section section-band license-band" id="licensing">
+      <details class="section-shell licensing-section section-band license-band" id="licensing" data-license-guide>
+        <summary>Compare licenses and delivery</summary>
         <div class="section-heading compact">
           <p class="eyebrow">Licensing</p>
           <h2>Choose the license that matches the ambition.</h2>
@@ -102,7 +101,7 @@
             <p class="price-line">Starts at $29</p>
             <p>Best when you need a low-friction way to test the song.</p>
             <ul><li>Non-exclusive use</li><li>No stems</li><li>Availability shown on each beat</li></ul>
-            <a class="button secondary" href="#player">Choose a beat</a>
+            <a class="button secondary" href="#beats">Choose a beat</a>
           </article>
           <article class="license-card featured">
             <span>Premium lease</span>
@@ -110,7 +109,7 @@
             <p class="price-line">Starts at $79</p>
             <p>Best when the record needs stronger files and room for a proper mix.</p>
             <ul><li>WAV-focused path</li><li>Ask about available stems/trackouts</li><li>Inquiry before payment</li></ul>
-            <a class="button primary" href="#player">Choose a beat</a>
+            <a class="button primary" href="#beats">Choose a beat</a>
           </article>
           <article class="license-card">
             <span>Exclusive / custom</span>
@@ -121,7 +120,13 @@
             <a class="button secondary" href="contact.html?offering=custom#contact">Contact Josh</a>
           </article>
         </div>
-      </section>
+      </details>
+      <dialog class="license-dialog" data-license-dialog aria-labelledby="license-title">
+        <div class="license-dialog-header"><div><p class="eyebrow">Choose your license</p><h2 id="license-title" data-license-title>Beat licensing</h2></div><button type="button" data-license-close aria-label="Close license options"><img src="assets/icons/lucide/x.svg" width="20" height="20" alt="" aria-hidden="true"></button></div>
+        <p data-license-status></p>
+        <div class="license-dialog-actions"></div>
+        <p class="license-dialog-note">MP3/WAV delivery after order review. Stems and exclusive terms are arranged separately. <a href="legal/beat-license.html">Read license terms</a>.</p>
+      </dialog>
     </main>
 
     <footer class="site-footer">
@@ -137,6 +142,7 @@
       </div>
       <a href="#top">Back to top</a>
     </footer>
-    <script src="js/site.js?v=20261124-beat-catalog"></script>
+    <script src="js/site.js?v=20261124-unified-player"></script>
+    <script src="js/beat-player.js?v=20261124-unified-player"></script>
   </body>
 </html>
