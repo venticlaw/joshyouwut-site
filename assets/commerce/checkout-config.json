@@ -2,12 +2,12 @@
   "provider": "lemon_squeezy",
   "store": {
     "name": "JoshYouWut",
-    "id": "439153",
+    "id": null,
     "url": "https://joshyouwut.com"
   },
-  "public_active": true,
-  "mode": "live_checkout_urls_public",
-  "inactive_label": "Buy now",
+  "public_active": false,
+  "mode": "inquiry_only",
+  "inactive_label": "Ask about availability",
   "active_label": "Buy now",
   "products": {
     "beat_starter": {
@@ -15,28 +15,23 @@
       "kind": "beat_license",
       "price": "$29",
       "checkout_url": "",
-      "checkout_urls_by_beat": {
-        "unfuckwittable": "https://plugin-suite.lemonsqueezy.com/checkout/custom/fbd108c4-d9c0-48f9-8bce-e428003c0a16?signature=f9ae3f9d7a2bf33fe769cf86da43fc5c6e1e3a2990bf7e0914932f0955488bf6",
-        "the-elite-theme": "https://plugin-suite.lemonsqueezy.com/checkout/custom/c42b6a38-7705-4701-86a7-be5b671819f9?signature=6c22e0fbb2a363a97485df6de7976f800a1c123fb713c6b8bb90814b772a6afd",
-        "trenta-fried-chicken": "https://plugin-suite.lemonsqueezy.com/checkout/custom/4a15cd16-d12a-4d26-aedb-7cdacb81f14d?signature=cebfdde72a4d7124b854bcf8d43d71f1673591b7c28207a263a50cfcf8f07dde",
-        "juggernaut": "https://plugin-suite.lemonsqueezy.com/checkout/custom/8df3ed33-e4df-4844-80c6-95956a31ce56?signature=64c361e7d21a42e0895598919bc49e83f82ef64a23c5588f5734dfdc6a355638",
-        "i-made-this-for-jid": "https://plugin-suite.lemonsqueezy.com/checkout/custom/dfc42564-7282-4f15-8222-a3efd866263d?signature=f4b2ce5828ed8de661499c73671c9b1f652b7e5f30bf42dbab6e35a718ad2c01"
-      },
-      "fallback_offering": "beat"
+      "checkout_urls_by_beat": {},
+      "fallback_offering": "beat",
+      "live": false,
+      "test_mode": null,
+      "fulfillment": "manual_after_order_review"
     },
     "beat_premium": {
       "name": "Premium Lease",
       "kind": "beat_license",
       "price": "$79",
       "checkout_url": "",
-      "checkout_urls_by_beat": {
-        "unfuckwittable": "https://plugin-suite.lemonsqueezy.com/checkout/custom/f582c61c-b8eb-4f5f-95c7-e4e4828f8c0d?signature=1aea34d368e57b908a75ad996a2a218955832d23a64dea7782f0b74f62670830",
-        "the-elite-theme": "https://plugin-suite.lemonsqueezy.com/checkout/custom/d19c5a43-33d4-453e-93e4-a30672aceb66?signature=2ac240690021b564d3ea9525c0aaa9f7244f088d0f0e220d9dc0c1f75cc5e659",
-        "trenta-fried-chicken": "https://plugin-suite.lemonsqueezy.com/checkout/custom/993dc9e3-26f1-4bd2-bfeb-9d97e5b9c56c?signature=d370fae932c9a1ec33924ab15a4c584122eb12e36236b6ec3b84a62d0b66d8cc",
-        "juggernaut": "https://plugin-suite.lemonsqueezy.com/checkout/custom/8e36a546-1198-44be-bbd9-282ceea392aa?signature=5b5fb94388beeb216921a2e783ae4b970b13b5ebfddb57746a2a31b0f2b60666",
-        "i-made-this-for-jid": "https://plugin-suite.lemonsqueezy.com/checkout/custom/59afb8c0-a2d6-4a0e-8c72-fee3a47915d9?signature=ff2ad34136e278758031a8f305a591be47168536eda319eabd5d1695a1f94617"
-      },
-      "fallback_offering": "beat"
+      "checkout_urls_by_beat": {},
+      "fallback_offering": "beat",
+      "live": false,
+      "test_mode": null,
+      "fulfillment": "manual_after_order_review",
+      "inquiry_only": true
     },
     "package_launch_loadout": {
       "name": "Music Launch Loadout",
@@ -70,8 +65,8 @@
     }
   },
   "notes": [
-    "JYW is now scoped to beats, SYNC/custom music, and artist services only.",
-    "Current beat checkout URLs still use the existing Lemon Squeezy checkout domain. Create a dedicated JYW Lemon Squeezy store/domain when ready for full brand alignment."
+    "JoshYouWut beat licensing and artist services.",
+    "Starter checkout requires a verified live beat product. Premium and Exclusive are inquiry-only."
   ],
-  "updated_at": "2026-08-31T00:00:00-04:00"
+  "updated_at": "2026-11-24"
 }

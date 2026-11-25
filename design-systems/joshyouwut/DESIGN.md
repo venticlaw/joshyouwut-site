@@ -67,6 +67,16 @@ Use one strong hero/player elevation and mostly flat supporting cards. No glassy
 ## Motion & Interaction
 Use restrained hover/selected states for player tracks, offering cards, and form options. Motion should feel like studio equipment responding: crisp, quick, and useful. Respect reduced-motion preferences.
 
+### Beat Store Integration
+- Preserve the real logo, existing palette, and other page flows. `css/beat-store.css` is scoped to `body.beat-store-page`.
+- HIG mapping: clarity through compact headings, readable metadata and explicit playback status; deference through a player-first catalog without duplicate hero panels; depth through selected-track borders rather than decorative motion.
+- Native audio controls provide full preview seeking and volume. Re-selecting the active track toggles play/pause; previous/next and auto-advance use the visible filtered list. Repeat retains the current selection. Initial load never autoplays.
+- Genre comes from catalog `genres`; search includes title, mood tags and descriptive metadata. Empty, loading and retry states are explicit.
+- Catalog size is uncapped; numeric `featured_order` sorts first, then title. Only those entries receive Featured badges. Compact catalog rows preserve scanability as the library grows.
+- Starter is an inquiry unless `public_active`, product `live`, and product `verified` are all strictly true and an exact per-beat valid HTTPS Lemon Squeezy checkout URL exists. No generic URL fallback. Premium and Exclusive always use inquiry links.
+- Contact query parameters `beat` (canonical ID) and `license` survive navigation and reload; legacy `tier` is also accepted. Contact pages fetch the catalog without requiring a player. Session storage is a fallback, never a prerequisite.
+- Accessibility intent: 44px minimum targets, visible focus, native labeled inputs, high-contrast controls, reduced-motion override, and responsive single-column mobile layout. Main owns 390/1440 screenshot QA and final acceptance; browser verification has not been performed in this integration pass.
+
 ## Social Media Asset Standards
 Use the same system across site, social, and video stills so every channel feels like the same producer brand.
 

@@ -1,0 +1,70 @@
+body.beat-store-page { background: var(--paper); }
+body.beat-store-page * { letter-spacing: 0; min-width: 0; }
+body.beat-store-page [hidden] { display: none !important; }
+body.beat-store-page :is(h1, h2, h3, p, a, dd, strong, small) { overflow-wrap: anywhere; }
+body.beat-store-page .page-hero { display: block; min-height: 0; padding: 1.5rem 0 1rem; }
+body.beat-store-page h1 { font-size: 2.25rem; line-height: 1.15; margin: 0.25rem 0; }
+body.beat-store-page h2 { font-size: 1.5rem; line-height: 1.2; }
+body.beat-store-page .hero-lede { font-size: 1rem; max-width: 50rem; margin: 0.5rem 0; }
+body.beat-store-page .beat-store-section { display: flex; flex-direction: column; gap: 1rem; padding: 1rem 0 2rem; }
+body.beat-store-page .beat-band { background: transparent; box-shadow: none; color: var(--ink); }
+body.beat-store-page .beat-band::before { display: none; }
+body.beat-store-page .beat-store-section > .section-heading { margin: 0; }
+body.beat-store-page .beat-store-section > .section-heading .eyebrow { display: none; }
+body.beat-store-page .beat-store { display: grid; gap: 1rem; width: 100%; }
+body.beat-store-page .beat-player { grid-template-columns: 80px minmax(0, 1fr); border-radius: 8px; box-shadow: none; }
+body.beat-store-page .beat-player-art { align-items: start; padding-top: 1rem; }
+body.beat-store-page .beat-player-art img { width: 64px; height: 64px; min-height: 0; object-fit: contain; }
+body.beat-store-page .beat-player-copy { padding: 1rem; gap: 0.65rem; }
+body.beat-store-page .beat-player-copy h3 { font-size: 1.5rem; line-height: 1.25; margin: 0; }
+body.beat-store-page .beat-player-copy p { color: #e5e1d8; }
+body.beat-store-page .beat-meta { grid-template-columns: 80px 110px minmax(0, 1fr); }
+body.beat-store-page .beat-meta div { padding: 0.5rem; }
+body.beat-store-page .beat-meta dt { color: #cbc7be; }
+body.beat-store-page .beat-player audio { display: block; width: 100%; min-height: 54px; color-scheme: dark; }
+body.beat-store-page .beat-transport { display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+body.beat-store-page .beat-transport label { display: inline-flex; align-items: center; gap: 0.5rem; min-height: 44px; padding: 0 0.5rem; cursor: pointer; }
+body.beat-store-page input[type="checkbox"] { width: 20px; height: 20px; accent-color: var(--gold); }
+body.beat-store-page :is(button, .button, .beat-tier-link, .site-nav a, .footer-links a) { min-height: 44px; min-width: 44px; }
+body.beat-store-page .beat-transport button { width: 48px; padding: 0.5rem; font-size: 1.25rem; }
+body.beat-store-page button:disabled { opacity: 0.5; cursor: default; }
+body.beat-store-page .beat-player .button { background: #19171b; border: 1px solid #8d8981; color: #fff8e8; }
+body.beat-store-page .beat-player .primary { background: var(--gold); color: #101014; border-color: var(--gold); }
+body.beat-store-page .beat-tier-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; width: 100%; }
+body.beat-store-page .beat-tier-actions a { display: inline-flex; align-items: center; justify-content: center; white-space: normal; padding: 0.65rem; border-radius: 6px; font-size: 0.875rem; text-align: center; }
+body.beat-store-page .beat-search { display: grid; grid-template-columns: minmax(160px, 2fr) minmax(130px, 1fr) 100px 100px auto; align-items: end; gap: 0.75rem; }
+body.beat-store-page .beat-search label { display: grid; gap: 0.25rem; font-size: 0.875rem; font-weight: 700; color: var(--ink); }
+body.beat-store-page .beat-search :is(input, select) { width: 100%; min-height: 44px; border: 1px solid #75716a; border-radius: 6px; background: var(--surface); color: var(--ink); padding: 0.5rem; font: inherit; font-size: 1rem; }
+body.beat-store-page :is([data-beat-count], [data-catalog-message]) { margin: 0; color: #45464e; }
+body.beat-store-page .beat-grid { grid-template-columns: minmax(0, 1fr); gap: 0.5rem; }
+body.beat-store-page .beat-card { display: grid; grid-template-columns: minmax(180px, 1fr) minmax(0, 1.5fr); align-items: center; gap: 0.5rem 1rem; background: var(--surface); color: var(--ink); padding: 0.75rem 1rem; border-radius: 6px; box-shadow: none; }
+body.beat-store-page .beat-card > :is(p, dl) { display: none; }
+body.beat-store-page .beat-card > .beat-tier-actions { grid-column: 2; grid-row: 1 / span 2; }
+body.beat-store-page .beat-featured { color: #684500; font-size: 0.75rem; font-weight: 800; }
+body.beat-store-page .beat-card p { color: #45464e; }
+body.beat-store-page .beat-card-button { min-height: 64px; }
+body.beat-store-page .beat-card .beat-tier-link { color: var(--ink); background: transparent; border: 1px solid #75716a; }
+body.beat-store-page :focus-visible { outline: 3px solid #4267b2; outline-offset: 3px; }
+body.beat-store-page .beat-player :focus-visible { outline-color: #f7c76b; }
+body.beat-store-page .license-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+body.beat-store-page .license-card h3 { font-size: 1.5rem; }
+@media (max-width: 700px) {
+  body.beat-store-page h1 { font-size: 1.75rem; }
+  body.beat-store-page .beat-player { grid-template-columns: minmax(0, 1fr); }
+  body.beat-store-page .beat-player-art { display: none; }
+  body.beat-store-page .beat-player-copy { padding: 0.875rem; }
+  body.beat-store-page .beat-meta { grid-template-columns: 70px minmax(0, 1fr); }
+  body.beat-store-page .beat-meta div:last-child { grid-column: 1 / -1; }
+  body.beat-store-page .beat-meta div { padding: 0.35rem 0.5rem; }
+  body.beat-store-page .beat-search { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  body.beat-store-page .beat-search label:first-child { grid-column: 1 / -1; }
+  body.beat-store-page .beat-grid, body.beat-store-page .license-grid { grid-template-columns: minmax(0, 1fr); }
+  body.beat-store-page .beat-card { grid-template-columns: minmax(0, 1fr); }
+  body.beat-store-page .beat-card > .beat-tier-actions { grid-column: 1; grid-row: auto; display: flex; }
+  body.beat-store-page .beat-card .beat-tier-link { flex: 1 1 130px; }
+  body.beat-store-page .beat-tier-actions { display: grid; grid-template-columns: minmax(0, 1fr); }
+  body.beat-store-page .site-footer { flex-wrap: wrap; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body.beat-store-page *, body.beat-store-page *::before, body.beat-store-page *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}

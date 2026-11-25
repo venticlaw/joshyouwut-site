@@ -25,63 +25,11 @@ const setHeaderState = () => {
 setHeaderState();
 window.addEventListener("scroll", setHeaderState, { passive: true });
 
-const beats = [
-  {
-    id: "unfuckwittable",
-    title: "UnfuckWittable",
-    bpm: 100,
-    key: "C minor",
-    lane: "Beat store catalog",
-    use: "Artist licensing / custom brief",
-    tags: ["artist", "rap"],
-    description: "Dark, focused pocket with space for a serious lead vocal, sharp hook energy, and a clear licensing conversation.",
-    file: "assets/audio/previews/unfuckwittable-100bpm-cmin-preview.m4a"
-  },
-  {
-    id: "the-elite-theme",
-    title: "The Elite Theme",
-    bpm: 140,
-    key: "B minor",
-    lane: "Premium energy",
-    use: "Sports / sync / artist brief",
-    tags: ["artist", "sync"],
-    description: "Big entrance energy with a clean theme feel for artists, sports edits, and placement-style briefs.",
-    file: "assets/audio/previews/the-elite-theme-140bpm-bm-preview.m4a"
-  },
-  {
-    id: "trenta-fried-chicken",
-    title: "TRENTA FRIED CHICKEN",
-    bpm: 130,
-    key: "C minor",
-    lane: "Producer signature",
-    use: "Artist record / brand cue",
-    tags: ["artist", "sync"],
-    description: "High-character production with attitude, bounce, and a strong JoshYouWut identity signal for artists or branded moments.",
-    file: "assets/audio/previews/trenta-fried-chicken-130bpm-cm-preview.m4a"
-  },
-  {
-    id: "juggernaut",
-    title: "Juggernaut",
-    bpm: 135,
-    key: "C# minor",
-    lane: "Heavy impact",
-    use: "Artist licensing / sync inquiry",
-    tags: ["artist", "sync"],
-    description: "Aggressive, placement-ready momentum for artists, sports energy, or briefs that need weight and movement.",
-    file: "assets/audio/previews/juggernaut-135bpm-csharpm-preview.m4a"
-  },
-  {
-    id: "i-made-this-for-jid",
-    title: "I Made This For JID",
-    bpm: 85,
-    key: "D minor",
-    lane: "Lyrical pocket",
-    use: "Artist licensing / rap record",
-    tags: ["artist", "rap"],
-    description: "A precise pocket for technical writing, flow switches, and an artist who wants room to rap.",
-    file: "assets/audio/previews/i-made-this-for-jid-85bpm-dm-preview.m4a"
-  }
-];
+let beats = [];
+const beatBpmLabel = (beat) => Number.isFinite(beat.bpm) ? `${beat.bpm} BPM` : "BPM not listed";
+const escapeHtml = (value) => String(value ?? "").replace(/[&<>"']/g, (char) =>
+  ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]);
+const catalogUrl = new URL("../assets/data/beats.json", document.currentScript?.src || window.location.href);
 
 const beatLicenseTiers = {
   starter: {
@@ -167,7 +115,7 @@ const commerceConfigUrl = new URL("../assets/commerce/checkout-config.json", doc
 commerceConfigUrl.searchParams.set("v", "20260801-clean-storefront");
 const commerceConfigPath = commerceConfigUrl.href;
 
-let activeBeatIndex = 0;
+let activeBeatIndex = -1;
 let activeBeatFilter = "all";
 let checkoutConfig = null;
 let selectedPackageKey = "";
@@ -175,27 +123,40 @@ let selectedPackageKey = "";
 const contactHrefFor = (offering = "package") =>
   leadForm ? "#contact" : `contact.html?offering=${encodeURIComponent(offering)}#contact`;
 
+const beatContactHref = (beat, tierKey) => {
+  const params = new URLSearchParams({ offering: tierKey === "exclusive" ? "custom" : "beat", beat: beat.id, license: tierKey });
+  return `contact.html?${params}#contact`;
+};
+
+const validBeatCheckoutUrl = (value) => {
+  try {
+    const url = new URL(value);
+    return url.protocol === "https:" && /^[a-z0-9-]+\.lemonsqueezy\.com$/i.test(url.hostname) &&
+      !url.username && !url.password && url.pathname.startsWith("/checkout/") ? url.href : "";
+  } catch { return ""; }
+};
+
 const buildBeatCheckoutAction = (beat, tierKey, variant = "card") => {
   const tier = beatLicenseTiers[tierKey];
   if (!tier) return "";
   const isPrimary = tierKey === "premium";
   const className = variant === "player" ? `button ${isPrimary ? "primary" : "secondary"}` : "beat-tier-link";
-  const checkoutUrl = tier.urlsByBeat?.[beat.id] || tier.url;
-  const hasLiveCheckout = tier.live && checkoutUrl;
+  const checkoutUrl = validBeatCheckoutUrl(tier.urlsByBeat?.[beat.id]);
+  const hasLiveCheckout = tierKey === "starter" && tier.live && checkoutUrl;
   const label = hasLiveCheckout ? `Buy ${tier.label} ${tier.price}` : `${tier.label} ${tier.price}`;
 
   if (hasLiveCheckout) {
-    return `<a class="${className}" href="${checkoutUrl}" target="_blank" rel="noopener" data-beat-checkout="${beat.id}" data-license-tier="${tierKey}">${label}</a>`;
+    return `<a class="${className}" href="${escapeHtml(checkoutUrl)}" target="_blank" rel="noopener" data-beat-checkout="${escapeHtml(beat.id)}" data-license-tier="${tierKey}">${escapeHtml(label)}</a>`;
   }
 
   const offering = tierKey === "exclusive" ? "custom" : "beat";
   const commerceLabel = `${beat.title} | ${tier.label} | ${tier.price}`;
-  const actionLabel = tierKey === "exclusive" ? "Contact Josh" : `Contact Josh about ${tier.label}`;
-  return `<a class="${className}" href="${contactHrefFor(offering)}" data-offering="${offering}" data-beat-inquiry="${beat.index ?? activeBeatIndex}" data-commerce-label="${commerceLabel}" data-package-budget="${tier.budget}" data-license-tier="${tierKey}">${actionLabel}</a>`;
+  const actionLabel = `Inquire: ${tier.label} ${tier.price}`;
+  return `<a class="${className}" href="${escapeHtml(beatContactHref(beat, tierKey))}" data-offering="${offering}" data-beat-inquiry="${beat.index ?? activeBeatIndex}" data-commerce-label="${escapeHtml(commerceLabel)}" data-package-budget="${escapeHtml(tier.budget)}" data-license-tier="${tierKey}">${escapeHtml(actionLabel)}</a>`;
 };
 
 const buildBeatTierActions = (beat, variant = "card") => `
-  <div class="beat-tier-actions ${variant === "player" ? "is-player" : ""}" aria-label="${beat.title} license options">
+  <div class="beat-tier-actions ${variant === "player" ? "is-player" : ""}" aria-label="${escapeHtml(beat.title)} license options">
     ${buildBeatCheckoutAction(beat, "starter", variant)}
     ${buildBeatCheckoutAction(beat, "premium", variant)}
     ${buildBeatCheckoutAction(beat, "exclusive", variant)}
@@ -292,9 +253,9 @@ const moveToLeadForm = (offering, beat, packageName = "", packageBudget = "", co
   let detail = "Tell us what would help you feel clear enough to move.";
 
   if (selectedBeatInput && beat) {
-    selectedBeatInput.value = `${beat.title} | ${beat.bpm} BPM | ${beat.key}`;
+    selectedBeatInput.value = `${beat.title} | ${beatBpmLabel(beat)} | ${beat.key}`;
     summary = commerceLabel || `Beat license: ${beat.title}`;
-    detail = `${beat.bpm} BPM · ${beat.key} · ${beat.use}`;
+    detail = `${beatBpmLabel(beat)} · ${beat.key} · ${beat.use}`;
   } else if (selectedBeatInput && offering !== "beat") {
     selectedBeatInput.value = "";
   }
@@ -323,30 +284,54 @@ const createLeadId = () => {
   return `jyw_${randomPart}`;
 };
 
+const queryInput = document.querySelector("[data-beat-query]");
+const genreInput = document.querySelector("[data-beat-genre]");
+const bpmMinInput = document.querySelector("[data-bpm-min]");
+const bpmMaxInput = document.querySelector("[data-bpm-max]");
+const playState = document.querySelector("[data-play-state]");
+const catalogMessage = document.querySelector("[data-catalog-message]");
+const catalogRetry = document.querySelector("[data-catalog-retry]");
+const previousBeatButton = document.querySelector("[data-previous-beat]");
+const repeatBeat = document.querySelector("[data-repeat-beat]");
+const autoAdvance = document.querySelector("[data-auto-advance]");
+let catalogState = "loading";
+
+const visibleBeatEntries = () => beats.map((beat, index) => ({ ...beat, index })).filter((beat) => {
+  const query = queryInput?.value.trim().toLowerCase() || "";
+  const genre = genreInput?.value || activeBeatFilter;
+  return (genre === "all" || beat.genres?.includes(genre) || beat.tags.includes(genre)) &&
+    (!bpmMinInput?.value || (Number.isFinite(beat.bpm) && beat.bpm >= Number(bpmMinInput.value))) &&
+    (!bpmMaxInput?.value || (Number.isFinite(beat.bpm) && beat.bpm <= Number(bpmMaxInput.value))) &&
+    [beat.title, beat.lane, beat.use, beat.description, ...beat.tags, ...(beat.genres || [])].join(" ").toLowerCase().includes(query);
+});
+
 const renderBeatCards = () => {
   if (!beatGrid) return;
-
-  const visibleBeats = beats
-    .map((beat, index) => ({ ...beat, index }))
-    .filter((beat) => activeBeatFilter === "all" || beat.tags.includes(activeBeatFilter));
+  const visibleBeats = visibleBeatEntries();
+  const count = document.querySelector("[data-beat-count]");
+  if (count) count.textContent = catalogState === "ready" ? `${visibleBeats.length} of ${beats.length} previews` : "";
+  if (catalogMessage && catalogState === "ready") catalogMessage.textContent = !beats.length ? "No published beats yet." :
+    !visibleBeats.length ? "No beats match these filters. Try another search or clear the filters." : "";
+  [previousBeatButton, nextBeatButton].forEach((button) => { if (button) button.disabled = !visibleBeats.length; });
 
   beatGrid.innerHTML = visibleBeats
     .map(
       (beat) => `
         <article class="store-card beat-card ${beat.index === activeBeatIndex ? "is-active" : ""}" data-beat-card="${beat.index}">
-          <button class="beat-card-button" type="button" data-load-beat="${beat.index}">
+          <button class="beat-card-button" type="button" data-load-beat="${beat.index}" aria-label="${beat.index === activeBeatIndex && !beatAudio?.paused ? "Pause" : "Play"} ${escapeHtml(beat.title)}" aria-pressed="${beat.index === activeBeatIndex}">
             <span class="play-icon" aria-hidden="true"></span>
             <span>
-              <strong>${beat.title}</strong>
-              <small>${beat.bpm} BPM · ${beat.key}</small>
+              <strong>${escapeHtml(beat.title)}</strong>
+              <small>${escapeHtml(beatBpmLabel(beat))} · ${escapeHtml(beat.key)}${beat.index === activeBeatIndex ? (beatAudio?.paused ? " · Selected" : " · Playing") : ""}</small>
             </span>
           </button>
-          <p class="tag">${beat.lane}</p>
-          <p>${beat.description}</p>
+          ${Number.isFinite(beat.featured_order) ? '<span class="beat-featured">Featured</span>' : ""}
+          <p class="tag">${escapeHtml(beat.lane)}</p>
+          <p>${escapeHtml(beat.description)}</p>
           <dl>
-            <div><dt>BPM</dt><dd>${beat.bpm}</dd></div>
-            <div><dt>Key</dt><dd>${beat.key}</dd></div>
-            <div><dt>Use</dt><dd>${beat.use}</dd></div>
+            <div><dt>BPM</dt><dd>${Number.isFinite(beat.bpm) ? escapeHtml(beat.bpm) : "Not listed"}</dd></div>
+            <div><dt>Key</dt><dd>${escapeHtml(beat.key)}</dd></div>
+            <div><dt>Use</dt><dd>${escapeHtml(beat.use)}</dd></div>
           </dl>
           ${buildBeatTierActions(beat)}
         </article>
@@ -355,14 +340,25 @@ const renderBeatCards = () => {
     .join("");
 };
 
+const renderPlayerActions = () => {
+  const actions = document.querySelector(".beat-player-actions");
+  const beat = beats[activeBeatIndex];
+  if (actions && beat) actions.innerHTML = buildBeatTierActions({ ...beat, index: activeBeatIndex }, "player");
+};
+
+const playSelectedBeat = () => beatAudio?.play().catch((error) => {
+  if (error.name !== "AbortError" && playState) playState.textContent = "Preview could not play. Use the audio controls to retry or choose another beat.";
+});
+
 const loadBeat = (index, shouldPlay = false) => {
   const beat = beats[index];
   if (!beat || !beatAudio) return;
 
   activeBeatIndex = index;
+  if (playState) playState.textContent = `Ready: ${beat.title}`;
   currentTitle.textContent = beat.title;
   currentDescription.textContent = beat.description;
-  currentBpm.textContent = beat.bpm;
+  currentBpm.textContent = Number.isFinite(beat.bpm) ? beat.bpm : "Not listed";
   currentKey.textContent = beat.key;
   currentUse.textContent = beat.use;
   currentLane.textContent = beat.lane;
@@ -372,12 +368,9 @@ const loadBeat = (index, shouldPlay = false) => {
     currentInquiry.dataset.commerceLabel = `${beat.title} | Premium Lease | ${beatLicenseTiers.premium.price}`;
     currentInquiry.dataset.packageBudget = beatLicenseTiers.premium.budget;
   }
-  const playerActions = document.querySelector(".beat-player-actions");
-  const existingTierActions = playerActions?.querySelector(".beat-tier-actions");
-  existingTierActions?.remove();
-  playerActions?.insertAdjacentHTML("afterbegin", buildBeatTierActions({ ...beat, index }, "player"));
+  renderPlayerActions();
   if (selectedBeatInput && !selectedBeatInput.value) {
-    selectedBeatInput.value = `${beat.title} | ${beat.bpm} BPM | ${beat.key}`;
+    selectedBeatInput.value = `${beat.title} | ${beatBpmLabel(beat)} | ${beat.key}`;
   }
 
   if (beatAudio.getAttribute("src") !== beat.file) {
@@ -388,24 +381,124 @@ const loadBeat = (index, shouldPlay = false) => {
   renderBeatCards();
 
   if (shouldPlay) {
-    beatAudio.play().catch(() => {});
+    playSelectedBeat();
+  }
+};
+
+const stepBeat = (direction, shouldPlay = true) => {
+  const visible = visibleBeatEntries();
+  if (!visible.length) return;
+  const position = visible.findIndex((beat) => beat.index === activeBeatIndex);
+  const next = position < 0 ? (direction > 0 ? 0 : visible.length - 1) : (position + direction + visible.length) % visible.length;
+  loadBeat(visible[next].index, shouldPlay);
+};
+
+const restoreBeatInquiry = () => {
+  if (!leadForm) return;
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("beat");
+  if (!id) return;
+  const tierKey = params.get("license") || params.get("tier") || "starter";
+  const beat = beats.find((entry) => entry.id === id);
+  const tier = beatLicenseTiers[tierKey];
+  if (beat && tier) {
+    moveToLeadForm(tierKey === "exclusive" ? "custom" : "beat", beat, "", tier.budget, `${beat.title} | ${tier.label} | ${tier.price}`);
+  } else if (id) {
+    setSelectionSummary("Beat unavailable", "This beat is not currently in the published catalog. Ask Josh about availability.");
+  }
+};
+
+const fetchBeatCatalog = async () => {
+  catalogState = "loading";
+  if (beatGrid) beatGrid.setAttribute("aria-busy", "true");
+  if (catalogMessage) catalogMessage.textContent = "Loading beats...";
+  if (catalogRetry) catalogRetry.hidden = true;
+  renderBeatCards();
+  try {
+    const response = await fetch(catalogUrl.href, { cache: "no-store" });
+    if (!response.ok) throw new Error("Catalog unavailable");
+    const catalog = await response.json();
+    if (!catalog || !Object.hasOwn(catalog, "version") || !Array.isArray(catalog.beats)) throw new Error("Invalid catalog");
+    const ids = new Map();
+    catalog.beats.filter((beat) => beat?.published === true).forEach((beat) => {
+      ids.set(beat.id, (ids.get(beat.id) || 0) + 1);
+    });
+    beats = catalog.beats.filter((beat) => {
+      if (beat?.published !== true) return false;
+      if (!["id", "title", "key", "lane", "use", "description", "file"].every((key) => typeof beat[key] === "string" && beat[key].trim()) ||
+          !(beat.bpm === null || (Number.isFinite(beat.bpm) && beat.bpm > 0)) || !Array.isArray(beat.tags) || !beat.tags.every((tag) => typeof tag === "string") || ids.get(beat.id) !== 1 ||
+          (beat.genres !== undefined && (!Array.isArray(beat.genres) || !beat.genres.every((genre) => typeof genre === "string")))) return false;
+      let pageFile;
+      try { pageFile = new URL(beat.file, window.location.href); } catch { return false; }
+      const previewRoot = new URL("assets/audio/previews/", window.location.href);
+      if (pageFile.origin !== window.location.origin || !["http:", "https:"].includes(pageFile.protocol) ||
+          !beat.file.startsWith("assets/audio/previews/") || !pageFile.pathname.startsWith(previewRoot.pathname)) return false;
+      return true;
+    }).sort((a, b) => {
+      const rankA = Number.isFinite(a.featured_order) ? a.featured_order : Infinity;
+      const rankB = Number.isFinite(b.featured_order) ? b.featured_order : Infinity;
+      return rankA - rankB || a.title.localeCompare(b.title);
+    });
+    catalogState = "ready";
+    if (genreInput) {
+      const selected = genreInput.value;
+      genreInput.replaceChildren(new Option("All genres", "all"), ...[...new Set(beats.flatMap((beat) => beat.genres || beat.tags))].sort().map((tag) => new Option(tag, tag)));
+      if ([...genreInput.options].some((option) => option.value === selected)) genreInput.value = selected;
+    }
+    const deepLink = new URLSearchParams(window.location.search).get("beat");
+    const initialIndex = beats.findIndex((beat) => beat.id === deepLink);
+    if (beatGrid && beatAudio && beats.length) loadBeat(initialIndex >= 0 ? initialIndex : 0);
+    if (deepLink && initialIndex < 0 && playState) playState.textContent = "Requested beat is unavailable. Choose another preview.";
+    renderBeatCards();
+    restoreBeatInquiry();
+  } catch {
+    catalogState = "error";
+    if (catalogMessage) catalogMessage.textContent = "The beat catalog could not load. Please retry.";
+    if (playState) playState.textContent = "Catalog unavailable.";
+    if (catalogRetry) catalogRetry.hidden = false;
+    if (leadForm && new URLSearchParams(window.location.search).has("beat")) {
+      setSelectionSummary("Beat details could not load", "Your selection is still in this page address. Reload to retry, or include the beat ID in your question.");
+    }
+  } finally {
+    if (beatGrid) beatGrid.setAttribute("aria-busy", "false");
   }
 };
 
 if (beatGrid && beatAudio) {
-  renderBeatCards();
-  loadBeat(0);
 
   beatGrid.addEventListener("click", (event) => {
     const button = event.target.closest("[data-load-beat]");
     if (!button) return;
-    loadBeat(Number(button.dataset.loadBeat), true);
+    const index = Number(button.dataset.loadBeat);
+    if (index === activeBeatIndex) {
+      if (beatAudio.paused) playSelectedBeat(); else beatAudio.pause();
+    } else loadBeat(index, true);
   });
 
   nextBeatButton?.addEventListener("click", () => {
-    const nextIndex = (activeBeatIndex + 1) % beats.length;
-    loadBeat(nextIndex, true);
+    stepBeat(1);
   });
+  previousBeatButton?.addEventListener("click", () => stepBeat(-1));
+  beatAudio.addEventListener("ended", () => {
+    if (repeatBeat?.checked) { beatAudio.currentTime = 0; playSelectedBeat(); }
+    else if (autoAdvance?.checked) stepBeat(1);
+    else if (playState) playState.textContent = `Finished: ${beats[activeBeatIndex]?.title || "Preview"}`;
+  });
+  ["play", "pause", "waiting"].forEach((type) => beatAudio.addEventListener(type, () => {
+    if (playState) playState.textContent = `${type === "play" ? "Playing" : type === "waiting" ? "Buffering" : "Paused"}: ${beats[activeBeatIndex]?.title || "Preview"}`;
+    // Update play labels without replacing the focused catalog button.
+    beatGrid.querySelectorAll("[data-load-beat]").forEach((button) => {
+      const index = Number(button.dataset.loadBeat);
+      const beat = beats[index];
+      button.setAttribute("aria-label", `${index === activeBeatIndex && !beatAudio.paused ? "Pause" : "Play"} ${beat.title}`);
+      button.querySelector("small").textContent = `${beatBpmLabel(beat)} · ${beat.key}${index === activeBeatIndex ? (beatAudio.paused ? " · Selected" : " · Playing") : ""}`;
+    });
+  }));
+  beatAudio.addEventListener("error", () => { if (playState) playState.textContent = "Preview unavailable. Choose another beat or retry with the audio controls."; });
+  document.querySelector("[data-beat-search]")?.addEventListener("submit", (event) => event.preventDefault());
+  document.querySelector("[data-beat-search]")?.addEventListener("reset", () => setTimeout(renderBeatCards, 0));
+  [queryInput, genreInput, bpmMinInput, bpmMaxInput].forEach((input) => input?.addEventListener("input", renderBeatCards));
+  catalogRetry?.addEventListener("click", fetchBeatCatalog);
 
   beatFilterButtons.forEach((button) => {
     button.addEventListener("click", () => {
@@ -417,6 +510,8 @@ if (beatGrid && beatAudio) {
     });
   });
 }
+
+if (beatGrid || leadForm) fetchBeatCatalog();
 
 document.addEventListener("click", (event) => {
   const link = event.target.closest("[data-offering]");
@@ -655,21 +750,21 @@ const applyCheckoutConfig = () => {
 
   if (starter) {
     beatLicenseTiers.starter.price = starter.price || beatLicenseTiers.starter.price;
-    beatLicenseTiers.starter.url = canUseCheckout(starter) ? starter.checkout_url : "";
     beatLicenseTiers.starter.urlsByBeat = validLemonUrlsByKey(starter.checkout_urls_by_beat || {});
-    beatLicenseTiers.starter.live = Boolean(checkoutConfig?.public_active && (beatLicenseTiers.starter.url || Object.keys(beatLicenseTiers.starter.urlsByBeat).length));
+    beatLicenseTiers.starter.live = checkoutConfig?.public_active === true && starter.live === true && starter.verified === true;
+  } else {
+    beatLicenseTiers.starter.live = false;
+    beatLicenseTiers.starter.urlsByBeat = {};
   }
 
   if (premium) {
     beatLicenseTiers.premium.price = premium.price || beatLicenseTiers.premium.price;
-    beatLicenseTiers.premium.url = canUseCheckout(premium) ? premium.checkout_url : "";
-    beatLicenseTiers.premium.urlsByBeat = validLemonUrlsByKey(premium.checkout_urls_by_beat || {});
-    beatLicenseTiers.premium.live = Boolean(checkoutConfig?.public_active && (beatLicenseTiers.premium.url || Object.keys(beatLicenseTiers.premium.urlsByBeat).length));
+    beatLicenseTiers.premium.live = false;
   }
 
   if (beatGrid && beatAudio) {
     renderBeatCards();
-    loadBeat(activeBeatIndex);
+    renderPlayerActions();
   }
 };
 

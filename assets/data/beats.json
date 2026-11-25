@@ -1,0 +1,2892 @@
+{
+  "version": 1,
+  "beats": [
+    {
+      "id": "smokey-the-plug",
+      "title": "Smokey the Plug",
+      "bpm": 120,
+      "key": "G minor",
+      "lane": "Trap",
+      "genres": [
+        "Trap"
+      ],
+      "tags": [
+        "trap",
+        "melodic"
+      ],
+      "description": "Trap. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/launch-2026-11/smokey-the-plug-120bpm-gm-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": 1,
+      "duration_seconds": 60,
+      "catalog_beat_id": "smokey-the-plug"
+    },
+    {
+      "id": "juggernaut",
+      "title": "Juggernaut",
+      "bpm": 135,
+      "key": "C# minor",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "soulful"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/launch-2026-11/juggernaut-135bpm-cm-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": 2,
+      "duration_seconds": 60,
+      "catalog_beat_id": "juggernaut"
+    },
+    {
+      "id": "beautiful-ugly",
+      "title": "Beautiful Ugly",
+      "bpm": 155,
+      "key": "F minor",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "high-energy"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/launch-2026-11/beautiful-ugly-155bpm-fm-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": 3,
+      "duration_seconds": 60,
+      "catalog_beat_id": "beautiful-ugly"
+    },
+    {
+      "id": "dance-like-you-on-fire",
+      "title": "Dance Like You On Fire",
+      "bpm": 142,
+      "key": "B minor",
+      "lane": "Dance",
+      "genres": [
+        "Dance"
+      ],
+      "tags": [
+        "dance"
+      ],
+      "description": "Dance. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/launch-2026-11/dance-like-you-on-fire-142bpm-bm-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": 4,
+      "duration_seconds": 60,
+      "catalog_beat_id": "dance-like-you-on-fire"
+    },
+    {
+      "id": "box-braids-and-hand-grenades",
+      "title": "Box Braids and Hand Grenades",
+      "bpm": 75,
+      "key": "B minor",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "melodic"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/launch-2026-11/box-braids-and-hand-grenades-75bpm-bm-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": 5,
+      "duration_seconds": 60,
+      "catalog_beat_id": "box-braids-and-hand-grenades"
+    },
+    {
+      "id": "left-on-red",
+      "title": "Left on Red",
+      "bpm": 140,
+      "key": "B minor",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "melodic"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/launch-2026-11/left-on-red-140bpm-bm-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": 6,
+      "duration_seconds": 60,
+      "catalog_beat_id": "left-on-red"
+    },
+    {
+      "id": "the-elite-theme",
+      "title": "The Elite Theme",
+      "bpm": 140,
+      "key": "B minor",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "high-energy"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/launch-2026-11/the-elite-theme-140bpm-bm-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": 7,
+      "duration_seconds": 60,
+      "catalog_beat_id": "the-elite-theme"
+    },
+    {
+      "id": "date-night",
+      "title": "Date Night",
+      "bpm": 138,
+      "key": "C minor",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "melodic"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/launch-2026-11/date-night-138bpm-cm-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": 8,
+      "duration_seconds": 60,
+      "catalog_beat_id": "date-night"
+    },
+    {
+      "id": "0r3nge",
+      "title": "0r3nge",
+      "bpm": 120,
+      "key": "Not listed",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/0r3nge-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "0r3nge"
+    },
+    {
+      "id": "407",
+      "title": "407",
+      "bpm": 115,
+      "key": "C#",
+      "lane": "Experimental / Trap",
+      "genres": [
+        "Experimental",
+        "Trap"
+      ],
+      "tags": [
+        "experimental",
+        "trap"
+      ],
+      "description": "Experimental / Trap. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/407-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "407"
+    },
+    {
+      "id": "a-fork-in-the-road",
+      "title": "A Fork in The Road",
+      "bpm": 88,
+      "key": "G# minor",
+      "lane": "Beat catalog",
+      "genres": [],
+      "tags": [
+        "sync"
+      ],
+      "description": "Instrumental. 60-second tagged preview.",
+      "use": "Artist licensing / SYNC inquiry",
+      "file": "assets/audio/previews/catalog-2026-11/a-fork-in-the-road-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": true,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "a-fork-in-the-road"
+    },
+    {
+      "id": "a-little-two-late",
+      "title": "A Little Two Late",
+      "bpm": 85,
+      "key": "G minor",
+      "lane": "Hip Hop / R&B",
+      "genres": [
+        "Hip Hop",
+        "R&B"
+      ],
+      "tags": [
+        "hip-hop",
+        "r-b",
+        "melodic"
+      ],
+      "description": "Hip Hop / R&B. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/a-little-two-late-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "a-little-two-late"
+    },
+    {
+      "id": "alien-necks",
+      "title": "Alien Necks",
+      "bpm": 110,
+      "key": "A minor",
+      "lane": "Trap",
+      "genres": [
+        "Trap"
+      ],
+      "tags": [
+        "trap",
+        "high-energy"
+      ],
+      "description": "Trap. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/alien-necks-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "alien-necks"
+    },
+    {
+      "id": "always-and-for-never-i-made-this-for-jid",
+      "title": "Always and For Never (I Made This For JID)",
+      "bpm": null,
+      "key": "Not listed",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "high-energy"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/always-and-for-never-i-made-this-for-jid-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "always-and-for-never-i-made-this-for-jid"
+    },
+    {
+      "id": "angel-threats",
+      "title": "Angel Threats",
+      "bpm": 138,
+      "key": "C# minor",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "melodic"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/angel-threats-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "angel-threats"
+    },
+    {
+      "id": "augmented-reality",
+      "title": "Augmented Reality",
+      "bpm": 95,
+      "key": "C minor",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "melodic"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/augmented-reality-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "augmented-reality"
+    },
+    {
+      "id": "axe-body-spray",
+      "title": "Axe Body Spray",
+      "bpm": null,
+      "key": "C minor",
+      "lane": "Hip Hop / Pop",
+      "genres": [
+        "Hip Hop",
+        "Pop"
+      ],
+      "tags": [
+        "hip-hop",
+        "pop",
+        "melodic"
+      ],
+      "description": "Hip Hop / Pop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/axe-body-spray-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "axe-body-spray"
+    },
+    {
+      "id": "b-xtra",
+      "title": "B Xtra",
+      "bpm": 140,
+      "key": "D minor",
+      "lane": "Drill",
+      "genres": [
+        "Drill"
+      ],
+      "tags": [
+        "drill",
+        "high-energy"
+      ],
+      "description": "Drill. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/b-xtra-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "b-xtra"
+    },
+    {
+      "id": "baby-powder",
+      "title": "Baby Powder",
+      "bpm": 150,
+      "key": "B minor",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "high-energy"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/baby-powder-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "baby-powder"
+    },
+    {
+      "id": "back-to-the-clouds",
+      "title": "Back to The Clouds",
+      "bpm": 160,
+      "key": "F# minor",
+      "lane": "Pop / Dance",
+      "genres": [
+        "Pop",
+        "Dance"
+      ],
+      "tags": [
+        "pop",
+        "dance",
+        "high-energy"
+      ],
+      "description": "Pop / Dance. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/back-to-the-clouds-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "back-to-the-clouds"
+    },
+    {
+      "id": "bargoli",
+      "title": "Bargoli",
+      "bpm": 120,
+      "key": "D minor",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "high-energy"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/bargoli-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "bargoli"
+    },
+    {
+      "id": "bb-it-s-christmas",
+      "title": "BB It's Christmas",
+      "bpm": 110,
+      "key": "E",
+      "lane": "Holiday",
+      "genres": [
+        "Holiday"
+      ],
+      "tags": [
+        "holiday"
+      ],
+      "description": "Holiday. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/bb-it-s-christmas-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "bb-it-s-christmas"
+    },
+    {
+      "id": "bb-tfm",
+      "title": "BB TFM",
+      "bpm": 155,
+      "key": "D minor",
+      "lane": "Alternative",
+      "genres": [
+        "Alternative"
+      ],
+      "tags": [
+        "alternative",
+        "high-energy"
+      ],
+      "description": "Alternative. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/bb-tfm-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "bb-tfm"
+    },
+    {
+      "id": "blood-thinner",
+      "title": "Blood Thinner",
+      "bpm": 113,
+      "key": "C minor",
+      "lane": "Experimental / R&B",
+      "genres": [
+        "Experimental",
+        "R&B"
+      ],
+      "tags": [
+        "experimental",
+        "r-b"
+      ],
+      "description": "Experimental / R&B. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/blood-thinner-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "blood-thinner"
+    },
+    {
+      "id": "bone-crusher",
+      "title": "Bone Crusher",
+      "bpm": 130,
+      "key": "F minor",
+      "lane": "Trap",
+      "genres": [
+        "Trap"
+      ],
+      "tags": [
+        "trap",
+        "high-energy"
+      ],
+      "description": "Trap. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/bone-crusher-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "bone-crusher"
+    },
+    {
+      "id": "bougie-breakfast",
+      "title": "Bougie Breakfast",
+      "bpm": 95,
+      "key": "Bb",
+      "lane": "Pop",
+      "genres": [
+        "Pop"
+      ],
+      "tags": [
+        "pop",
+        "sync"
+      ],
+      "description": "Pop. 60-second tagged preview.",
+      "use": "Artist licensing / SYNC inquiry",
+      "file": "assets/audio/previews/catalog-2026-11/bougie-breakfast-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": true,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "bougie-breakfast"
+    },
+    {
+      "id": "breach",
+      "title": "Breach",
+      "bpm": 139,
+      "key": "B minor",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "cinematic"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/breach-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "breach"
+    },
+    {
+      "id": "bus-toss",
+      "title": "Bus Toss",
+      "bpm": 160,
+      "key": "E",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "high-energy"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/bus-toss-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "bus-toss"
+    },
+    {
+      "id": "canned-food-and-man-boobs",
+      "title": "Canned Food and Man Boobs",
+      "bpm": 140,
+      "key": "Not listed",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "high-energy"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/canned-food-and-man-boobs-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "canned-food-and-man-boobs"
+    },
+    {
+      "id": "carmello-girl",
+      "title": "Carmello Girl",
+      "bpm": 140,
+      "key": "A minor",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "high-energy"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/carmello-girl-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "carmello-girl"
+    },
+    {
+      "id": "catch-me-6lackin",
+      "title": "Catch Me 6Lackin",
+      "bpm": 150,
+      "key": "D minor",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "soulful"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/catch-me-6lackin-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "catch-me-6lackin"
+    },
+    {
+      "id": "clear-darkness",
+      "title": "Clear Darkness",
+      "bpm": 85,
+      "key": "A minor",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/clear-darkness-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "clear-darkness"
+    },
+    {
+      "id": "coi-pilot",
+      "title": "COI Pilot",
+      "bpm": null,
+      "key": "A minor",
+      "lane": "Hip Hop / Trap",
+      "genres": [
+        "Hip Hop",
+        "Trap"
+      ],
+      "tags": [
+        "hip-hop",
+        "trap"
+      ],
+      "description": "Hip Hop / Trap. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/coi-pilot-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "coi-pilot"
+    },
+    {
+      "id": "concrete-cowboys",
+      "title": "Concrete Cowboys",
+      "bpm": 140,
+      "key": "G minor",
+      "lane": "Drill",
+      "genres": [
+        "Drill"
+      ],
+      "tags": [
+        "drill"
+      ],
+      "description": "Drill. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/concrete-cowboys-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "concrete-cowboys"
+    },
+    {
+      "id": "cucaine-sugar",
+      "title": "Cucaine Sugar",
+      "bpm": 90,
+      "key": "Eb minor",
+      "lane": "R&B",
+      "genres": [
+        "R&B"
+      ],
+      "tags": [
+        "r-b"
+      ],
+      "description": "R&B. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/cucaine-sugar-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "cucaine-sugar"
+    },
+    {
+      "id": "custom-mary-i-made-this-for-jid",
+      "title": "Custom Mary (I Made This For JID)",
+      "bpm": null,
+      "key": "Not listed",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/custom-mary-i-made-this-for-jid-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "custom-mary-i-made-this-for-jid"
+    },
+    {
+      "id": "dart-in",
+      "title": "Dart In",
+      "bpm": 120,
+      "key": "F#",
+      "lane": "Trap",
+      "genres": [
+        "Trap"
+      ],
+      "tags": [
+        "trap",
+        "high-energy"
+      ],
+      "description": "Trap. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/dart-in-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "dart-in"
+    },
+    {
+      "id": "die-happier-kyrie",
+      "title": "Die Happier Kyrie",
+      "bpm": 80,
+      "key": "C minor",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "sampled"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/die-happier-kyrie-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "die-happier-kyrie"
+    },
+    {
+      "id": "ego-slap-in-orlando",
+      "title": "Ego Slap in Orlando",
+      "bpm": 81,
+      "key": "D minor",
+      "lane": "R&B",
+      "genres": [
+        "R&B"
+      ],
+      "tags": [
+        "r-b"
+      ],
+      "description": "R&B. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/ego-slap-in-orlando-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "ego-slap-in-orlando"
+    },
+    {
+      "id": "electrolyte-beer",
+      "title": "Electrolyte Beer",
+      "bpm": 145,
+      "key": "G minor",
+      "lane": "Dance",
+      "genres": [
+        "Dance"
+      ],
+      "tags": [
+        "dance",
+        "high-energy",
+        "sync"
+      ],
+      "description": "Dance. 60-second tagged preview.",
+      "use": "Artist licensing / SYNC inquiry",
+      "file": "assets/audio/previews/launch-2026-11/electrolyte-beer-145bpm-gm-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": true,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "electrolyte-beer"
+    },
+    {
+      "id": "emotional-damage",
+      "title": "Emotional Damage",
+      "bpm": 98,
+      "key": "E minor",
+      "lane": "R&B",
+      "genres": [
+        "R&B"
+      ],
+      "tags": [
+        "r-b"
+      ],
+      "description": "R&B. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/emotional-damage-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "emotional-damage"
+    },
+    {
+      "id": "exquisite-edges",
+      "title": "Exquisite Edges",
+      "bpm": 150,
+      "key": "D# minor",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "melodic",
+        "sampled"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/exquisite-edges-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "exquisite-edges"
+    },
+    {
+      "id": "fish-bowl",
+      "title": "Fish Bowl",
+      "bpm": 137,
+      "key": "G",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "soulful"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/fish-bowl-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "fish-bowl"
+    },
+    {
+      "id": "fish-bowl-alternate-2",
+      "title": "Fish Bowl (Alternate version)",
+      "bpm": 137,
+      "key": "G",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "soulful"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/fish-bowl-alternate-2-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "fish-bowl"
+    },
+    {
+      "id": "four-letter-words",
+      "title": "Four Letter Words",
+      "bpm": null,
+      "key": "Not listed",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/four-letter-words-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "four-letter-words"
+    },
+    {
+      "id": "funk-it-i-m-dope",
+      "title": "Funk It I'm Dope",
+      "bpm": 110,
+      "key": "A minor",
+      "lane": "Pop",
+      "genres": [
+        "Pop"
+      ],
+      "tags": [
+        "pop",
+        "high-energy"
+      ],
+      "description": "Pop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/funk-it-i-m-dope-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "funk-it-i-m-dope"
+    },
+    {
+      "id": "gallon-hat",
+      "title": "Gallon Hat",
+      "bpm": 118,
+      "key": "F minor",
+      "lane": "Trap",
+      "genres": [
+        "Trap"
+      ],
+      "tags": [
+        "trap",
+        "high-energy"
+      ],
+      "description": "Trap. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/gallon-hat-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "gallon-hat"
+    },
+    {
+      "id": "garden-of-heathens",
+      "title": "Garden of Heathens",
+      "bpm": 65,
+      "key": "C# minor",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/garden-of-heathens-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "garden-of-heathens"
+    },
+    {
+      "id": "gasping",
+      "title": "Gasping",
+      "bpm": null,
+      "key": "Not listed",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "cinematic"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/gasping-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "gasping"
+    },
+    {
+      "id": "group-chats",
+      "title": "Group Chats",
+      "bpm": 98,
+      "key": "F#",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "west-coast"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/group-chats-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "group-chats"
+    },
+    {
+      "id": "hamp-town",
+      "title": "Hamp Town",
+      "bpm": 130,
+      "key": "C minor",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "melodic"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/hamp-town-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "hamp-town"
+    },
+    {
+      "id": "he-ded-2-me",
+      "title": "He Ded 2 Me",
+      "bpm": 120,
+      "key": "A minor",
+      "lane": "Pop",
+      "genres": [
+        "Pop"
+      ],
+      "tags": [
+        "pop",
+        "high-energy",
+        "melodic",
+        "sync"
+      ],
+      "description": "Pop. 60-second tagged preview.",
+      "use": "Artist licensing / SYNC inquiry",
+      "file": "assets/audio/previews/catalog-2026-11/he-ded-2-me-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": true,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "he-ded-2-me"
+    },
+    {
+      "id": "high-notes-and-henny",
+      "title": "High Notes and Henny",
+      "bpm": 130,
+      "key": "C# minor",
+      "lane": "R&B",
+      "genres": [
+        "R&B"
+      ],
+      "tags": [
+        "r-b",
+        "melodic"
+      ],
+      "description": "R&B. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/high-notes-and-henny-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "high-notes-and-henny"
+    },
+    {
+      "id": "huggies",
+      "title": "Huggies",
+      "bpm": 150,
+      "key": "F minor",
+      "lane": "Dance",
+      "genres": [
+        "Dance"
+      ],
+      "tags": [
+        "dance"
+      ],
+      "description": "Dance. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/huggies-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "huggies"
+    },
+    {
+      "id": "i-guess-it-s-over",
+      "title": "I Guess It's Over",
+      "bpm": 150,
+      "key": "A minor",
+      "lane": "R&B",
+      "genres": [
+        "R&B"
+      ],
+      "tags": [
+        "r-b"
+      ],
+      "description": "R&B. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/i-guess-it-s-over-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "i-guess-it-s-over"
+    },
+    {
+      "id": "i-m-right",
+      "title": "I'm Right",
+      "bpm": 140,
+      "key": "A minor",
+      "lane": "Pop",
+      "genres": [
+        "Pop"
+      ],
+      "tags": [
+        "pop",
+        "high-energy"
+      ],
+      "description": "Pop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/i-m-right-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "i-m-right"
+    },
+    {
+      "id": "jelly-stains",
+      "title": "Jelly Stains",
+      "bpm": 140,
+      "key": "D minor",
+      "lane": "Trap",
+      "genres": [
+        "Trap"
+      ],
+      "tags": [
+        "trap",
+        "high-energy"
+      ],
+      "description": "Trap. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/jelly-stains-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "jelly-stains"
+    },
+    {
+      "id": "josh-wednesday",
+      "title": "Josh Wednesday",
+      "bpm": 134,
+      "key": "F minor",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/josh-wednesday-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "josh-wednesday"
+    },
+    {
+      "id": "josh-will-made-it",
+      "title": "Josh Will Made It",
+      "bpm": 110,
+      "key": "G major",
+      "lane": "Trap",
+      "genres": [
+        "Trap"
+      ],
+      "tags": [
+        "trap"
+      ],
+      "description": "Trap. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/josh-will-made-it-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "josh-will-made-it"
+    },
+    {
+      "id": "kendrick-spirit",
+      "title": "Kendrick Spirit",
+      "bpm": null,
+      "key": "Not listed",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "sampled"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/kendrick-spirit-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "kendrick-spirit"
+    },
+    {
+      "id": "kodak-s-cuzzo",
+      "title": "Kodak's Cuzzo",
+      "bpm": 140,
+      "key": "B minor",
+      "lane": "Trap",
+      "genres": [
+        "Trap"
+      ],
+      "tags": [
+        "trap",
+        "melodic"
+      ],
+      "description": "Trap. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/launch-2026-11/kodak-s-cuzzo-140bpm-bm-preview.m4a",
+      "published": true,
+      "has_hook": true,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "kodak-s-cuzzo"
+    },
+    {
+      "id": "layed-flights-and-crisp-nikez",
+      "title": "Layed Flights and Crisp Nikez",
+      "bpm": 110,
+      "key": "Ab minor",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "sampled"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/layed-flights-and-crisp-nikez-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "layed-flights-and-crisp-nikez"
+    },
+    {
+      "id": "logo-johnson",
+      "title": "Logo Johnson",
+      "bpm": 150,
+      "key": "C",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "high-energy"
+      ],
+      "description": "Hip Hop. Tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/logo-johnson-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 51.2,
+      "catalog_beat_id": "logo-johnson"
+    },
+    {
+      "id": "love-gos",
+      "title": "Love Gos",
+      "bpm": 75,
+      "key": "F#",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "sampled"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/love-gos-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "love-gos"
+    },
+    {
+      "id": "make-no-difference",
+      "title": "Make No Difference",
+      "bpm": 95,
+      "key": "B minor",
+      "lane": "Trap",
+      "genres": [
+        "Trap"
+      ],
+      "tags": [
+        "trap"
+      ],
+      "description": "Trap. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/make-no-difference-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "make-no-difference"
+    },
+    {
+      "id": "man-piece",
+      "title": "Man Piece",
+      "bpm": 96,
+      "key": "B minor",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/man-piece-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "man-piece"
+    },
+    {
+      "id": "mashed-yucca",
+      "title": "Mashed Yucca",
+      "bpm": 101,
+      "key": "A minor",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "sampled"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/mashed-yucca-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "mashed-yucca"
+    },
+    {
+      "id": "me-no-nice",
+      "title": "Me No Nice",
+      "bpm": 93,
+      "key": "E major",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "soulful"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/me-no-nice-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "me-no-nice"
+    },
+    {
+      "id": "metatate",
+      "title": "MetaTate",
+      "bpm": 110,
+      "key": "A minor",
+      "lane": "Hip Hop / R&B",
+      "genres": [
+        "Hip Hop",
+        "R&B"
+      ],
+      "tags": [
+        "hip-hop",
+        "r-b",
+        "melodic"
+      ],
+      "description": "Hip Hop / R&B. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/metatate-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "metatate"
+    },
+    {
+      "id": "mosh-potatoes",
+      "title": "Mosh Potatoes",
+      "bpm": 120,
+      "key": "F",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "high-energy"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/mosh-potatoes-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "mosh-potatoes"
+    },
+    {
+      "id": "mr-glass",
+      "title": "Mr. Glass",
+      "bpm": 150,
+      "key": "A minor",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "high-energy"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/mr-glass-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "mr-glass"
+    },
+    {
+      "id": "mr-rogers",
+      "title": "Mr. Rogers",
+      "bpm": 121,
+      "key": "C",
+      "lane": "Trap",
+      "genres": [
+        "Trap"
+      ],
+      "tags": [
+        "trap",
+        "melodic",
+        "high-energy"
+      ],
+      "description": "Trap. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/mr-rogers-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "mr-rogers"
+    },
+    {
+      "id": "mr-rogers-alternate-2",
+      "title": "Mr. Rogers (Alternate version)",
+      "bpm": 121,
+      "key": "C",
+      "lane": "Trap",
+      "genres": [
+        "Trap"
+      ],
+      "tags": [
+        "trap",
+        "melodic",
+        "high-energy"
+      ],
+      "description": "Trap. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/mr-rogers-alternate-2-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "mr-rogers"
+    },
+    {
+      "id": "never-have-i",
+      "title": "Never Have I",
+      "bpm": 100,
+      "key": "C minor",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/never-have-i-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "never-have-i"
+    },
+    {
+      "id": "nights-away",
+      "title": "Nights Away",
+      "bpm": 120,
+      "key": "Bb major",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "sampled"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/nights-away-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "nights-away"
+    },
+    {
+      "id": "nissan-maxima",
+      "title": "Nissan Maxima",
+      "bpm": 117,
+      "key": "B minor",
+      "lane": "Beat catalog",
+      "genres": [],
+      "tags": [
+        "high-energy",
+        "sync"
+      ],
+      "description": "Instrumental. 60-second tagged preview.",
+      "use": "Artist licensing / SYNC inquiry",
+      "file": "assets/audio/previews/catalog-2026-11/nissan-maxima-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": true,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "nissan-maxima"
+    },
+    {
+      "id": "no-per-diem",
+      "title": "No Per Diem",
+      "bpm": 94,
+      "key": "D minor",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "high-energy"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/no-per-diem-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "no-per-diem"
+    },
+    {
+      "id": "nobody",
+      "title": "Nobody",
+      "bpm": 90,
+      "key": "D minor",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "sampled"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/nobody-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "nobody"
+    },
+    {
+      "id": "odee",
+      "title": "Odee",
+      "bpm": 140,
+      "key": "A minor",
+      "lane": "Drill",
+      "genres": [
+        "Drill"
+      ],
+      "tags": [
+        "drill",
+        "high-energy"
+      ],
+      "description": "Drill. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/odee-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "odee"
+    },
+    {
+      "id": "offerings",
+      "title": "Offerings",
+      "bpm": 138,
+      "key": "Ab minor",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "melodic"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/offerings-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "offerings"
+    },
+    {
+      "id": "outdoors",
+      "title": "Outdoors",
+      "bpm": 95,
+      "key": "A# minor",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/outdoors-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "outdoors"
+    },
+    {
+      "id": "pair-of-dimes",
+      "title": "Pair of Dimes",
+      "bpm": 120,
+      "key": "Not listed",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "high-energy"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/pair-of-dimes-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "pair-of-dimes"
+    },
+    {
+      "id": "palm-trees-and-black-needs",
+      "title": "Palm Trees and Black Needs",
+      "bpm": 116,
+      "key": "F",
+      "lane": "Trap",
+      "genres": [
+        "Trap"
+      ],
+      "tags": [
+        "trap"
+      ],
+      "description": "Trap. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/palm-trees-and-black-needs-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "palm-trees-and-black-needs"
+    },
+    {
+      "id": "peasants-adoration",
+      "title": "Peasants Adoration",
+      "bpm": 120,
+      "key": "D minor",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "melodic"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/peasants-adoration-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "peasants-adoration"
+    },
+    {
+      "id": "polar-bear",
+      "title": "Polar Bear",
+      "bpm": 70,
+      "key": "A",
+      "lane": "Trap / Pop",
+      "genres": [
+        "Trap",
+        "Pop"
+      ],
+      "tags": [
+        "trap",
+        "pop",
+        "high-energy"
+      ],
+      "description": "Trap / Pop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/polar-bear-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "polar-bear"
+    },
+    {
+      "id": "polite-pig",
+      "title": "Polite Pig",
+      "bpm": 75,
+      "key": "F minor",
+      "lane": "Trap / Pop",
+      "genres": [
+        "Trap",
+        "Pop"
+      ],
+      "tags": [
+        "trap",
+        "pop",
+        "high-energy"
+      ],
+      "description": "Trap / Pop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/polite-pig-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "polite-pig"
+    },
+    {
+      "id": "porkin-beans-and-dreams",
+      "title": "Porkin Beans and Dreams",
+      "bpm": 125,
+      "key": "A",
+      "lane": "Trap",
+      "genres": [
+        "Trap"
+      ],
+      "tags": [
+        "trap",
+        "melodic"
+      ],
+      "description": "Trap. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/launch-2026-11/porkin-beans-and-dreams-125bpm-a-preview.m4a",
+      "published": true,
+      "has_hook": true,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "porkin-beans-and-dreams"
+    },
+    {
+      "id": "pronoun-her",
+      "title": "Pronoun Her",
+      "bpm": 90,
+      "key": "E minor",
+      "lane": "R&B",
+      "genres": [
+        "R&B"
+      ],
+      "tags": [
+        "r-b"
+      ],
+      "description": "R&B. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/pronoun-her-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "pronoun-her"
+    },
+    {
+      "id": "pulling-strings",
+      "title": "Pulling Strings",
+      "bpm": 150,
+      "key": "D minor",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "melodic"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/pulling-strings-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "pulling-strings"
+    },
+    {
+      "id": "pupil-to-pupil",
+      "title": "Pupil to Pupil",
+      "bpm": null,
+      "key": "Not listed",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "sampled"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/pupil-to-pupil-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "pupil-to-pupil"
+    },
+    {
+      "id": "rare",
+      "title": "Rare",
+      "bpm": 140,
+      "key": "F",
+      "lane": "Trap",
+      "genres": [
+        "Trap"
+      ],
+      "tags": [
+        "trap",
+        "high-energy"
+      ],
+      "description": "Trap. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/rare-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "rare"
+    },
+    {
+      "id": "red-lobster",
+      "title": "Red Lobster",
+      "bpm": 150,
+      "key": "C",
+      "lane": "Trap",
+      "genres": [
+        "Trap"
+      ],
+      "tags": [
+        "trap",
+        "high-energy"
+      ],
+      "description": "Trap. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/red-lobster-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "red-lobster"
+    },
+    {
+      "id": "rejoice",
+      "title": "Rejoice",
+      "bpm": 94,
+      "key": "B minor",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/rejoice-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "rejoice"
+    },
+    {
+      "id": "rob-kardashian",
+      "title": "Rob Kardashian",
+      "bpm": 140,
+      "key": "G minor",
+      "lane": "Trap",
+      "genres": [
+        "Trap"
+      ],
+      "tags": [
+        "trap",
+        "melodic"
+      ],
+      "description": "Trap. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/rob-kardashian-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "rob-kardashian"
+    },
+    {
+      "id": "savage-reflection",
+      "title": "Savage Reflection",
+      "bpm": 130,
+      "key": "Not listed",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "melodic"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/savage-reflection-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "savage-reflection"
+    },
+    {
+      "id": "smallpox-blankies",
+      "title": "Smallpox Blankies",
+      "bpm": 150,
+      "key": "D# minor",
+      "lane": "Trap",
+      "genres": [
+        "Trap"
+      ],
+      "tags": [
+        "trap",
+        "high-energy"
+      ],
+      "description": "Trap. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/smallpox-blankies-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "smallpox-blankies"
+    },
+    {
+      "id": "smelling-like-ny",
+      "title": "Smelling Like NY",
+      "bpm": null,
+      "key": "Not listed",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "high-energy",
+        "soulful"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/smelling-like-ny-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "smelling-like-ny"
+    },
+    {
+      "id": "smile",
+      "title": "Smile",
+      "bpm": 94,
+      "key": "Not listed",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "sampled"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/smile-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "smile"
+    },
+    {
+      "id": "smooth-criminal",
+      "title": "Smooth Criminal",
+      "bpm": 150,
+      "key": "F minor",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "melodic"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/smooth-criminal-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "smooth-criminal"
+    },
+    {
+      "id": "squid-games",
+      "title": "Squid Games",
+      "bpm": 110,
+      "key": "G# major",
+      "lane": "R&B",
+      "genres": [
+        "R&B"
+      ],
+      "tags": [
+        "r-b"
+      ],
+      "description": "R&B. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/squid-games-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "squid-games"
+    },
+    {
+      "id": "stable",
+      "title": "Stable",
+      "bpm": 106,
+      "key": "G minor",
+      "lane": "R&B",
+      "genres": [
+        "R&B"
+      ],
+      "tags": [
+        "r-b"
+      ],
+      "description": "R&B. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/stable-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "stable"
+    },
+    {
+      "id": "stable-alternate-2",
+      "title": "Stable (Alternate version)",
+      "bpm": 106,
+      "key": "G minor",
+      "lane": "R&B",
+      "genres": [
+        "R&B"
+      ],
+      "tags": [
+        "r-b"
+      ],
+      "description": "R&B. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/stable-alternate-2-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "stable"
+    },
+    {
+      "id": "sturdy",
+      "title": "Sturdy",
+      "bpm": 140,
+      "key": "D",
+      "lane": "Drill",
+      "genres": [
+        "Drill"
+      ],
+      "tags": [
+        "drill",
+        "high-energy"
+      ],
+      "description": "Drill. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/sturdy-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "sturdy"
+    },
+    {
+      "id": "sunny-side-of-hell",
+      "title": "Sunny Side of Hell",
+      "bpm": 87,
+      "key": "D# minor",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/sunny-side-of-hell-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "sunny-side-of-hell"
+    },
+    {
+      "id": "tbh-fu",
+      "title": "TBH FU",
+      "bpm": 120,
+      "key": "F# minor",
+      "lane": "Pop",
+      "genres": [
+        "Pop"
+      ],
+      "tags": [
+        "pop",
+        "melodic"
+      ],
+      "description": "Pop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/tbh-fu-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "tbh-fu"
+    },
+    {
+      "id": "the-gentlemen",
+      "title": "The Gentlemen",
+      "bpm": 82,
+      "key": "D minor",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "west-coast"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/the-gentlemen-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "the-gentlemen"
+    },
+    {
+      "id": "the-perc-of-life",
+      "title": "The Perc of Life",
+      "bpm": 120,
+      "key": "C# minor",
+      "lane": "Trap",
+      "genres": [
+        "Trap"
+      ],
+      "tags": [
+        "trap",
+        "melodic",
+        "high-energy"
+      ],
+      "description": "Trap. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/the-perc-of-life-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "the-perc-of-life"
+    },
+    {
+      "id": "tickled-rollie",
+      "title": "Tickled Rollie",
+      "bpm": 120,
+      "key": "B minor",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "melodic"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/tickled-rollie-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "tickled-rollie"
+    },
+    {
+      "id": "tiller-infinity-and-beyond",
+      "title": "Tiller Infinity and Beyond",
+      "bpm": 120,
+      "key": "Not listed",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "melodic",
+        "high-energy"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/tiller-infinity-and-beyond-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "tiller-infinity-and-beyond"
+    },
+    {
+      "id": "too-little-too-late",
+      "title": "Too Little, Too Late",
+      "bpm": 75,
+      "key": "A minor",
+      "lane": "R&B",
+      "genres": [
+        "R&B"
+      ],
+      "tags": [
+        "r-b"
+      ],
+      "description": "R&B. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/too-little-too-late-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "too-little-too-late"
+    },
+    {
+      "id": "too-little-too-late-alternate-2",
+      "title": "Too Little, Too Late (Alternate version)",
+      "bpm": 75,
+      "key": "A minor",
+      "lane": "R&B",
+      "genres": [
+        "R&B"
+      ],
+      "tags": [
+        "r-b"
+      ],
+      "description": "R&B. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/too-little-too-late-alternate-2-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "too-little-too-late"
+    },
+    {
+      "id": "u-will-know",
+      "title": "U Will Know",
+      "bpm": 94,
+      "key": "Bb major",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "sampled"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/u-will-know-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "u-will-know"
+    },
+    {
+      "id": "uber-black",
+      "title": "Uber Black",
+      "bpm": 150,
+      "key": "G minor",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "melodic"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/uber-black-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "uber-black"
+    },
+    {
+      "id": "unity-i-made-this-for-jid",
+      "title": "Unity (I Made This For JID)",
+      "bpm": 85,
+      "key": "D minor",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/unity-i-made-this-for-jid-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "unity-i-made-this-for-jid"
+    },
+    {
+      "id": "unreasonable-clout",
+      "title": "Unreasonable Clout",
+      "bpm": 101,
+      "key": "A minor",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/unreasonable-clout-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "unreasonable-clout"
+    },
+    {
+      "id": "upper-case-gee",
+      "title": "Upper Case Gee",
+      "bpm": 162,
+      "key": "G minor",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "high-energy"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/upper-case-gee-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "upper-case-gee"
+    },
+    {
+      "id": "valentina",
+      "title": "Valentina",
+      "bpm": 138,
+      "key": "Ab major",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "melodic"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/valentina-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "valentina"
+    },
+    {
+      "id": "vandalized-humor",
+      "title": "Vandalized Humor",
+      "bpm": 120,
+      "key": "A minor",
+      "lane": "Hip Hop / Alternative",
+      "genres": [
+        "Hip Hop",
+        "Alternative"
+      ],
+      "tags": [
+        "hip-hop",
+        "alternative"
+      ],
+      "description": "Hip Hop / Alternative. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/vandalized-humor-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "vandalized-humor"
+    },
+    {
+      "id": "vayner-chucks",
+      "title": "Vayner Chucks",
+      "bpm": 150,
+      "key": "B minor",
+      "lane": "Trap",
+      "genres": [
+        "Trap"
+      ],
+      "tags": [
+        "trap",
+        "high-energy"
+      ],
+      "description": "Trap. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/vayner-chucks-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "vayner-chucks"
+    },
+    {
+      "id": "venti-fried-chicken",
+      "title": "Venti Fried Chicken",
+      "bpm": 130,
+      "key": "C minor",
+      "lane": "Trap",
+      "genres": [
+        "Trap"
+      ],
+      "tags": [
+        "trap",
+        "soulful"
+      ],
+      "description": "Trap. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/venti-fried-chicken-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "venti-fried-chicken"
+    },
+    {
+      "id": "wasting-away-from-you",
+      "title": "Wasting Away From You",
+      "bpm": 123,
+      "key": "Bb major",
+      "lane": "R&B",
+      "genres": [
+        "R&B"
+      ],
+      "tags": [
+        "r-b",
+        "sad"
+      ],
+      "description": "R&B. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/wasting-away-from-you-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "wasting-away-from-you"
+    },
+    {
+      "id": "wasting-away-from-you-alternate-2",
+      "title": "Wasting Away From You (Alternate version)",
+      "bpm": 123,
+      "key": "Bb major",
+      "lane": "R&B",
+      "genres": [
+        "R&B"
+      ],
+      "tags": [
+        "r-b",
+        "sad"
+      ],
+      "description": "R&B. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/wasting-away-from-you-alternate-2-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "wasting-away-from-you"
+    },
+    {
+      "id": "wet-wings",
+      "title": "Wet Wings",
+      "bpm": 95,
+      "key": "Db minor",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "sampled",
+        "high-energy"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/wet-wings-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "wet-wings"
+    },
+    {
+      "id": "windex-and-napkins",
+      "title": "Windex and Napkins",
+      "bpm": 150,
+      "key": "E minor",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/windex-and-napkins-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "windex-and-napkins"
+    },
+    {
+      "id": "yamoma-your-mama",
+      "title": "Yamoma (Your Mama)",
+      "bpm": null,
+      "key": "Not listed",
+      "lane": "Hip Hop",
+      "genres": [
+        "Hip Hop"
+      ],
+      "tags": [
+        "hip-hop",
+        "sampled"
+      ],
+      "description": "Hip Hop. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/yamoma-your-mama-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "yamoma-your-mama"
+    },
+    {
+      "id": "your-my-xmas-miracle",
+      "title": "Your My Xmas Miracle",
+      "bpm": 76,
+      "key": "F",
+      "lane": "Holiday",
+      "genres": [
+        "Holiday"
+      ],
+      "tags": [
+        "holiday"
+      ],
+      "description": "Holiday. 60-second tagged preview.",
+      "use": "Artist licensing",
+      "file": "assets/audio/previews/catalog-2026-11/your-my-xmas-miracle-preview.m4a",
+      "published": true,
+      "has_hook": false,
+      "sync": false,
+      "featured_order": null,
+      "duration_seconds": 60,
+      "catalog_beat_id": "your-my-xmas-miracle"
+    }
+  ]
+}
