@@ -112,7 +112,7 @@ const productInterestInput = document.querySelector("[data-product-interest]");
 const customerPriceInput = document.querySelector("[data-customer-price]");
 const submitLabel = document.querySelector("[data-submit-label]");
 const commerceConfigUrl = new URL("../assets/commerce/checkout-config.json", document.currentScript?.src || window.location.href);
-commerceConfigUrl.searchParams.set("v", "20260801-clean-storefront");
+commerceConfigUrl.searchParams.set("v", "20261127-stripe-manual-fulfillment");
 const commerceConfigPath = commerceConfigUrl.href;
 
 let activeBeatIndex = -1;
@@ -131,8 +131,12 @@ const beatContactHref = (beat, tierKey) => {
 const validBeatCheckoutUrl = (value) => {
   try {
     const url = new URL(value);
-    return url.protocol === "https:" && /^[a-z0-9-]+\.lemonsqueezy\.com$/i.test(url.hostname) &&
-      !url.username && !url.password && url.pathname.startsWith("/checkout/") ? url.href : "";
+    if (url.protocol !== "https:" || url.username || url.password || url.port || url.hash) return "";
+    if (checkoutConfig?.provider === "stripe") {
+      return url.hostname === "buy.stripe.com" && /^\/[a-zA-Z0-9]+$/.test(url.pathname) && !url.search ? url.href : "";
+    }
+    return checkoutConfig?.provider === "lemon_squeezy" && /^[a-z0-9-]+\.lemonsqueezy\.com$/i.test(url.hostname) &&
+      url.pathname.startsWith("/checkout/") ? url.href : "";
   } catch { return ""; }
 };
 
@@ -142,7 +146,7 @@ const buildBeatCheckoutAction = (beat, tierKey, variant = "card") => {
   const isPrimary = tierKey === "premium";
   const className = variant === "player" ? `button ${isPrimary ? "primary" : "secondary"}` : "beat-tier-link";
   const checkoutUrl = validBeatCheckoutUrl(tier.urlsByBeat?.[beat.id]);
-  const hasLiveCheckout = tierKey === "starter" && tier.live && checkoutUrl;
+  const hasLiveCheckout = ["starter", "premium"].includes(tierKey) && tier.live && checkoutUrl;
   const label = hasLiveCheckout ? `Buy ${tier.label} ${tier.price}` : `${tier.label} ${tier.price}`;
 
   if (hasLiveCheckout) {
@@ -368,8 +372,8 @@ const openBeatLicense = (index) => {
   const focusedTier = licenseDialog.contains(document.activeElement) ? document.activeElement.dataset.licenseTier : null;
   licenseDialog.dataset.beatIndex = String(index);
   document.querySelector("[data-license-title]").textContent = beat.title;
-  const live = beatLicenseTiers.starter.live && validBeatCheckoutUrl(beatLicenseTiers.starter.urlsByBeat?.[beat.id]);
-  document.querySelector("[data-license-status]").textContent = live ? "Choose Starter to continue to secure checkout." : "To arrange your license, send Josh the selected beat and tier below.";
+  const live = ["starter", "premium"].some(key => beatLicenseTiers[key].live && validBeatCheckoutUrl(beatLicenseTiers[key].urlsByBeat?.[beat.id]));
+  document.querySelector("[data-license-status]").textContent = live ? "Choose your license to continue to secure checkout. Exclusive rights are quoted separately." : "To arrange your license, send Josh the selected beat and tier below.";
   licenseDialog.querySelector(".license-dialog-actions").innerHTML = [
     ["starter", "One non-exclusive song release. MP3/WAV. No stems."],
     ["premium", "MP3/WAV plus high-quality stems delivered within 24 hours of successful payment. No separate request needed."],
@@ -748,11 +752,12 @@ if (initialOffering && offeringLabels[initialOffering]) {
 const getCheckoutProduct = (productKey) => checkoutConfig?.products?.[productKey] || null;
 
 const canUseCheckout = (product) =>
-  Boolean(checkoutConfig?.public_active && product?.checkout_url && /^https:\/\/.+\.lemonsqueezy\.com\//.test(product.checkout_url));
+  Boolean(checkoutConfig?.public_active === true && validBeatCheckoutUrl(product?.checkout_url) &&
+    (checkoutConfig.provider !== "stripe" || (product.live === true && product.verified === true)));
 
-const validLemonUrlsByKey = (urlsByKey = {}) =>
+const validCheckoutUrlsByKey = (urlsByKey = {}) =>
   Object.fromEntries(
-    Object.entries(urlsByKey).filter(([, url]) => /^https:\/\/.+\.lemonsqueezy\.com\//.test(String(url)))
+    Object.entries(urlsByKey).map(([key, url]) => [key, validBeatCheckoutUrl(url)]).filter(([, url]) => url)
   );
 
 const applyDirectCheckoutLink = (link, productKey) => {
@@ -792,21 +797,12 @@ const applyCheckoutConfig = () => {
     applyDirectCheckoutLink(link, link.dataset.checkoutProduct);
   });
 
-  const starter = getCheckoutProduct("beat_starter");
-  const premium = getCheckoutProduct("beat_premium");
-
-  if (starter) {
-    beatLicenseTiers.starter.price = starter.price || beatLicenseTiers.starter.price;
-    beatLicenseTiers.starter.urlsByBeat = validLemonUrlsByKey(starter.checkout_urls_by_beat || {});
-    beatLicenseTiers.starter.live = checkoutConfig?.public_active === true && starter.live === true && starter.verified === true;
-  } else {
-    beatLicenseTiers.starter.live = false;
-    beatLicenseTiers.starter.urlsByBeat = {};
-  }
-
-  if (premium) {
-    beatLicenseTiers.premium.price = premium.price || beatLicenseTiers.premium.price;
-    beatLicenseTiers.premium.live = false;
+  for (const key of ["starter", "premium"]) {
+    const product = getCheckoutProduct(`beat_${key}`);
+    const tier = beatLicenseTiers[key];
+    tier.price = product?.price || tier.price;
+    tier.urlsByBeat = validCheckoutUrlsByKey(product?.checkout_urls_by_beat || {});
+    tier.live = checkoutConfig?.public_active === true && product?.live === true && product?.verified === true;
   }
 
   if (beatGrid && beatAudio) {
