@@ -44,7 +44,7 @@ const beatLicenseTiers = {
     label: "Premium Lease",
     price: "$79",
     budget: "Under $250",
-    note: "WAV plus available stems/trackouts for a serious single.",
+    note: "MP3/WAV plus high-quality stems for a serious single. Stems delivered within 24 hours of successful payment. No separate request needed.",
     live: false,
     url: ""
   },
@@ -372,7 +372,7 @@ const openBeatLicense = (index) => {
   document.querySelector("[data-license-status]").textContent = live ? "Choose Starter to continue to secure checkout." : "To arrange your license, send Josh the selected beat and tier below.";
   licenseDialog.querySelector(".license-dialog-actions").innerHTML = [
     ["starter", "One non-exclusive song release. MP3/WAV. No stems."],
-    ["premium", "Ask about stems and the scope of your release."],
+    ["premium", "MP3/WAV plus high-quality stems delivered within 24 hours of successful payment. No separate request needed."],
     ["exclusive", "Discuss exclusive rights, publishing and custom terms."]
   ].map(([key, detail]) => `<section class="license-option"><h3>${escapeHtml(beatLicenseTiers[key].label)}</h3><p>${escapeHtml(detail)}</p>${buildBeatCheckoutAction({...beat,index}, key, "player")}</section>`).join("");
   if (!licenseDialog.open) licenseDialog.showModal();
